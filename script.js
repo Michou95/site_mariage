@@ -39,7 +39,9 @@ $(function(){
     $('.hover_section').click(function(){
         var elementClick = $(this);
         var categorie = $(this).attr('data-section');
+        console.log(categorie);
         var scrollTo = ($('.scroll_barre').offset().top * 2);
+        var titre = '';
             
         var request = $.ajax({
             url: "image_par_categorie.php",
@@ -51,7 +53,18 @@ $(function(){
             console.log(data);
             rechercheOn = true;
             $('html, body').animate({ scrollTop: scrollTo }, 500);
-            $('.photo_title').html('<h2>Photo Mairie</h2>');
+            switch(categorie){
+                case 'mairie' : 
+                    titre = 'Photos Mairie';
+                break;
+                case 'vin_honneur' : 
+                    titre = 'Photos vin d\'honneur';
+                break;
+                case 'salle' : 
+                    titre = 'Photos Salle Des Fêtes';
+                break;
+            }
+            $('.photo_title').html('<h2>' + titre + '</h2>');
             $('.container').html(data);
             //$( ".container" ).html( data );
         });
