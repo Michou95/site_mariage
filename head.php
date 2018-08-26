@@ -31,8 +31,8 @@
 <form id="SearchForm" class="form-inline" method="post">
 <div class="form-group" style="width:30%">
     <div class="input-group">
-    <input type="text" class="form-control" id="exampleInputAmount" placeholder="Nom - Prénom ...">
-    <div class="input-group-addon" style="width:5%"><a><i class="fas fa-search"></i></a></div>
+      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Nom - Prénom ...">
+      <div class="input-group-addon" style="width:5%"><a><i class="fas fa-search"></i></a></div>
     </div>
 </div>
 </form>

@@ -88,7 +88,34 @@ footer h4{
 
 .title_section_hover{
   color: white;
+  font-family: calibri, Arial, sans-serif;
+}
 
+.selection{
+  padding-top: 20px;
+  text-align: center;
+}
+
+.selection h2{
+  margin-bottom: 0;
+  font-family: "Brush Script MT", verdana, arial, sans-serif;
+  font-size: 5em;
+}
+
+.random-title{
+    padding-top: 25px;
+    text-align: center;
+}
+
+.random-title h2{
+  font-family: "Brush Script MT", verdana, arial, sans-serif;
+  font-size: 5em;;
+}
+
+.photo-random img{
+  padding: 5px;
+  width: 400px!important;
+  height: 300px!important;
 }
 
 

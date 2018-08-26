@@ -98,11 +98,11 @@ function getPhotoByInvite(int $id_invite):array{
 }
 
 //------------------------------//
-// Recupere 10 photos en random //
+// Recupere 12 photos en random //
 //------------------------------//
 function getRandomPhoto():array{
   $connexion = getDB();
-  $sql = "SELECT url FROM photos ORDER BY RAND() LIMIT 0, 10;";
+  $sql = "SELECT url FROM photos ORDER BY RAND() LIMIT 0, 12;";
   $response = $connexion->query($sql);
   $resultat = $response->fetchAll(PDO::FETCH_ASSOC);
 

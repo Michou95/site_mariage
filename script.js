@@ -6,7 +6,7 @@ $(function(){
 	});
 
     $('.section').mouseenter(function(){
-        $(this).children('.hover_section').slideDown('medium');
+        $(this).children('.hover_section').slideDown('fast');
     });
 
 });
