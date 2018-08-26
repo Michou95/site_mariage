@@ -2,10 +2,10 @@ $(function(){
     var rechercheOn = false;
 
     //------------ GESTION AFFICHAGE SECTION HOME -------------------//
-    $(document).hover(function(event) { 
+    $(document).hover(function(event) {
         if(!$(event.target).closest('#monElement').length) {
         //Le clic s'est produit en dehors de l'élément monElement
-        } 
+        }
     });
 
     $(".section").mouseleave(function(){
@@ -42,33 +42,37 @@ $(function(){
         console.log(categorie);
         var scrollTo = ($('.scroll_barre').offset().top * 2);
         var titre = '';
-            
+
         var request = $.ajax({
             url: "image_par_categorie.php",
             method: "POST",
             data: { categorie : categorie }
         });
-        
+
         request.done(function( data ) {
             console.log(data);
             rechercheOn = true;
             $('html, body').animate({ scrollTop: scrollTo }, 500);
             switch(categorie){
-                case 'mairie' : 
+                case 'mairie' :
                     titre = 'Photos Mairie';
                 break;
-                case 'vin_honneur' : 
+                case 'vin_honneur' :
                     titre = 'Photos vin d\'honneur';
                 break;
-                case 'salle' : 
+                case 'salle' :
                     titre = 'Photos Salle Des Fêtes';
                 break;
             }
+            $('.photo_title').fadeOut('fast');
             $('.photo_title').html('<h2>' + titre + '</h2>');
+            $('.photo_title').fadeIn('slow');
+            $('.container').fadeOut('fast');
             $('.container').html(data);
+            $('.container').fadeIn('slow');
             //$( ".container" ).html( data );
         });
-        
+
         request.fail(function( jqXHR, textStatus ) {
             alert( "Request failed: " + textStatus );
         });
