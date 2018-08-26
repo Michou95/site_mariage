@@ -44,7 +44,7 @@
     </div>
 
 <!-- Section titre photos random -->
-      <div class="random-title">
+      <div class="photo_title">
         <h2>La sélection aléatoire</h2>
       </div>
 
