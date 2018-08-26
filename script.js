@@ -10,7 +10,7 @@ $(function(){
     });
 
     $('.mute').click(function(){
-      $('#audio').html("");
+        $('#audio').html("");
     })
 
 });
