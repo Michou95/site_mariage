@@ -74,6 +74,24 @@ footer h4{
   max-width:100%;
 }
 
+.hover_section{
+  cursor: pointer;
+  position:absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-color: rgb(173, 173, 173,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title_section_hover{
+  color: white;
+
+}
+
+
 /* MEDIA QUERIES DE L'ESPACE !!!!! */
 @media screen and (max-width: 1600px){
   .title{
@@ -124,4 +142,3 @@ footer h4{
     top: -100px;
     left: 10%!important;
   }
-}
