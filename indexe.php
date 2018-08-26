@@ -1,29 +1,23 @@
-  <?php include_once'head.php' ?>
+<?php include_once'head.php' ?>
 
-  <!-- <audio autoplay>
-    <source src="son.mp3">
-  </audio> -->
+  <div class="section_all">
 
-  <header>
-    <div class="title">
-      <h1>Mickael & Jennifer</h1>
-      <h2>28 Juillet 2018</h2>
+    <div class="section col-md-4 col-xs-12">
+      <img src="mariage/photos_charline/mairie/413.jpg">
     </div>
-  </header>
 
-  <form action="test.html" method="post">
-    <div class="form_row">
-        <label for="name">Votre nom</label>
-          <input class="name" type="text" name="name" value="">
-        <input class="submit" type="submit" name="submit" value="Envoyer">
+    <div class="section col-md-4 col-xs-12">
+      <img src="mariage/photos_charline/vin_honneur/545.jpg">
     </div>
-  </form>
 
-  <a href="index.php?accubens">Photos Charline</a>
-  <a href="index.php">Photos de tout le monde</a>
+    <div class="section col-md-4 col-xs-12">
+    <img src="mariage/photos_charline/vin_honneur/546.jpg">
+    </div>
 
-  <div class="container">
-    <!-- CONTENUE AFFICHAGE SITE -->
+    <div class="container">
+      <!-- CONTENUE AFFICHAGE SITE -->
+    </div>
+
   </div>
 
 <?php include_once'footer.php' ?>

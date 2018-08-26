@@ -1,4 +1,5 @@
-body{
+
+*{
   margin:0;
   padding:0;
 }
@@ -32,4 +33,38 @@ footer{
 
 footer h4{
   padding-top: 60px;
+}
+
+/* FORMULAIRE DE RECHERCHE */
+#SearchForm{
+  position: absolute;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center; 
+  margin-top:-100px;
+}
+
+#SearchForm a{
+  margin:0;
+  padding:0;
+  border:none;
+}
+
+#SearchForm div.input-group-addon:hover{
+  cursor: pointer;
+}
+
+/* SECTION DE LA HOME */
+.section_all{
+  margin-top: 2%;
+}
+
+.section{
+  padding:0px !important;
+  margin:0px;
+}
+
+.section img{
+  max-width:100%;
 }

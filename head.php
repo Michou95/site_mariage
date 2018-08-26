@@ -6,11 +6,32 @@
     <title>Notre Mariage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css"/>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-  </head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css"/>
+</head>
   
-  <body>
+<!-- <audio autoplay>
+<source src="son.mp3">
+</audio> -->
+
+<header>
+<div class="title">
+    <h1>Mickael & Jennifer</h1>
+    <h2>28 Juillet 2018</h2>
+</div>
+</header>
+
+<form id="SearchForm" class="form-inline" method="post">
+<div class="form-group" style="width:30%">
+    <div class="input-group">
+    <input type="text" class="form-control" id="exampleInputAmount" placeholder="Nom - Prénom ...">
+    <div class="input-group-addon" style="width:5%"><a><i class="fas fa-search"></i></a></div>
+    </div>
+</div>
+</form>
+  
+<body> 
