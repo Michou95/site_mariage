@@ -13,16 +13,19 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css"/>
 </head>
-  
+
 <!-- <audio autoplay>
 <source src="son.mp3">
 </audio> -->
 
 <header>
-<div class="title">
+  <video autoplay loop class="fillWidth" style="max-width: 220%;">
+    <source src="http://localhost/site_mariage/mariage/banniere_site_mariage.mp4" type="video/mp4"/>
+  </video>
+  <div class="title">
     <h1>Mickael & Jennifer</h1>
     <h2>28 Juillet 2018</h2>
-</div>
+  </div>
 </header>
 
 <form id="SearchForm" class="form-inline" method="post">
@@ -33,5 +36,5 @@
     </div>
 </div>
 </form>
-  
-<body> 
+
+<body>
