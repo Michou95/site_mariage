@@ -1,15 +1,7 @@
 <?php require_once ('fonctions.php'); ?>
 <?php include_once'head.php' ?>
 
-<!-- Section titre rubriques -->
-    <div class="row">
-      <div class="selection">
-        <h2>Les rubriques</h2>
-      </div>
-    </div>
-
 <!-- Section rubrique clickables -->
-    <div class="row">
       <div class="section_all">
 
         <div class="section col-md-4 col-xs-12">
@@ -45,18 +37,10 @@
           </div>
         </div>
       </div>
-    </div>
 
 <!-- Barre de scroll -->
     <div id="go_to_photo" class="col-cs-12 text-center scroll_barre">
       <i class="fas fa-chevron-down fa-3x"></i>
-    </div>
-
-<!-- Section titre photos random -->
-    <div class="row">
-      <div class="random-title">
-        <h2>La sélection aléatoire</h2>
-      </div>
     </div>
 
 <!-- Section affichage photo random -->
@@ -71,6 +55,6 @@
        ?>
     </div>
 
-  
+
 
 <?php include_once'footer.php' ?>

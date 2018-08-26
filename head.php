@@ -27,7 +27,7 @@
     <h2>28 Juillet 2018</h2>
   </div>
   <div id="audio">
-    <audio autoplay src='mariage/son.mp3'></audio>
+    <!--<audio autoplay src='mariage/son.mp3'></audio>-->
   </div>
 </header>
 
