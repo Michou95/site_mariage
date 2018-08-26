@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'allura';
+    src: url('Allura-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 *{
   margin:0;
@@ -34,7 +41,7 @@ header{
 }
 
 header h1, header h2{
-  font-family: "Brush Script MT", verdana, arial, sans-serif;
+  font-family: 'allura', verdana, arial, sans-serif;
   text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
   letter-spacing: 3px;
   opacity: 0.7;
@@ -97,29 +104,19 @@ footer h4{
 
 .title_section_hover{
   color: white;
-  font-family: "Brush Script MT", verdana, Arial, sans-serif;
+  font-family: 'allura', verdana, Arial, sans-serif;
   text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
   font-size: 3em;
 }
 
-.selection{
-  padding-top: 20px;
-  text-align: center;
-}
 
-.selection h2{
-  margin-bottom: 0;
-  font-family: "Brush Script MT", verdana, arial, sans-serif;
-  font-size: 5em;
-}
-
-.random-title{
+.photo_title{
     padding-top: 25px;
     text-align: center;
 }
 
-.random-title h2{
-  font-family: "Brush Script MT", verdana, arial, sans-serif;
+.photo_title h2{
+  font-family: 'allura', verdana, arial, sans-serif;
   font-size: 5em;;
 }
 
@@ -147,4 +144,3 @@ footer h4{
 .scroll_barre:hover{
   cursor: pointer;
 }
-
