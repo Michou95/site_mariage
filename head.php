@@ -34,6 +34,8 @@
 <form id="SearchForm" class="form-inline" method="post">
   <div class="mute">
     <i class="fas fa-volume-off fa-3x"></i>
+    <br>
+    <small>mute</small>
   </div>
 <div class="form-group" style="width:30%">
     <div class="input-group">
