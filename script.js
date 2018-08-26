@@ -24,9 +24,8 @@ $(function(){
     //------------- GESTION SCROLL ------------------------//
 
     $('.scroll_barre').click(function(){
-        $('html, body').animate({
-            scrollTop: $("#go_to_photo").offset().top
-        }, 500);
+    var scrollTo = ($(this).offset().top * 2);
+        $('html, body').animate({ scrollTop: scrollTo }, 500);
     });
 
     //------------- AJAX IMAGE PAR CATEGORIES -------------//
