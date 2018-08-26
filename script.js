@@ -15,6 +15,14 @@ $(function(){
         $(this).children('.hover_section').slideDown('fast');
     });
 
+    //------------- GESTION SCROLL ------------------------//
+
+    $('.scroll_barre').click(function(){
+        $('html, body').animate({
+            scrollTop: $("#go_to_photo").offset().top
+        }, 500);
+    });
+
     //------------- AJAX IMAGE PAR CATEGORIES -------------//
 
     $('.hover_section').click(function(){

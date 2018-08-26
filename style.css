@@ -56,9 +56,6 @@ footer h4{
 }
 
 /* SECTION DE LA HOME */
-.section_all{
-  margin-top: 2%;
-}
 
 .section{
   padding:0px !important;
@@ -84,3 +81,13 @@ footer h4{
 .title_section_hover{
   color: white;
 }
+
+/* BARRE DE SCROLL */
+.scroll_barre{
+  background-color: rgb(173, 173, 173);
+}
+
+.scroll_barre:hover{
+  cursor: pointer;
+}
+

@@ -29,6 +29,10 @@
       </div>
     </div>
 
+    <div id="go_to_photo" class="col-cs-12 text-center scroll_barre">
+      <i class="fas fa-chevron-down fa-3x"></i>
+    </div>
+
   </div>
 
     <div class="container">
