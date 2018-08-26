@@ -18,7 +18,7 @@
           </a>
           <div class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
-              PHOTOS MAIRIE
+              Photos Mairie
             </h2>
           </div>
         </div>
@@ -29,7 +29,7 @@
           </a>
           <div class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
-              PHOTOS VIN D'HONNEUR
+              Photos Vin D'honneur
             </h2>
           </div>
         </div>
@@ -40,7 +40,7 @@
           </a>
           <div class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
-              PHOTOS SALLE
+              Photos Salle des fêtes
             </h2>
           </div>
         </div>

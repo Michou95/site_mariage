@@ -21,6 +21,18 @@ header{
   width: 100%;
 }
 
+.mute{
+  text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+  color: white;
+  transition: all 0.5s ease;
+  margin-right: 20px;
+}
+
+.mute:hover{
+  cursor: pointer;
+  color: red;
+}
+
 header h1, header h2{
   font-family: "Brush Script MT", verdana, arial, sans-serif;
   text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
@@ -88,7 +100,9 @@ footer h4{
 
 .title_section_hover{
   color: white;
-  font-family: calibri, Arial, sans-serif;
+  font-family: "Brush Script MT", verdana, Arial, sans-serif;
+  text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+  font-size: 3em;
 }
 
 .selection{

@@ -9,4 +9,8 @@ $(function(){
         $(this).children('.hover_section').slideDown('fast');
     });
 
+    $('.mute').click(function(){
+      $('#audio').html("");
+    })
+
 });

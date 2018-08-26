@@ -26,12 +26,18 @@
     <h1>Mickael & Jennifer</h1>
     <h2>28 Juillet 2018</h2>
   </div>
+  <div id="audio">
+    <audio autoplay src='mariage/son.mp3'></audio>
+  </div>
 </header>
 
 <form id="SearchForm" class="form-inline" method="post">
+  <div class="mute">
+    <i class="fas fa-volume-off fa-3x"></i>
+  </div>
 <div class="form-group" style="width:30%">
     <div class="input-group">
-      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Nom - Prénom ...">
+      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Entrez Votre Prénom">
       <div class="input-group-addon" style="width:5%"><a><i class="fas fa-search"></i></a></div>
     </div>
 </div>
