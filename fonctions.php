@@ -26,24 +26,6 @@ function getAllPhotos():array{
 } //end function getAllPhotos()
 
 
-//--------------------------------------------------//
-// Récupérer les photos en fonction de la catégorie //
-//--------------------------------------------------//
-function getPhotoByCategory(string $category):array{
-  $connexion = getDB();
-  if($category == "mairie" || $category == "vin_honneur" || $category == "salle"){
-    $sql = "SELECT url FROM photos WHERE categorie = '" . $category . "';";
-    $response = $connexion->query($sql);
-    $resultat = $response->fetchAll(PDO::FETCH_ASSOC);
-    return $resultat;
-  }
-  else{
-    $error[] = "Erreur: la categorie doit être 'mairie', 'vin_honneur' ou 'salle'";
-    return $error;
-  }
-} //end function getPhotoByCategory()
-
-
 //----------------------------------------------------//
 // Récupération des photos en fonction du photographe //
 //----------------------------------------------------//
@@ -83,7 +65,7 @@ function getPhotoByPhotographeAndCategory(string $photographe, string $category)
 //--------------------------------------//
 // Recupere les photos du user concerné //
 //--------------------------------------//
-function getPhotoByInvite(:int $id_invite):array{
+function getPhotoByInvite(int $id_invite) :array{
   $connexion = getDB();
   if(!isNaN($id_invite)){
     $sql = "SELECT p.url FROM photos p, invite_photo i WHERE i.id_photo = p.id_photo AND i.id_invite = '" .$id_invite . "';";
