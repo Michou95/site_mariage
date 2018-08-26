@@ -43,6 +43,13 @@
       <i class="fas fa-chevron-down fa-3x"></i>
     </div>
 
+<!-- Section titre photos random -->
+    <div class="row">
+      <div class="random-title">
+        <h2>La sélection aléatoire</h2>
+      </div>
+    </div>
+
 <!-- Section affichage photo random -->
     <div class="container">
       <?php
