@@ -12,127 +12,24 @@ header{
   background-size: cover;
 }
 
-form{
-  width: 70%;
-  margin: auto;
-  margin-top: 20px;
-}
-
-.form_row{
-  width: 100%;
-  text-align: center;
-}
-
-.form_row .name{
-  width: 30%;
-}
-
-
 .title{
   padding-top: 150px;
 }
 
 header h1, header h2{
   font-family: "Brush Script MT", verdana, arial, sans-serif;
+  letter-spacing: 3px;
   opacity: 0.5;
-  font-size: 3em;
+  font-size: 5em;
 }
 
-  .container{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
+footer{
+  height: 150px;
+  background-color: lightgrey;
+  color: darkgrey;
+  text-align: center;
+}
 
-  .image{
-    margin-top: 20px;
-    max-width: 24%;
-    max-height: 250px;
-    overflow: hidden;
-    transition: all 0.5s ease;
-  }
-
-  .image img{
-    max-width: 100%;
-    max_height: 100%;
-  }
-
-  .telecharger{
-    opacity: 0;
-    max-width: 100%;
-    padding: 10px 50px;
-    border-bottom-right-radius: 15px;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    top: 0px;
-    left:0px;
-    position: absolute!important;
-    transition: all 0.5s ease;
-  }
-
-  .image:hover{
-    cursor: pointer;
-    transform: scale(1.1);
-  }
-
-  .image:hover .telecharger{
-    opacity: 1;
-  }
-
-  .button{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-top: 15px;
-    height: 40px;
-    width: 40%;
-    text-decoration: none;
-    color: white;
-    font-size: 1.5em;
-    font-family: verdana, Arial, sans-serif;
-    text-align: center;
-    min-width: 400px;
-    transition: all 0.5s ease;
-    border-radius: 5px;
-    background-color: steelblue;
-  }
-
-  .button:hover{
-    transform: scale(1.1);
-  }
-
-/* MEDIA QUERIES */
-  @media screen and (max-width: 404px) {
-    .image{
-      max-width: 100%;
-      max-height: 250px;
-    }
-    header{
-      background-size: 380px 500px;
-      background-repeat: no-repeat;
-    }
-  }
-
-  @media screen and (min-width: 405px) and (max-width: 500px) {
-    .image{
-      max-width: 100%;
-      max-height: 250px;
-    }
-    header{
-      background-size: 640px 500px;
-      background-repeat: no-repeat;
-    }
-  }
-
-  @media screen and (min-width: 501px) and (max-width: 640px) {
-    .image{
-      max-width: 46%;
-      max-height: 250px;
-    }
-  }
-
-  @media screen and (min-width: 640px) and (max-width: 935px) {
-    .image{
-      max-width: 46%;
-      max-height: 250px;
-    }
-  }
+footer h4{
+  padding-top: 60px;
+}
