@@ -83,7 +83,7 @@ function getPhotoByPhotographeAndCategory(string $photographe, string $category)
 //--------------------------------------//
 // Recupere les photos du user concerné //
 //--------------------------------------//
-function getPhotoByInvite(:int $id_invite):array{
+function getPhotoByInvite(int $id_invite):array{
   $connexion = getDB();
   if(!isNaN($id_invite)){
     $sql = "SELECT p.url FROM photos p, invite_photo i WHERE i.id_photo = p.id_photo AND i.id_invite = '" .$id_invite . "';";
@@ -95,4 +95,16 @@ function getPhotoByInvite(:int $id_invite):array{
     $error[] = "Erreur: l'id renseigné doit être un INT() correspondant à l'invité ciblé (1 à 90)";
     return $error;
   }
+}
+
+//------------------------------//
+// Recupere 10 photos en random //
+//------------------------------//
+function getRandomPhoto():array{
+  $connexion = getDB();
+  $sql = "SELECT url FROM photos ORDER BY RAND() LIMIT 0, 10;";
+  $response = $connexion->query($sql);
+  $resultat = $response->fetchAll(PDO::FETCH_ASSOC);
+
+  return $resultat;
 }

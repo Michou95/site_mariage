@@ -18,7 +18,7 @@ header{
   position: absolute;
   padding-top: 150px;
   top: 0px;
-  left: 38%;
+  width: 100%;
 }
 
 header h1, header h2{
@@ -93,52 +93,10 @@ footer h4{
 
 
 /* MEDIA QUERIES DE L'ESPACE !!!!! */
-@media screen and (max-width: 1600px){
-  .title{
-    left: 35%!important;
-  }
-}
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 505px){
   .title{
-    left: 28%!important;
-  }
-}
-
-@media screen and (max-width: 1000px){
-  .title{
-    left: 25%!important;
-  }
-}
-
-@media screen and (max-width: 768px){
-  .title{
-    left: 20%!important;
-  }
-}
-
-@media screen and (max-width: 620px){
-  .title{
-    top: -15px;
-    left: 5%!important;
-  }
-}
-@media screen and (max-width: 425px){
-  .title{
-    top: -80px;
+    top: -100px;
     left: 0%!important;
   }
 }
-
-@media screen and (max-width: 415px){
-  .title{
-    top: -110px;
-    left: 10%!important;
-  }
-}
-
-@media screen and (max-width: 395px){
-  .title{
-    top: -100px;
-    left: 10%!important;
-  }
