@@ -40,9 +40,9 @@
 <div class="form-group" style="width:30%">
     <div class="input-group">
       <input type="text" class="form-control" id="exampleInputAmount" placeholder="Entrez Votre Prénom">
-      <small id="small">Entrez votre prénom et/ou votre nom en minucule sans accents</small>
       <div class="input-group-addon" style="width:5%"><a><i class="fas fa-search"></i></a></div>
     </div>
+    <small id="small">Entrez votre prénom et/ou votre nom en minucule sans accents</small>
 </div>
 </form>
 
