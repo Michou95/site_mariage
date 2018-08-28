@@ -24,10 +24,4 @@ function getPhotoByCategory(string $category):array{
   $photoResult = getPhotoByCategory($categorie);
   $html = '';
 
-  for ($i=0; $i < count($photoResult) ; $i++) {
-    $html .= '<div class="section col-md-4 col-xs-12 photo-random">
-                <img src="' . $photoResult[$i]['url'] . '">
-              </div>';
-  }
-
-  echo $html;die();
+  echo json_encode($photoResult);die();

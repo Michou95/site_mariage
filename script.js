@@ -37,9 +37,8 @@ $(function(){
     //------------- AJAX IMAGE PAR CATEGORIES -------------//
 
     $('.hover_section').click(function(){
-        var elementClick = $(this);
         var categorie = $(this).attr('data-section');
-        console.log(categorie);
+        //console.log(categorie);
         var scrollTo = ($('.scroll_barre').offset().top * 2);
         var titre = '';
 
@@ -50,10 +49,10 @@ $(function(){
         });
 
         request.done(function( data ) {
-            console.log(data);
+            var tabPhoto = JSON.parse(data); //On transforme le json en tableau
             rechercheOn = true;
-            $('html, body').animate({ scrollTop: scrollTo }, 500);
-            switch(categorie){
+            $('html, body').animate({ scrollTop: scrollTo }, 500); // on scrolle la page sur les photos
+            switch(categorie){ //choix du titre a afficher
                 case 'mairie' :
                     titre = 'Photos Mairie';
                 break;
@@ -64,12 +63,15 @@ $(function(){
                     titre = 'Photos Salle Des Fêtes';
                 break;
             }
-            $('.photo_title').fadeOut('fast');
-            $('.photo_title').html('<h2>' + titre + '</h2>');
-            $('.photo_title').fadeIn('slow');
-            $('.container').fadeOut('fast');
-            $('.container').html(data);
-            $('.container').fadeIn('slow');
+            $('.photo_title').fadeOut('fast',function(){ //modification du titre
+                $('.photo_title').html('<h2>' + titre + '</h2>');
+                $('.photo_title').fadeIn('slow');
+            });
+            $('.container').fadeOut('fast',function(){ //Chargement et affichage des photo
+                //console.log(addPhotoAndPaginate(tabPhoto));
+                $('.container').html(addPhotoAndPaginate(tabPhoto));
+                $('.container').fadeIn('slow');
+            });
             //$( ".container" ).html( data );
         });
 
@@ -78,5 +80,31 @@ $(function(){
         });
 
     });
+    //--------- GESTION AFFICHAGE ET PAGINATION IMAGE ------------//
+
+    function addPhotoAndPaginate(tabPhoto,page = 1){
+        var html = '';
+        var none = '';
+        var page = Math.floor(tabPhoto.length/12); //compte du nombre de page
+        //console.log(page);
+        for(var i = 0; i < tabPhoto.length ; i++){
+
+            if(i >= 12){
+                none = 'style="display:none"';
+            } 
+
+            html += '<div id="'+i+'" class="section col-md-4 col-xs-12 photo-random" '+none+'><img src="' + tabPhoto[i].url + '"></div>';
+        }
+
+        if(page > 1) //pagination
+        html += '<a class="paginate"> <</a>';
+            for(j = 0; j < page; j++){
+                html += ' <a class="paginate" data-page="'+ (j+1) +'">' + (j+1) + '</a> ';   
+            }
+        html += '<a class="paginate">> </a>';
+
+        return html;
+        
+    }
 
 });
