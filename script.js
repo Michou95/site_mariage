@@ -91,20 +91,20 @@ $(function(){
 
             if(i >= 12){
                 none = 'style="display:none"';
-            } 
+            }
 
             html += '<div id="'+i+'" class="section col-md-4 col-xs-12 photo-random" '+none+'><img src="' + tabPhoto[i].url + '"></div>';
         }
 
         if(page > 1) //pagination
-        html += '<a class="paginate"> <</a>';
+        html += '<div class="col-md-10 col-md-offset-1"><a class="paginate btn btn-primary" type="button"> <</a>';
             for(j = 0; j < page; j++){
-                html += ' <a class="paginate" data-page="'+ (j+1) +'">' + (j+1) + '</a> ';   
+                html += ' <a class="paginate btn btn-primary" type="button" data-page="'+ (j+1) +'">' + (j+1) + '</a> ';
             }
-        html += '<a class="paginate">> </a>';
+        html += '<a class="paginate btn btn-primary" type="button">> </a></div>';
 
         return html;
-        
+
     }
 
 });

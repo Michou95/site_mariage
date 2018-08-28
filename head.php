@@ -14,10 +14,6 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 
-<!-- <audio autoplay>
-<source src="son.mp3">
-</audio> -->
-
 <header>
   <video autoplay loop class="fillWidth" style="max-width: 220%;">
     <source src="http://localhost/site_mariage/mariage/banniere_site_mariage.mp4" type="video/mp4"/>
@@ -27,16 +23,16 @@
     <h2>28 Juillet 2018</h2>
   </div>
   <div id="audio">
-    <!--<audio autoplay src='mariage/son.mp3'></audio>-->
+    <!-- <audio autoplay src='mariage/son.mp3'></audio> -->
   </div>
 </header>
 
 <form id="SearchForm" class="form-inline" method="post">
-  <!--<div class="mute">
+  <!-- <div class="mute">
     <i class="fas fa-volume-off fa-3x"></i>
     <br>
     <small>mute</small>
-  </div>-->
+  </div> -->
 <div class="form-group" style="width:30%">
     <div class="input-group">
       <input type="text" class="form-control" id="exampleInputAmount" placeholder="Entrez Votre Prénom">
