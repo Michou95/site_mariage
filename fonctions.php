@@ -79,6 +79,14 @@ function getPhotoByInvite(int $id_invite):array{
   }
 }
 
+//---------------------------------------------------------------------//
+// Recupere l'utilisateur en fonction de ce qui est ecrit dans le form //
+//---------------------------------------------------------------------//
+// function getInviteByInputForm(string $value){
+//   $connexion = getDB();
+//   $sql "SELECT i.prenom, i.nom FROM"
+// }
+
 //------------------------------//
 // Recupere 12 photos en random //
 //------------------------------//

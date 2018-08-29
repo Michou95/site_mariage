@@ -27,7 +27,7 @@ else
 function addPhotoAndPaginate($tabPhoto,$mode,$page,$categorie){
   $html = '';
   $nbrPage = floor(count($tabPhoto) / 12); //compte du nombre de page
-  var_dump(count($tabPhoto));
+  //var_dump(count($tabPhoto));
   
  for($i = (($page-1)*12); $i < ((int)(($page-1)*12)+12) ; $i++){
      $html .= '<div id="'.$i.'" class="section col-md-4 col-xs-12 photo-random"><img src="' . $tabPhoto[$i]['url'] . '"></div>';

@@ -100,7 +100,4 @@ $(function(){
 
     }
 
-    //------------- FONCTION DE REINITIALISATION EVENTLISTENER ----------//
-   
-
 });
