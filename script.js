@@ -1,6 +1,18 @@
 $(function(){
     var rechercheOn = false;
 
+    // -------- ECOUTEUR D'EVENEMENT ------------//
+
+    $('.hover_section').click(function(){
+        selectPhoto($(this));
+    });
+
+    function eventListener(){
+        $('.paginate_link').click(function(){
+            selectPhoto($(this));
+        });
+    }
+
     //------------ GESTION AFFICHAGE SECTION HOME -------------------//
     $(document).hover(function(event) {
         if(!$(event.target).closest('#monElement').length) {
@@ -36,8 +48,10 @@ $(function(){
 
     //------------- AJAX IMAGE PAR CATEGORIES -------------//
 
-    $('.hover_section').click(function(){
-        var categorie = $(this).attr('data-section');
+    function selectPhoto(element){
+        var categorie = $(element).attr('data-categorie');
+        var page = $(element).attr('data-page');
+        var mode = $(element).attr('data-mode');
         //console.log(categorie);
         var scrollTo = ($('.scroll_barre').offset().top * 2);
         var titre = '';
@@ -45,11 +59,15 @@ $(function(){
         var request = $.ajax({
             url: "image_par_categorie.php",
             method: "POST",
-            data: { categorie : categorie }
+            data: { 
+                    categorie : categorie,
+                    page : page,
+                    mode : mode,
+                  }
         });
 
-        request.done(function( data ) {
-            var tabPhoto = JSON.parse(data); //On transforme le json en tableau
+        request.done(function( data ) { 
+            //console.log(data);
             rechercheOn = true;
             $('html, body').animate({ scrollTop: scrollTo }, 500); // on scrolle la page sur les photos
             switch(categorie){ //choix du titre a afficher
@@ -69,8 +87,9 @@ $(function(){
             });
             $('.container').fadeOut('fast',function(){ //Chargement et affichage des photo
                 //console.log(addPhotoAndPaginate(tabPhoto));
-                $('.container').html(addPhotoAndPaginate(tabPhoto));
+                $('.container').html(data);
                 $('.container').fadeIn('slow');
+                eventListener();
             });
             //$( ".container" ).html( data );
         });
@@ -79,32 +98,9 @@ $(function(){
             alert( "Request failed: " + textStatus );
         });
 
-    });
-    //--------- GESTION AFFICHAGE ET PAGINATION IMAGE ------------//
-
-    function addPhotoAndPaginate(tabPhoto,page = 1){
-        var html = '';
-        var none = '';
-        var page = Math.floor(tabPhoto.length/12); //compte du nombre de page
-        //console.log(page);
-        for(var i = 0; i < tabPhoto.length ; i++){
-
-            if(i >= 12){
-                none = 'style="display:none"';
-            } 
-
-            html += '<div id="'+i+'" class="section col-md-4 col-xs-12 photo-random" '+none+'><img src="' + tabPhoto[i].url + '"></div>';
-        }
-
-        if(page > 1) //pagination
-        html += '<a class="paginate"> <</a>';
-            for(j = 0; j < page; j++){
-                html += ' <a class="paginate" data-page="'+ (j+1) +'">' + (j+1) + '</a> ';   
-            }
-        html += '<a class="paginate">> </a>';
-
-        return html;
-        
     }
+
+    //------------- FONCTION DE REINITIALISATION EVENTLISTENER ----------//
+   
 
 });

@@ -8,7 +8,7 @@
           <a data-section="salle">
             <img src="mariage/photos_charline/mairie/413.jpg">
           </a>
-          <div data-section="mairie" class="hover_section" style="display:none;">
+          <div data-categorie="mairie" data-mode="categorie" class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
               Photos Mairie
             </h2>
@@ -19,7 +19,7 @@
           <a data-section="salle">
             <img src="mariage/photos_charline/vin_honneur/545.jpg">
           </a>
-          <div data-section="vin_honneur" class="hover_section" style="display:none;">
+          <div data-categorie="vin_honneur" data-mode="categorie" class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
               Photos Vin D'honneur
             </h2>
@@ -30,7 +30,7 @@
           <a data-section="salle">
             <img src="mariage/photos_charline/vin_honneur/546.jpg">
           </a>
-          <div data-section="salle" class="hover_section" style="display:none;">
+          <div data-categorie="salle" data-mode="categorie" class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
               Photos Salle des fêtes
             </h2>
