@@ -3,7 +3,7 @@ require_once ('fonctions.php');
 //--------------------------------------------------//
 // Récupérer les photos en fonction de la catégorie //
 //--------------------------------------------------//
-
+//traitement du post et stockage dans variable
 
 if(isset($_POST['categorie']) && !empty($_POST['categorie']))
   $categorie = strip_tags(trim($_POST['categorie']));
@@ -25,29 +25,31 @@ else
 //---------------------------------------
 
 function addPhotoAndPaginate($tabPhoto,$mode,$page,$categorie){
-  $html = '';
+  $html = '';//init rendu html
   $nbrPage = floor(count($tabPhoto) / 12); //compte du nombre de page
-  //var_dump(count($tabPhoto));
   
- for($i = (($page-1)*12); $i < ((int)(($page-1)*12)+12) ; $i++){
-     $html .= '<div id="'.$i.'" class="section col-md-4 col-xs-12 photo-random"><img src="' . $tabPhoto[$i]['url'] . '"></div>';
- }
+  for($i = (($page-1)*12); $i < ((int)(($page-1)*12)+12) ; $i++){ //construction des div et intégration des photos en fonction de la page
+      $html .= '<div id="'.$i.'" class="section col-md-4 col-xs-12 photo-random"><img src="' . $tabPhoto[$i]['url'] . '"></div>';
+  }
 
-  if($nbrPage > 1){
-    //pagination
+  //Si les résultat nécéssite plus d'une page, on met une âgination
+  if($nbrPage > 1){ 
+    //On met le bouton précédent si on est pas sur la page 1
     if($page > 1)
-      $html .= '<div><a class="paginate_link" data-categorie="' . $categorie . '" data-mode="' . $mode . '" data-page="'. ($page - 1) .'"> < </a>';
+      $html .= '<div class="col-xs-12 text-center"><a class="paginate_link btn btn-default" data-categorie="' . $categorie . '" data-mode="' . $mode . '" data-page="'. ($page - 1) .'"> < </a>';
     else 
-      $html .= '<div class="paginate">';
+      $html .= '<div class="col-xs-12 text-center">';
 
+      //Incrémentation des pages en fonction du nombre de résultats (on remet la catégorie et le mode pour relancer la même fonction ajax)  
       for($j = 0; $j < $nbrPage; $j++){
-          $html .= ' <a data-categorie="' . $categorie . '" data-mode="' . $mode . '" data-page="'. ($j+1) .'" class="';
-          $html .= ($j == $page) ? 'paginate_link active' : 'paginate_link' ; //On met ou non la class active si c'est la page en cour
-          $html .= '"> ' . ($j+1) . '</a>';   
+          $html .= ' <a data-categorie="' . $categorie . '" data-mode="' . $mode . '" data-page="'. ($j+1) .'" class="paginate_link btn btn-default ';
+          $html .= (($j+1) == $page) ? 'active' : '' ; //On met ou non la class active si c'est la page en cours
+          $html .= '"> ' . ($j+1) . '</a> ';   
       }
     
+    //Bouton suivant si on est pas sur la dernière page
     if($page != $nbrPage)
-      $html .= '<a class="paginate_link" data-categorie="' . $categorie . '" data-mode="' . $mode . '" data-page="'. ($j+2) .'"> > </a></div>';
+      $html .= '<a class="paginate_link btn btn-default" data-categorie="' . $categorie . '" data-mode="' . $mode . '" data-page="'. ($page+1) .'"> > </a></div>';
     else 
       $html .= '</div>';
   }
@@ -59,7 +61,7 @@ function addPhotoAndPaginate($tabPhoto,$mode,$page,$categorie){
 //--------------------------
 // FONCTION DE SELECTION BDD 
 //--------------------------
-
+//Merci michou je te laisse commenter si besoin :P
 function getPhotoByCategory(string $category):array{
   $connexion = getDB();
   if($category == "mairie" || $category == "vin_honneur" || $category == "salle"){

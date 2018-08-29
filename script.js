@@ -86,10 +86,9 @@ $(function(){
                 $('.photo_title').fadeIn('slow');
             });
             $('.container').fadeOut('fast',function(){ //Chargement et affichage des photo
-                //console.log(addPhotoAndPaginate(tabPhoto));
                 $('.container').html(data);
                 $('.container').fadeIn('slow');
-                eventListener();
+                eventListener(); // /!\IMPORTANT/!\ permet de relancer l'event listener pour les bouton de pagination 
             });
             //$( ".container" ).html( data );
         });
