@@ -1,3 +1,18 @@
+<?php
+if(isset($_POST['password'])){
+  $password = strip_tags(trim($_POST['password']));
+}
+
+if(!empty($password)){
+  if($password === "What the funk!"){
+    header('Location: dashboard.php');
+  }
+  else{
+    header('Location: log_admin.php?password=false');
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 
@@ -17,10 +32,15 @@
     <h1>Accès Admin</h1>
     <div class="container">
       <div class="col-md-offset-2 col-md-8">
-        <form action="treatment.php" class="form-admin">
+        <form action="log_admin.php" method="post" class="form-admin">
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" placeholder="Password" />
+            <?php if(isset($_GET['password'])){
+              if($_GET['password'] === "false"){ ?>
+                  <p style="color: red;">Mot de Passe Incorrect</p>
+      <?php   }
+            } ?>
+            <input type="password" name="password" class="form-control" placeholder="Password" />
           </div>
           <button type="submit" class="btn btn-primary">Valider</button>
         </form>
@@ -28,3 +48,8 @@
     </div>
   </body>
 </html>
+
+
+
+
+ ?>
