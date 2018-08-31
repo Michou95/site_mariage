@@ -40,6 +40,13 @@ header{
   color: red;
 }
 
+.admin{
+  position: absolute;
+  z-index: 1;
+  right: 30px;
+  top: 20px;
+}
+
 header h1, header h2{
   font-family: 'allura', verdana, arial, sans-serif;
   text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;

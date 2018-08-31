@@ -1,3 +1,21 @@
+<?php
+require_once ('connexion.php');
+
+//-------------------------------------//
+// Instanciation de la class connexion //
+//-------------------------------------//
+$connexion = new Connexion();
+
+//--------------------------------------------------------//
+// Récupération de l'ip de la machine qui demande la page //
+//--------------------------------------------------------//
+$ip = $connexion->getIp();
+
+//-------------------------------------//
+// Check si l'ip appartient a un admin //
+//-------------------------------------//
+$admin_ip = $connexion->isAllowedIp($ip);
+ ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 
@@ -18,6 +36,11 @@
   <video autoplay loop class="fillWidth" style="max-width: 220%;">
     <source src="http://localhost/site_mariage/mariage/banniere_site_mariage.mp4" type="video/mp4"/>
   </video>
+  <?php if($admin_ip){ ?>
+    <div class="admin">
+      <a href="log_admin.php" type="button" class="btn btn-default">Accès Admin Dashboard</a>
+    </div>
+  <?php } ?>
   <div class="title">
     <h1>Mickael & Jennifer</h1>
     <h2>28 Juillet 2018</h2>
