@@ -35,9 +35,10 @@
   </div> -->
 <div class="form-group" style="width:30%">
     <div class="input-group">
-      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Entrez Votre Prénom">
+      <input id="search" type="text" class="form-control" id="exampleInputAmount" placeholder="Entrez Votre Prénom">
       <div class="input-group-addon" style="width:5%"><a><i class="fas fa-search"></i></a></div>
     </div>
+    <ul id="resultSearch"></ul>
     <small id="small">Entrez votre prénom et/ou votre nom en minucule sans accents</small>
 </div>
 </form>

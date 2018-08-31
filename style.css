@@ -84,6 +84,16 @@ footer h4{
   cursor: pointer;
 }
 
+/* LISTE AUTOCOMPLETION */
+
+#resultSearch{
+  list-style: none;
+  position: relative;
+  z-index: 2;
+  display: none;
+  background-color: white;
+}
+
 /* SECTION DE LA HOME */
 
 .section{
@@ -132,7 +142,7 @@ footer h4{
 }
 
 
-/* MEDIA QUERIES DE L'ESPACE !!!!! */
+/* MEDIA QUERIES DE L'ESPACE !!!!! <= qui tue tout sur leurs passage !*/ 
 
 @media screen and (max-width: 505px){
   .title{

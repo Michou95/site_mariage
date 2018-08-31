@@ -13,6 +13,14 @@ $(function(){
         });
     }
 
+    $('#search').keyup(function(){
+        if($(this).val().length > 0)
+            autocomplete($(this));
+        else
+            $('#resultSearch').css('display','none');
+
+    });
+
     //------------ GESTION AFFICHAGE SECTION HOME -------------------//
     $(document).hover(function(event) {
         if(!$(event.target).closest('#monElement').length) {
@@ -91,6 +99,43 @@ $(function(){
                 eventListener(); // /!\IMPORTANT/!\ permet de relancer l'event listener pour les bouton de pagination 
             });
             //$( ".container" ).html( data );
+        });
+
+        request.fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
+
+    }
+
+    //------------------ AJAX AUTOCOMPLETE -------------------//
+    
+    function autocomplete(element){
+        var element = $(element);
+        var saisie = $(element).val();
+
+        var request = $.ajax({
+            url: "autocomplete.php",
+            method: "POST",
+            data: { 
+                    saisie : saisie,
+                  }
+        });
+
+        request.done(function( data ) { 
+            var result = JSON.parse(data);
+            var li = '';
+                $(result).each(function(key, value){
+                    var prenom = value.prenom.charAt(0).toUpperCase() + value.prenom.slice(1);
+                    var nom = value.nom.charAt(0).toUpperCase() + value.nom.slice(1);
+
+                    li += '<li value="'+value.id_invite+'">'+prenom+' '+nom+'</li>';
+                });
+            
+                if(li.length == '0')
+                    li = '<li>Aucun résultat !</li>'
+
+            $('#resultSearch').html(li).css('display','block');
+
         });
 
         request.fail(function( jqXHR, textStatus ) {

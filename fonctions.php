@@ -79,6 +79,7 @@ function getPhotoByInvite(int $id_invite):array{
   }
 }
 
+
 //---------------------------------------------------------------------//
 // Recupere l'utilisateur en fonction de ce qui est ecrit dans le form //
 //---------------------------------------------------------------------//
