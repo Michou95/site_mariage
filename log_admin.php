@@ -5,7 +5,7 @@ if(isset($_POST['password'])){
 
 if(!empty($password)){
   if($password === "What the funk!"){
-    header('Location: dashboard.php');
+    header('Location: dashboard/dashboard.php');
   }
   else{
     header('Location: log_admin.php?password=false');

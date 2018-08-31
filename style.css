@@ -149,12 +149,21 @@ footer h4{
 }
 
 
-/* MEDIA QUERIES DE L'ESPACE !!!!! <= qui tue tout sur leurs passage !*/ 
+/* MEDIA QUERIES DE L'ESPACE !!!!! <= qui tue tout sur leurs passage !*/
 
 @media screen and (max-width: 505px){
   .title{
-    top: -100px;
+    top: -50px;
     left: 0%!important;
+    font-size: 10px;
+  }
+
+  #SearchForm{
+    margin-top: -200px;
+  }
+
+  #SearchForm small{
+    display: none;
   }
 }
 
