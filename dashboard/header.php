@@ -71,12 +71,12 @@ $nb_visites = getAllVisites();
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="dashboard.php?section=tags">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Tagguer des invités</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="dashboard.php?section=add">
             <i class="fas fa-fw fa-table"></i>
             <span>Ajouter des photos</span></a>
         </li>

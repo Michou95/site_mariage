@@ -37,8 +37,8 @@ $(function(){
             if($('#search').val().length > 0) //A condition que ça valeur ne soit pas null
                 autocomplete($('#search'));
         }else{ //Si on click en dehors, on masque l'autocomplete
-            $('#resultSearch').slideUp('fast'); 
-        }    
+            $('#resultSearch').slideUp('fast');
+        }
     });
 
 
