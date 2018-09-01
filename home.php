@@ -1,5 +1,10 @@
+<?php
+session_start();
+
+if($_SESSION['user'] == "allowed"){
+ ?>
 <?php require_once ('fonctions.php'); ?>
-<?php include_once'head.php' ?>
+<?php include_once'head.php'; ?>
 
 <!-- Section rubrique clickables -->
       <div class="section_all">
@@ -63,4 +68,9 @@
 
 
 
-<?php include_once'footer.php' ?>
+<?php include_once'footer.php';
+}
+else{
+  header('Location: index.php');
+}
+?>

@@ -1,5 +1,16 @@
+@font-face {
+    font-family: 'allura';
+    src: url('Allura-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.login{
+   font-family: 'allura', sans-serif;
+}
+
 body{
-  background-image: url('mariage/photos_charline/vin_honneur/543.jpg');
+  background-image: url('mariage/photos_charline/vin_honneur/544.jpg');
   background-size: cover;
 }
 h1{
@@ -11,6 +22,11 @@ h1{
 
 label{
   color: white;
+  text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+}
+
+.wrong{
+  color: red;
   text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
 }
 

@@ -1,18 +1,27 @@
 <?php
+session_start();
+session_destroy();
 
 if(isset($_POST['password'])){
-  $password = strip_tags(trim($_POST['password']));
-}
 
-if(!empty($password)){
-  if($password === "azerty"){
-    session_start();
-    $_SESSION['user'] = 'allowed';
-    header('Location: home.php');
+  $password = strip_tags(trim($_POST['password']));
+
+  if(!empty($password)){
+    if($password === "azerty"){
+      session_start();
+      $_SESSION['user'] = 'allowed';
+      header('Location: home.php');
+    }
+    else{
+      session_start();
+      $_SESSION['user'] = 'forbidden';
+      header('Location: index.php?password=false');
+    }
   }
   else{
     header('Location: index.php?password=false');
   }
+
 }
 ?>
 
@@ -32,18 +41,19 @@ if(!empty($password)){
       <link rel="stylesheet" href="style_log-admin.css"/>
   </head>
   <body>
-    <h1>Accès Admin</h1>
+    <h1 class="login">Mariage Mickael & Jennifer</h1>
+    <h1 class="login">Connexion</h1>
     <div class="container">
       <div class="col-md-offset-2 col-md-8">
-        <form action="index.php" method="post" class="form-admin">
+        <form action="index.php" method="post" class="form-login">
           <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password">Mot de Passe</label>
             <?php if(isset($_GET['password'])){
               if($_GET['password'] === "false"){ ?>
-                  <p style="color: red;">Mot de Passe Incorrect</p>
+                  <p class="wrong">Mot de Passe Incorrect</p>
       <?php   }
             } ?>
-            <input type="password" name="password" class="form-control" placeholder="Password" />
+            <input type="password" name="password" class="form-control" placeholder="Entrez le mot de passe" required/>
           </div>
           <button type="submit" class="btn btn-primary">Valider</button>
         </form>

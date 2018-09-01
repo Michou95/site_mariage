@@ -65,7 +65,7 @@ $nb_visites = getAllVisites();
           </a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link" href="../indexe.php" id="pagesDropdown" role="button">
+          <a class="nav-link" href="../home.php" id="pagesDropdown" role="button">
             <i class="fas fa-fw fa-folder"></i>
             <span>Retour à la Home</span>
           </a>
