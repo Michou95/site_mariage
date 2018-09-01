@@ -10,7 +10,7 @@ if(isset($_POST['mode']) && !empty($_POST['mode']))
 else
   return false;
 
-if(isset($_POST['page']) && !empty($_POST['page'])) 
+if(isset($_POST['page']) && !empty($_POST['page']))
   $page = strip_tags(trim($_POST['page']));
 else
   $page = 1;
@@ -23,46 +23,46 @@ function addPhotoAndPaginate($tabPhoto,$mode,$page,$id_invite = null){
   $id = ($id_invite != null) ? 'data-id="'.$id_invite.'"' : '' ;
   $html = '';//init rendu html
   $nbrPage = floor(count($tabPhoto) / 12); //compte du nombre de page
-  
+
   for($i = (($page-1)*12); $i < ((int)(($page-1)*12)+12) ; $i++){ //construction des div et intégration des photos en fonction de la page
-      $html .= '<div id="'.$i.'" class="section col-md-4 col-xs-12 photo-random"><img src="' . $tabPhoto[$i]['url'] . '"></div>';
+      $html .= '<a href="'. $tabPhoto[$i]['url'] . '" download id="'.$i.'" class="section col-md-4 col-xs-12 photo-random"><img src="' . $tabPhoto[$i]['url'] . '"></a>';
   }
 
   //Si les résultat nécéssite plus d'une page, on met une âgination
-  if($nbrPage > 1){ 
+  if($nbrPage > 1){
     //On met le bouton précédent si on est pas sur la page 1
     if($page > 1)
       $html .= '<div class="col-xs-12 text-center"><a class="paginate_link btn btn-default" data-mode="' . $mode . '" data-page="'. ($page - 1) .'"' . $id . '> < </a>';
-    else 
+    else
       $html .= '<div class="col-xs-12 text-center">';
 
-      //Incrémentation des pages en fonction du nombre de résultats (on remet la catégorie et le mode pour relancer la même fonction ajax)  
+      //Incrémentation des pages en fonction du nombre de résultats (on remet la catégorie et le mode pour relancer la même fonction ajax)
       for($j = 0; $j < $nbrPage; $j++){
           $html .= ' <a data-mode="' . $mode . '" data-page="'. ($j+1) .'"' . $id . ' class="paginate_link btn btn-default ';
           $html .= (($j+1) == $page) ? 'active' : '' ; //On met ou non la class active si c'est la page en cours
-          $html .= '"> ' . ($j+1) . '</a> ';   
+          $html .= '"> ' . ($j+1) . '</a> ';
       }
-    
+
     //Bouton suivant si on est pas sur la dernière page
     if($page != $nbrPage)
       $html .= '<a class="paginate_link btn btn-default" data-mode="' . $mode . '" data-page="'. ($page+1) .'"' . $id . '> > </a></div>';
-    else 
+    else
       $html .= '</div>';
   }
 
  return $html;
- 
+
 }
 
 //--------------------------
-// FONCTION DE SELECTION BDD 
+// FONCTION DE SELECTION BDD
 //--------------------------
 
 //Merci michou je te laisse commenter si besoin :P
 function getPhotoByCategory(string $mode):array{
   $connexion = getDB();
   if($mode == "mairie" || $mode == "vin_honneur" || $mode == "salle"){
-    $sql = "SELECT id_photo, url FROM photos WHERE categorie = ?;"; 
+    $sql = "SELECT id_photo, url FROM photos WHERE categorie = ?;";
     $query = $connexion->prepare($sql);
     $query->execute(array($mode));
     $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -117,10 +117,3 @@ switch ($mode){
 
 
 echo $resultHtml;die();
-
-
-
-
-
-  
-

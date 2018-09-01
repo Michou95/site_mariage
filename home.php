@@ -54,9 +54,9 @@
       <?php
         $random = getRandomPhoto();
         for ($i=0; $i < count($random) ; $i++) {
-          echo '<div class="section col-md-4 col-xs-12 photo-random">
+          echo '<a href="' . $random[$i]['url'] . '" download class="section col-md-4 col-xs-12 photo-random">
                   <img src="' . $random[$i]['url'] . '">
-                </div>';
+                </a>';
         }
        ?>
     </div>

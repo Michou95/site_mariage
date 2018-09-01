@@ -151,10 +151,19 @@ footer h4{
   font-size: 5em;;
 }
 
+.photo-random{
+  overflow: hidden;
+}
+
 .photo-random img{
   padding: 5px;
   width: 400px!important;
   height: 300px!important;
+  transition: all 0.5s ease;
+}
+
+.photo-random img:hover{
+  transform: scale(1.1);
 }
 
 
