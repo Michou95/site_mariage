@@ -1,3 +1,23 @@
+<?php
+require_once ('../fonctions.php');
+//----------------------------------------------------//
+// Récupération du nombre total de photos sur le site //
+//----------------------------------------------------//
+$photos = getAllPhotos();
+$nb_photos = count($photos);
+
+//---------------------------------------------//
+// Recuperation du nombre total d'associations //
+//---------------------------------------------//
+$tags = getAllTags();
+$nb_tags = count($tags);
+
+//-----------------------------------//
+// Récupération du nombre de visites //
+//-----------------------------------//
+$nb_visites = getAllVisites();
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,7 +101,7 @@
                 <div class="card-body">
                   <div class="card-body-icon">
                   </div>
-                  <div class="mr-5">Nb de visites</div>
+                  <div class="mr-5"><h5><?php echo $nb_visites; ?> visites</h5></div>
                 </div>
               </div>
             </div>
@@ -90,7 +110,7 @@
                 <div class="card-body">
                   <div class="card-body-icon">
                   </div>
-                  <div class="mr-5">Nb de Photos</div>
+                  <div class="mr-5" style="color: black;"><h5><?php echo $nb_photos; ?> photos au total</h5></div>
                 </div>
               </div>
             </div>
@@ -99,7 +119,7 @@
                 <div class="card-body">
                   <div class="card-body-icon">
                   </div>
-                  <div class="mr-5">Nb de tags</div>
+                  <div class="mr-5"><h5><?php echo $nb_tags; ?> Tags sur photos</h5></div>
                 </div>
               </div>
             </div>

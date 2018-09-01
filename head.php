@@ -11,6 +11,11 @@ $connexion = new Connexion();
 //--------------------------------------------------------//
 $ip = $connexion->getIp();
 
+//---------------------------------------//
+// Incrémentation du compteur de visites //
+//---------------------------------------//
+$connexion->addCountVisites($ip);
+
 //-------------------------------------//
 // Check si l'ip appartient a un admin //
 //-------------------------------------//
@@ -33,6 +38,7 @@ $admin_ip = $connexion->isAllowedIp($ip);
 </head>
 
 <header>
+  <div id="what_the_funk"></div>
   <video autoplay loop class="fillWidth" style="max-width: 220%;">
     <source src="http://localhost/site_mariage/mariage/banniere_site_mariage.mp4" type="video/mp4"/>
   </video>
