@@ -101,6 +101,15 @@ footer h4{
   background-color: white;
 }
 
+#resultSearch li{
+  padding: 5px 5px 5px 10px;
+}
+
+#resultSearch li:hover{
+  cursor: pointer;
+  background-color: rgb(182, 227, 245);
+}
+
 /* SECTION DE LA HOME */
 
 .section{

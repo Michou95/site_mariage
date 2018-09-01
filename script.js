@@ -13,13 +13,26 @@ $(function(){
         });
     }
 
+    // lancement autocomplétion a la modification du champ de saisie
     $('#search').keyup(function(){
-        if($(this).val().length > 0)
+        if($(this).val().length > 0)//Lancement si la valeur est supérieur a 0
             autocomplete($(this));
-        else
-            $('#resultSearch').css('display','none');
-
+        else //Sionon on cache l'autocomplète car vide
+            $('#resultSearch').slideUp('fast');
     });
+
+    // lancement autocomplétion au click dans le champ de saisie
+    $('html').click(function(e){
+        //console.log(e.target.id);
+        if(e.target.id == 'search'){ //Si le clic est dans la champ de recherche on remet l'autocomplete
+            if($('#search').val().length > 0) //A condition que ça valeur ne soit pas null
+                autocomplete($('#search'));
+        }else{ //Si on click en dehors, on masque l'autocomplete
+            $('#resultSearch').slideUp('fast'); 
+        }
+            
+    });
+
 
     //------------ GESTION AFFICHAGE SECTION HOME -------------------//
     $(document).hover(function(event) {
@@ -117,6 +130,7 @@ $(function(){
         if(saisie == "what the funk"){
           $('#audio').html("<audio autoplay src='mariage/what_the_funk.mp3'></audio>");
           $('.mute').html('<i class="fas fa-volume-off fa-3x"></i><br><small>mute</small>');
+          return false;
         }
 
         var request = $.ajax({
@@ -134,13 +148,18 @@ $(function(){
                     var prenom = value.prenom.charAt(0).toUpperCase() + value.prenom.slice(1);
                     var nom = value.nom.charAt(0).toUpperCase() + value.nom.slice(1);
 
-                    li += '<li value="'+value.id_invite+'">'+prenom+' '+nom+'</li>';
+                    li += '<li class="searchPerson" value="'+value.id_invite+'">'+prenom+' '+nom+'</li>';
                 });
 
                 if(li.length == '0')
                     li = '<li>Aucun résultat !</li>'
 
-            $('#resultSearch').html(li).css('display','block');
+            $('#resultSearch').html(li).slideDown('fast');
+
+            $('.searchPerson').click(function(){
+                $('#search').val($(this).text()).attr('value', $(this).val());
+                $('#resultSearch').slideUp('fast').html('');
+            });
 
         });
 
