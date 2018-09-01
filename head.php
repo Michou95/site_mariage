@@ -58,14 +58,14 @@ $admin_ip = $connexion->isAllowedIp($ip);
 
 <form id="SearchForm" class="form-inline" method="post">
   <div class="mute"></div>
-<div class="form-group" style="width:30%">
-    <div class="input-group">
-      <input id="search" type="text" class="form-control" value="" placeholder="Entrez Votre Prénom" autocomplete="off">
-      <div class="input-group-addon" style="width:5%"><a><i class="fas fa-search"></i></a></div>
-    </div>
-    <ul id="resultSearch"></ul>
-    <small id="small">Entrez votre prénom et/ou votre nom en minucule sans accents</small>
-</div>
+  <div class="form-group" style="width:30%">
+      <div class="input-group">
+        <input id="search" type="text" class="form-control" data-id="" data-mode="personne" placeholder="Entrez Votre Prénom" autocomplete="off">
+        <div id="submitForm" class="input-group-addon" style="width:5%"><a><i class="fas fa-search"></i></a></div>
+      </div>
+      <ul id="resultSearch"></ul>
+      <small id="small">Entrez votre prénom et/ou votre nom en minucule sans accents</small>
+  </div>
 </form>
 
 <body>
