@@ -54,7 +54,6 @@ class Connexion{
           $compteur = $compteur + 1;
           $sql = "UPDATE visites SET ip = '" . $ip . "', compteur = '" . $compteur . "' WHERE id_nb_visites = 1;";
           $query = $connexion->query($sql);
-          $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
 
         }
 
@@ -65,7 +64,6 @@ class Connexion{
         $compteur = $compteur + 1;
         $sql = "UPDATE visites SET ip = '" . $ip . "', compteur = '" . $compteur . "' WHERE id_nb_visites = 1;";
         $query = $connexion->query($sql);
-        $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
 
       }
     }
