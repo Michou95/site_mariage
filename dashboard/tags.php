@@ -30,3 +30,9 @@
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
 </form>
+
+<style media="screen">
+  textarea{
+    display:none;
+  }
+</style>

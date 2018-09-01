@@ -20,6 +20,7 @@ $connexion->addCountVisites($ip);
 // Check si l'ip appartient a un admin //
 //-------------------------------------//
 $admin_ip = $connexion->isAllowedIp($ip);
+
  ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
