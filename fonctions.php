@@ -79,6 +79,34 @@ function getPhotoByInvite(int $id_invite):array{
   }
 }
 
+//-----------------------------------------------//
+// Récupère le nombre d'association photo Invite //
+//-----------------------------------------------//
+function getAllTags(){
+  $connexion = getDB();
+  $sql = "SELECT * FROM invite_photo;";
+  $query = $connexion->query($sql);
+  $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
+
+  return $resultat;
+} //end function getAllTags()
+
+
+//--------------------------------//
+// Récupérer le nombre de visites //
+//--------------------------------//
+function getAllVisites():string{
+
+  $connexion = getDB();
+  $sql = "SELECT compteur FROM visites WHERE id_nb_visites;";
+  $query = $connexion->query($sql);
+  $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
+
+  $compteur = $resultat[0]['compteur'];
+
+  return $compteur;
+}
+
 
 //---------------------------------------------------------------------//
 // Recupere l'utilisateur en fonction de ce qui est ecrit dans le form //

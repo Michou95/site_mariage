@@ -57,8 +57,10 @@ $(function(){
     //------------- GESTION SON  ------------------------//
 
     $('.mute').click(function(){
-        $('#audio').html("");
         $('.mute').html('');
+        $('#what_the_funk').html('');
+        $('.fillWidth').html('<source src="http://localhost/site_mariage/mariage/banniere_site_mariage.mp4" type="video/mp4"/>');
+        $('.title').html('<h1>Mickael & Jennifer</h1><h2>28 Juillet 2018</h2>');
     })
 
     //------------- GESTION SCROLL ------------------------//
@@ -128,8 +130,10 @@ $(function(){
         var saisie = $(element).val();
 
         if(saisie == "what the funk"){
-          $('#audio').html("<audio autoplay src='mariage/what_the_funk.mp3'></audio>");
-          $('.mute').html('<i class="fas fa-volume-off fa-3x"></i><br><small>mute</small>');
+          $('.mute').html('<i class="fas fa-ban fa-2x"></i><br><small>Stop</small>');
+          $('.fillWidth').html("");
+          $('#what_the_funk').html('<iframe style="top: 0px!important;" width="1500" height="500" src="https://www.youtube.com/embed/Io47l-upI5M?rel=0&amp;autoplay=1&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+          $('.title').html('<h1>What The Funk !</h1>');
           return false;
         }
 
