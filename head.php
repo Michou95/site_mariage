@@ -51,14 +51,10 @@ $admin_ip = $connexion->isAllowedIp($ip);
 </header>
 
 <form id="SearchForm" class="form-inline" method="post">
-  <!-- <div class="mute">
-    <i class="fas fa-volume-off fa-3x"></i>
-    <br>
-    <small>mute</small>
-  </div> -->
+  <div class="mute"></div>
 <div class="form-group" style="width:30%">
     <div class="input-group">
-      <input id="search" type="text" class="form-control" id="exampleInputAmount" placeholder="Entrez Votre Prénom">
+      <input id="search" type="text" class="form-control" placeholder="Entrez Votre Prénom">
       <div class="input-group-addon" style="width:5%"><a><i class="fas fa-search"></i></a></div>
     </div>
     <ul id="resultSearch"></ul>

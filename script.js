@@ -45,6 +45,7 @@ $(function(){
 
     $('.mute').click(function(){
         $('#audio').html("");
+        $('.mute').html('');
     })
 
     //------------- GESTION SCROLL ------------------------//
@@ -67,14 +68,14 @@ $(function(){
         var request = $.ajax({
             url: "image_par_categorie.php",
             method: "POST",
-            data: { 
+            data: {
                     categorie : categorie,
                     page : page,
                     mode : mode,
                   }
         });
 
-        request.done(function( data ) { 
+        request.done(function( data ) {
             //console.log(data);
             rechercheOn = true;
             $('html, body').animate({ scrollTop: scrollTo }, 500); // on scrolle la page sur les photos
@@ -96,7 +97,7 @@ $(function(){
             $('.container').fadeOut('fast',function(){ //Chargement et affichage des photo
                 $('.container').html(data);
                 $('.container').fadeIn('slow');
-                eventListener(); // /!\IMPORTANT/!\ permet de relancer l'event listener pour les bouton de pagination 
+                eventListener(); // /!\IMPORTANT/!\ permet de relancer l'event listener pour les bouton de pagination
             });
             //$( ".container" ).html( data );
         });
@@ -108,20 +109,25 @@ $(function(){
     }
 
     //------------------ AJAX AUTOCOMPLETE -------------------//
-    
+
     function autocomplete(element){
         var element = $(element);
         var saisie = $(element).val();
 
+        if(saisie == "what the funk"){
+          $('#audio').html("<audio autoplay src='mariage/what_the_funk.mp3'></audio>");
+          $('.mute').html('<i class="fas fa-volume-off fa-3x"></i><br><small>mute</small>');
+        }
+
         var request = $.ajax({
             url: "autocomplete.php",
             method: "POST",
-            data: { 
+            data: {
                     saisie : saisie,
                   }
         });
 
-        request.done(function( data ) { 
+        request.done(function( data ) {
             var result = JSON.parse(data);
             var li = '';
                 $(result).each(function(key, value){
@@ -130,7 +136,7 @@ $(function(){
 
                     li += '<li value="'+value.id_invite+'">'+prenom+' '+nom+'</li>';
                 });
-            
+
                 if(li.length == '0')
                     li = '<li>Aucun résultat !</li>'
 

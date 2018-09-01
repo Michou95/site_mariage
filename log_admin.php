@@ -48,8 +48,3 @@ if(!empty($password)){
     </div>
   </body>
 </html>
-
-
-
-
- ?>
