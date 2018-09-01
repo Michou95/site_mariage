@@ -7,6 +7,15 @@ $(function(){
         selectPhoto($(this));
     });
 
+    $('#SearchForm').submit(function(e){
+        e.preventDefault();
+        selectPhoto($('#search'));
+    });
+
+    $('#submitForm').click(function(){
+        selectPhoto($('#search'));
+    });
+
     function eventListener(){
         $('.paginate_link').click(function(){
             selectPhoto($(this));
@@ -30,7 +39,6 @@ $(function(){
         }else{ //Si on click en dehors, on masque l'autocomplete
             $('#resultSearch').slideUp('fast');
         }
-
     });
 
 
@@ -73,10 +81,10 @@ $(function(){
     //------------- AJAX IMAGE PAR CATEGORIES -------------//
 
     function selectPhoto(element){
-        var categorie = $(element).attr('data-categorie');
         var page = $(element).attr('data-page');
         var mode = $(element).attr('data-mode');
-        //console.log(categorie);
+        var id_invite = $(element).attr('data-id');
+        var NomInvite = $(element).val();
         var scrollTo = ($('.scroll_barre').offset().top * 2);
         var titre = '';
 
@@ -84,9 +92,9 @@ $(function(){
             url: "image_par_categorie.php",
             method: "POST",
             data: {
-                    categorie : categorie,
                     page : page,
                     mode : mode,
+                    id_invite : id_invite,
                   }
         });
 
@@ -94,16 +102,19 @@ $(function(){
             //console.log(data);
             rechercheOn = true;
             $('html, body').animate({ scrollTop: scrollTo }, 500); // on scrolle la page sur les photos
-            switch(categorie){ //choix du titre a afficher
+            switch(mode){ //choix du titre a afficher
                 case 'mairie' :
                     titre = 'Photos Mairie';
-                break;
+                    break;
                 case 'vin_honneur' :
                     titre = 'Photos vin d\'honneur';
-                break;
+                    break;
                 case 'salle' :
                     titre = 'Photos Salle Des Fêtes';
-                break;
+                    break;
+                case 'personne' :
+                    titre = 'Photo de '+ NomInvite;
+                    break;
             }
             $('.photo_title').fadeOut('fast',function(){ //modification du titre
                 $('.photo_title').html('<h2>' + titre + '</h2>');
@@ -161,7 +172,7 @@ $(function(){
             $('#resultSearch').html(li).slideDown('fast');
 
             $('.searchPerson').click(function(){
-                $('#search').val($(this).text()).attr('value', $(this).val());
+                $('#search').val($(this).text()).attr('data-id', $(this).val());
                 $('#resultSearch').slideUp('fast').html('');
             });
 

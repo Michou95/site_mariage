@@ -1,9 +1,4 @@
-
-<?php
-session_start();
-if(isset($_SESSION['user'])){
-  if($_SESSION['user'] == "allowed"){
-require_once ('fonctions.php'); ?>
+<?php require_once ('fonctions.php'); ?>
 <?php include_once'head.php' ?>
 
 <!-- Section rubrique clickables -->
@@ -13,7 +8,7 @@ require_once ('fonctions.php'); ?>
           <a data-section="salle">
             <img src="mariage/photos_charline/mairie/413.jpg">
           </a>
-          <div data-categorie="mairie" data-mode="categorie" class="hover_section" style="display:none;">
+          <div data-mode="mairie" class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
               Photos Mairie
             </h2>
@@ -24,7 +19,7 @@ require_once ('fonctions.php'); ?>
           <a data-section="salle">
             <img src="mariage/photos_charline/vin_honneur/545.jpg">
           </a>
-          <div data-categorie="vin_honneur" data-mode="categorie" class="hover_section" style="display:none;">
+          <div data-mode="vin_honneur" class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
               Photos Vin D'honneur
             </h2>
@@ -35,7 +30,7 @@ require_once ('fonctions.php'); ?>
           <a data-section="salle">
             <img src="mariage/photos_charline/vin_honneur/546.jpg">
           </a>
-          <div data-categorie="salle" data-mode="categorie" class="hover_section" style="display:none;">
+          <div data-mode="salle" class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
               Photos Salle des fêtes
             </h2>
@@ -68,11 +63,4 @@ require_once ('fonctions.php'); ?>
 
 
 
-<?php include_once'footer.php';
-    session_destroy();
-    } //end if($_SESSION['user'] == "allowed")
-  } //end if(isset($_SESSION))
-  else{
-    session_destroy();
-    header("Location: index.php");
-  }?>
+<?php include_once'footer.php' ?>
