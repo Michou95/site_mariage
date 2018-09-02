@@ -16,16 +16,9 @@
       ?>
     </select>
     <?php
-    // $mes_photos_tag = getPhotoTaggued();
-    // $photo = getAllIdPhotos();
-    // var_dump($mes_photos_tag);
-    // var_dump($photo);
-    // die();
-    // for ($i=0; $i < count($mes_photos_tag) ; $i++) {
-    //   if($mes_photos_tag[$i]['id_photo'] != $photo[$i]['id_photo']){
-    //     $photo_not_tag[] =
-    //   }
-    // }
+    $mes_photos_tag = getPhotoNotTaggued();
+    var_dump($mes_photos_tag);
+    die();
     ?>
   </div>
   <div class="form-group">

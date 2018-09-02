@@ -26,13 +26,26 @@ function getInviteById(int $id):array{
   return $resultat;
 }
 
-function getPhotoTaggued(){
+//------------------------------------------------------------------------//
+// Récupère les photos de la BDD qui ne sont pas tagguée avec des invités //
+//------------------------------------------------------------------------//
+function getPhotoNotTaggued(){
   $connexion = getDB();
-  $sql = "SELECT id_photo FROM invite_photo;";
+  $sql = "SELECT id_photo, url FROM photos WHERE statut = 'not_tagged';";
   $query = $connexion->query($sql);
   $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
 
   return $resultat;
+}
+
+//------------------------------------------//
+// Insère un tag invité associé à une photo //
+//------------------------------------------//
+function addTag(int $id_invite, int $id_photo){
+  $connexion = getDB();
+  $sql = "INSERT INTO invite_photo (id_invite, id_photo) VALUES ('" . $id_invite . "', '" . $id_photo . "');";
+  $query = $connexion->prepare($sql);
+  $query->execute();
 }
 
 //---------------------------------------//
@@ -57,17 +70,6 @@ function getAllPhotos():array{
   $resultat = $response->fetchAll(PDO::FETCH_ASSOC);
   return $resultat;
 } //end function getAllPhotos()
-
-//-------------------------------------------//
-// Récupérer toutes les id photos de la base //
-//-------------------------------------------//
-function getAllIdPhotos(){
-  $connexion = getDB();
-  $sql = "SELECT id_photo FROM photos;";
-  $response = $connexion->query($sql);
-  $resultat = $response->fetchAll(PDO::FETCH_ASSOC);
-  return $resultat;
-}
 
 //----------------------------------------------------//
 // Récupération des photos en fonction du photographe //
