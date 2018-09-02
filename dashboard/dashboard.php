@@ -1,4 +1,5 @@
 <?php include_once'header.php';
+require_once ('../fonctions.php');
 
 if(isset($_GET['section'])){
   if($_GET['section'] == 'tags'){ ?>

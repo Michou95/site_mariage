@@ -26,6 +26,27 @@ function getInviteById(int $id):array{
   return $resultat;
 }
 
+function getPhotoTaggued(){
+  $connexion = getDB();
+  $sql = "SELECT id_photo FROM invite_photo;";
+  $query = $connexion->query($sql);
+  $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
+
+  return $resultat;
+}
+
+//---------------------------------------//
+// Récupère la liste de tous les invités //
+//---------------------------------------//
+function getAllInvites():array{
+  $connexion = getDB();
+  $sql = "SELECT * FROM invites;";
+  $query = $connexion->query($sql);
+  $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
+
+  return $resultat;
+}
+
 //----------------------------------------//
 // Récupérer toutes les photos de la base //
 //----------------------------------------//
@@ -37,6 +58,16 @@ function getAllPhotos():array{
   return $resultat;
 } //end function getAllPhotos()
 
+//-------------------------------------------//
+// Récupérer toutes les id photos de la base //
+//-------------------------------------------//
+function getAllIdPhotos(){
+  $connexion = getDB();
+  $sql = "SELECT id_photo FROM photos;";
+  $response = $connexion->query($sql);
+  $resultat = $response->fetchAll(PDO::FETCH_ASSOC);
+  return $resultat;
+}
 
 //----------------------------------------------------//
 // Récupération des photos en fonction du photographe //

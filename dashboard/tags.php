@@ -7,32 +7,40 @@
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+    <select multiple class="form-control" id="select" onchange="fillText(this.value)">
+      <option value="none">--------------------</option>
+      <?php
+      $invites = getAllInvites();
+      for ($i=0; $i < count($invites); $i++) {
+        echo '<option value="'.$invites[$i]['id_invite'].'|">'.$invites[$i]['prenom'].' '.$invites[$i]['nom'].'</option>';
+      }
+      ?>
     </select>
+    <?php
+    // $mes_photos_tag = getPhotoTaggued();
+    // $photo = getAllIdPhotos();
+    // var_dump($mes_photos_tag);
+    // var_dump($photo);
+    // die();
+    // for ($i=0; $i < count($mes_photos_tag) ; $i++) {
+    //   if($mes_photos_tag[$i]['id_photo'] != $photo[$i]['id_photo']){
+    //     $photo_not_tag[] =
+    //   }
+    // }
+    ?>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect2">Example multiple select</label>
-    <select multiple class="form-control" id="exampleFormControlSelect2">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <label for="exampleFormControlTextarea1">id des invités à tagguer</label>
+    <textarea class="form-control" id="textarea" rows="3"></textarea>
   </div>
 </form>
+<script type="text/javascript">
 
-<style media="screen">
-  textarea{
-    display:none;
+  function fillText(value){
+    var value = $('#select').val();
+    var textarea = $('#textarea').val();
+    var value2 = textarea + value;
+    $('#textarea').val(value2);
   }
-</style>
+
+</script>
