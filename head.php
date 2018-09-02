@@ -11,10 +11,20 @@ $connexion = new Connexion();
 //--------------------------------------------------------//
 $ip = $connexion->getIp();
 
-//---------------------------------------//
-// Incrémentation du compteur de visites //
-//---------------------------------------//
-$connexion->addCountVisites($ip);
+if(isset($_GET['refresh'])){
+  if($_GET['refresh'] != "none"){
+    //---------------------------------------//
+    // Incrémentation du compteur de visites //
+    //---------------------------------------//
+    $connexion->addCountVisites($ip);
+  }
+}
+else{
+  //---------------------------------------//
+  // Incrémentation du compteur de visites //
+  //---------------------------------------//
+  $connexion->addCountVisites($ip);
+}
 
 //-------------------------------------//
 // Check si l'ip appartient a un admin //

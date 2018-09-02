@@ -59,7 +59,7 @@ if($_SESSION['user'] == "allowed"){
       <?php
         $random = getRandomPhoto();
         for ($i=0; $i < count($random) ; $i++) {
-          echo '<a href="' . $random[$i]['url'] . '" download class="section col-md-4 col-xs-12 photo-random">
+          echo '<a href="details_photo.php?photo=' . $random[$i]['url'] . '" class="section col-md-4 col-xs-12 photo-random">
                   <img src="' . $random[$i]['url'] . '">
                 </a>';
         }

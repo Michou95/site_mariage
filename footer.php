@@ -4,7 +4,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script type="text/javascript" src="script.js"></script>
 
-        <h4>&copy; Developpé & and Designé par Mickael Régent & Kévin Régent tout droit réservé</h4>
+        <h4>&copy; Developpé & Designé par Mickael & Kévin Régent tout droit réservé</h4>
     </footer>
 
   </body>
