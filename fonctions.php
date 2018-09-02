@@ -38,12 +38,22 @@ function getPhotoNotTaggued(){
   return $resultat;
 }
 
-//------------------------------------------//
-// Insère un tag invité associé à une photo //
-//------------------------------------------//
+//-----------------------------------------------------------------------------------------------//
+// Insère un tag invité associé à une photo et modifie le statut de la photo concernée à "tagged"//
+//-----------------------------------------------------------------------------------------------//
 function addTag(int $id_invite, int $id_photo){
   $connexion = getDB();
   $sql = "INSERT INTO invite_photo (id_invite, id_photo) VALUES ('" . $id_invite . "', '" . $id_photo . "');";
+  $query = $connexion->prepare($sql);
+  $query->execute();
+}
+
+//----------------------------------------------------//
+// modifie le statut de la photo concernée à "tagged" //
+//----------------------------------------------------//
+function setPhotoToTagged(int $id_photo){
+  $connexion = getDB();
+  $sql = "UPDATE photos SET statut = 'tagged' WHERE id_photo = '" . $id_photo . "';";
   $query = $connexion->prepare($sql);
   $query->execute();
 }
