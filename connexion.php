@@ -37,18 +37,64 @@ class Connexion{
       //----------------------------------------------------------------------------------------//
       // Récupération de la date du jour et de l'heure précédente par rapport àl'heure actuelle //
       //----------------------------------------------------------------------------------------//
-      $date_today = date('Y-m-d');
-      $last_hour = date('G:i:s', strtotime('-1 hour'));
+      $day_today = date('d');
+      $month_actually = date('m');
+      $year_actually = date('Y');
+      $last_hour = date('G', strtotime('-1 hour'));
 
 
       //----------------------------------------------------------------//
       // Récupération de la date et de l'heure de la derniere connexion //
       //----------------------------------------------------------------//
       $date_complete = explode(" ", $resultat[0]['date_et_heure']);
+      $date_day = explode("-", $date_complete[0]);
+      $year = $date_day[0];
+      $day = $date_day[2];
+      $month = $date_day[1];
+      $date_hour = explode(":", $date_complete[1]);
+      $hour = $date_hour[0];
 
+
+      //-----------------------------------------------//
+      // Attention L'algo de ouf qui fait mal au crane //
+      // En gros ca enregistre une nouvelle visite si  //
+      // la derniere à eu lieu il y a plus d'une heure //
+      // (avec la meme ip sinon ca enregistre direct   //
+      // une nouvelle visite)                          //
+      //-----------------------------------------------//
       if($resultat[0]['ip'] == $ip){
+        if($year == $year_actually){
+          if($month == $month_actually){
+            if($day == $day_today){
+              if($hour < $last_hour){
 
-        if($date_complete[0] >= $date_today && $date_complete[1] > $last_hour){
+
+                $compteur = $resultat[0]['compteur'];
+                $compteur = $compteur + 1;
+                $sql = "UPDATE visites SET ip = '" . $ip . "', compteur = '" . $compteur . "' WHERE id_nb_visites = 1;";
+                $query = $connexion->query($sql);
+
+              }
+            }
+            if($day < $day_today){
+
+              $compteur = $resultat[0]['compteur'];
+              $compteur = $compteur + 1;
+              $sql = "UPDATE visites SET ip = '" . $ip . "', compteur = '" . $compteur . "' WHERE id_nb_visites = 1;";
+              $query = $connexion->query($sql);
+
+            }
+          }
+          if($month < $month_actually){
+
+            $compteur = $resultat[0]['compteur'];
+            $compteur = $compteur + 1;
+            $sql = "UPDATE visites SET ip = '" . $ip . "', compteur = '" . $compteur . "' WHERE id_nb_visites = 1;";
+            $query = $connexion->query($sql);
+
+          }
+        }
+        if($year < $year_actually){
 
           $compteur = $resultat[0]['compteur'];
           $compteur = $compteur + 1;
@@ -56,7 +102,6 @@ class Connexion{
           $query = $connexion->query($sql);
 
         }
-
       }
       else{
 

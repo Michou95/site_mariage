@@ -133,6 +133,18 @@ footer h4{
   justify-content: center;
 }
 
+.photo_section{
+  cursor: pointer;
+  position:absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-color: rgb(173, 173, 173,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .title_section_hover{
   color: white;
   font-family: 'allura', verdana, Arial, sans-serif;
@@ -159,12 +171,8 @@ footer h4{
   padding: 5px;
   width: 400px!important;
   height: 300px!important;
-  transition: all 0.5s ease;
 }
 
-.photo-random img:hover{
-  transform: scale(1.1);
-}
 
 
 /* MEDIA QUERIES DE L'ESPACE !!!!! <= qui tue tout sur leurs passage !*/

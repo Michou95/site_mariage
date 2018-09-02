@@ -54,12 +54,23 @@ $(function(){
         $(this).children('.hover_section').slideUp('fast');
 	});
 
+
+    $(".section").mouseleave(function(){
+        $(this).children('.photo_section').slideUp('fast');
+  });
+
+
     $('.section').mouseenter(function(){
         if(rechercheOn){
             $('.section').children('.hover_section').slideUp('fast');
             rechercheOn = false;
         }
         $(this).children('.hover_section').slideDown('fast');
+    });
+
+
+    $('.section').mouseenter(function(){
+        $(this).children('.photo_section').slideDown('fast');
     });
 
     //------------- GESTION SON  ------------------------//

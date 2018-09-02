@@ -25,7 +25,7 @@ function addPhotoAndPaginate($tabPhoto,$mode,$page,$id_invite = null){
   $nbrPage = floor(count($tabPhoto) / 12); //compte du nombre de page
 
   for($i = (($page-1)*12); $i < ((int)(($page-1)*12)+12) ; $i++){ //construction des div et intégration des photos en fonction de la page
-      $html .= '<a href="'. $tabPhoto[$i]['url'] . '" download id="'.$i.'" class="section col-md-4 col-xs-12 photo-random"><img src="' . $tabPhoto[$i]['url'] . '"></a>';
+      $html .= '<a href="'. $tabPhoto[$i]['url'] . '" download id="'.$i.'" class="section col-md-4 col-xs-12 photo-random"><img src="' . $tabPhoto[$i]['url'] . '"><div class="photo_section" style="display: none;">Télecharger</div></a>';
   }
 
   //Si les résultat nécéssite plus d'une page, on met une âgination
