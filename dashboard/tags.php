@@ -6,13 +6,12 @@
     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
+    <label for="exampleFormControlSelect1">Selectionnez les invités à Tagguer</label>
     <select multiple class="form-control" id="select" onchange="fillText(this.value)">
-      <option value="none">--------------------</option>
       <?php
       $invites = getAllInvites();
       for ($i=0; $i < count($invites); $i++) {
-        echo '<option value="'.$invites[$i]['id_invite'].'|">'.$invites[$i]['prenom'].' '.$invites[$i]['nom'].'</option>';
+        echo '<option value="'.$invites[$i]['id_invite'].'|">'.ucfirst($invites[$i]['prenom']).' '.ucfirst($invites[$i]['nom']).'</option>';
       }
       ?>
     </select>
