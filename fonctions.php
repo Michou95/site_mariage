@@ -14,6 +14,18 @@ function getDb(){
     }
 }
 
+//-----------------------------------------------------//
+// Récupère le nom + prenom invité en fonction de l'id //
+//-----------------------------------------------------//
+function getInviteById(int $id):array{
+  $connexion = getDB();
+  $sql = "SELECT prenom, nom FROM invites WHERE id_invite = '". $id ."';";
+  $query = $connexion->query($sql);
+  $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
+
+  return $resultat;
+}
+
 //----------------------------------------//
 // Récupérer toutes les photos de la base //
 //----------------------------------------//
