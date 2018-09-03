@@ -10,7 +10,7 @@ if(isset($_POST['password'])){
     if($password === "Suce ma bite 2018!"){
       session_start();
       $_SESSION['user'] = 'allowed';
-      header('Location: home.php');
+      header('Location: site_mariage/home.php');
     }
     else{
       session_start();
