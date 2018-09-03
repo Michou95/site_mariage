@@ -7,7 +7,7 @@ if(isset($_POST['password'])){
   $password = strip_tags(trim($_POST['password']));
 
   if(!empty($password)){
-    if($password === "azerty"){
+    if($password === "Suce ma bite 2018!"){
       session_start();
       $_SESSION['user'] = 'allowed';
       header('Location: home.php');
