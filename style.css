@@ -201,3 +201,18 @@ footer h4{
 .scroll_barre:hover{
   cursor: pointer;
 }
+
+/* MODAL PHOTO */
+#myModal{
+  text-align: center;
+}
+
+.modal-content{
+  margin: 1% auto;
+  display: inline-block;
+}
+
+#photoModal{
+  max-height: calc(100vh - 100px);
+  max-width: 100%;
+}

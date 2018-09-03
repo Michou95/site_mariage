@@ -48,6 +48,10 @@ $admin_ip = $connexion->isAllowedIp($ip);
     <link rel="stylesheet" href="style.css"/>
 </head>
 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-content"></div>
+</div>
+
 <header>
   <div id="what_the_funk"></div>
   <video autoplay loop class="fillWidth" style="max-width: 220%;">
