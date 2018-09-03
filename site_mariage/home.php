@@ -11,7 +11,7 @@ if($_SESSION['user'] == "allowed"){
 
         <div class="section col-md-4 col-xs-12">
           <a data-section="salle">
-            <img src="mariage/photos_charline/mairie/413.jpg">
+            <img src="mariage/photos_charline/mairie/413-compressor.jpg">
           </a>
           <div data-mode="mairie" class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
@@ -22,7 +22,7 @@ if($_SESSION['user'] == "allowed"){
 
         <div class="section col-md-4 col-xs-12">
           <a data-section="salle">
-            <img src="mariage/photos_charline/vin_honneur/545.jpg">
+            <img src="mariage/photos_charline/vin_honneur/544-compressor.jpg">
           </a>
           <div data-mode="vin_honneur" class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
@@ -33,7 +33,7 @@ if($_SESSION['user'] == "allowed"){
 
         <div class="section col-md-4 col-xs-12">
           <a data-section="salle">
-            <img src="mariage/photos_charline/vin_honneur/546.jpg">
+            <img src="mariage/photos_charline/vin_honneur/546-compressor.jpg">
           </a>
           <div data-mode="salle" class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
