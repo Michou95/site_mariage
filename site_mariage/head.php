@@ -55,7 +55,7 @@ $admin_ip = $connexion->isAllowedIp($ip);
 <header>
   <div id="what_the_funk"></div>
   <video autoplay loop class="fillWidth" style="max-width: 220%;">
-    <source src="http://localhost/site_mariage/mariage/banniere_site_mariage.mp4" type="video/mp4"/>
+    <source src="http://localhost/site_mariage/site_mariage/mariage/banniere_site_mariage.mp4" type="video/mp4"/>
   </video>
   <?php if($admin_ip){ ?>
     <div class="admin">
