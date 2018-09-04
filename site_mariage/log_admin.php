@@ -1,10 +1,12 @@
 <?php
+session_start();
 if(isset($_POST['password'])){
   $password = strip_tags(trim($_POST['password']));
 }
 
 if(!empty($password)){
   if($password === "What the funk!"){
+    $_SESSION['user'] = 'admin';
     header('Location: dashboard/dashboard.php');
   }
   else{

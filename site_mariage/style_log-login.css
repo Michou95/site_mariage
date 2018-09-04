@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'allura';
+    src: url('Allura-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.login{
+   font-family: 'allura', sans-serif;
+}
+
+body{
+  background-image: url('mariage/photos_charline/mairie/424-compressor.jpg');
+  background-size: cover;
+}
+h1{
+  color: white;
+  text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+  font-size: 5em;
+  text-align: center;
+}
+
+label{
+  color: white;
+  text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+}
+
+.wrong{
+  color: red;
+  text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+}
+
+.form-admin{
+  margin-top: 50%;
+}
