@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if($_SESSION['user'] == "allowed"){
+if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
  ?>
 <?php require_once ('fonctions.php'); ?>
 <?php include_once'head.php'; ?>
@@ -71,6 +71,6 @@ if($_SESSION['user'] == "allowed"){
 <?php include_once'footer.php';
 }
 else{
-  header('Location: index.php');
+  header('Location: ../index.php');
 }
 ?>
