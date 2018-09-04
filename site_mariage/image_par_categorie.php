@@ -26,7 +26,7 @@ function addPhotoAndPaginate($tabPhoto,$mode,$page,$id_invite = null){
 
   for($i = (($page-1)*12); $i < ((int)(($page-1)*12)+12) ; $i++){ //construction des div et intégration des photos en fonction de la page
     if(isset($tabPhoto[$i]))
-      $html .= '<a href="details_photo.php?photo='. $tabPhoto[$i]['url'] . '&id_invite='. $id_invite .'" id="'.$i.'" class="section col-md-4 col-xs-12 photo-random"><img src="' . $tabPhoto[$i]['url'] . '"></a>';
+      $html .= '<a id="'.$i.'" onclick="$(\'#myModal .modal-content\').load(\'modal_photo.php?urlPhoto='.$tabPhoto[$i]['url'].'\',function(){$(\'#myModal\').modal(\'show\');});" class="section col-md-4 col-xs-12 photo-random"><img src="' . $tabPhoto[$i]['url_miniature'] . '"></a>';
   }
 
   //Si les résultat nécéssite plus d'une page, on met une pagination
@@ -63,7 +63,7 @@ function addPhotoAndPaginate($tabPhoto,$mode,$page,$id_invite = null){
 function getPhotoByCategory(string $mode):array{
   $connexion = getDB();
   if($mode == "mairie" || $mode == "vin_honneur" || $mode == "salle"){
-    $sql = "SELECT id_photo, url FROM photos WHERE categorie = ?;";
+    $sql = "SELECT id_photo, url, url_miniature FROM photos WHERE categorie = ?;";
     $query = $connexion->prepare($sql);
     $query->execute(array($mode));
     $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -80,7 +80,7 @@ function getPhotoByCategory(string $mode):array{
 function getPhotoByInvite(int $id_invite):array{
   $connexion = getDB();
   if(!is_nan($id_invite)){
-    $sql = "SELECT p.url FROM photos p, invite_photo i WHERE i.id_photo = p.id_photo AND i.id_invite = '" .$id_invite . "';";
+    $sql = "SELECT p.url_miniature FROM photos p, invite_photo i WHERE i.id_photo = p.id_photo AND i.id_invite = '" .$id_invite . "';";
     $query = $connexion->prepare($sql);
     $query->execute(array($id_invite));
     $resultat = $query->fetchAll(PDO::FETCH_ASSOC);

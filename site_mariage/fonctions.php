@@ -145,21 +145,12 @@ function getAllVisites():string{
   return $compteur;
 }
 
-
-//---------------------------------------------------------------------//
-// Recupere l'utilisateur en fonction de ce qui est ecrit dans le form //
-//---------------------------------------------------------------------//
-// function getInviteByInputForm(string $value){
-//   $connexion = getDB();
-//   $sql "SELECT i.prenom, i.nom FROM"
-// }
-
 //------------------------------//
 // Recupere 12 photos en random //
 //------------------------------//
 function getRandomPhoto():array{
   $connexion = getDB();
-  $sql = "SELECT url FROM photos ORDER BY RAND() LIMIT 0, 12;";
+  $sql = "SELECT url, url_miniature FROM photos ORDER BY RAND() LIMIT 0, 12;";
   $response = $connexion->query($sql);
   $resultat = $response->fetchAll(PDO::FETCH_ASSOC);
 

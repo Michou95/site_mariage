@@ -171,8 +171,13 @@ footer h4{
   padding: 5px;
   width: 400px!important;
   height: 300px!important;
+  transition: all 0.5s ease;
 }
 
+.photo-random img:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
 
 
 /* MEDIA QUERIES DE L'ESPACE !!!!! <= qui tue tout sur leurs passage !*/
