@@ -46,7 +46,7 @@ if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
           <a data-section="salle">
             <img src="mariage/photos_categories/photobooth.jpg">
           </a>
-          <div data-mode="salle" class="hover_section" style="display:none;">
+          <div data-mode="photobooth" class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
               Photos Photobooth
             </h2>
@@ -72,7 +72,7 @@ if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
       <?php
         $random = getRandomPhoto();
         for ($i=0; $i < count($random) ; $i++) {
-          echo '<div class="col-md-4 col-xs-12 overflowHidden">
+          echo '<div class="col-md-4 col-sm-6 col-xs-12 overflowHidden">
                   <a onclick="$(\'#myModal .modal-content\').load(\'modal_photo.php?urlPhoto='.$random[$i]['url'].'\',function(){$(\'#myModal\').modal(\'show\');});" class="col-xs-12 photo-random">
                     <img src="' . $random[$i]['url_miniature'] . '">
                   </a>

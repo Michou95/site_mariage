@@ -129,6 +129,9 @@ $(function(){
                 case 'salle' :
                     titre = 'Photos Salle Des Fêtes';
                     break;
+                case 'photobooth' :
+                    titre = 'Photobooth';
+                    break;
                 case 'personne' :
                     titre = 'Photo de '+ NomInvite;
                     break;

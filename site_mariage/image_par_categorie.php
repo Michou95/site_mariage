@@ -26,7 +26,7 @@ function addPhotoAndPaginate($tabPhoto,$mode,$page,$id_invite = null){
 
   for($i = (($page-1)*12); $i < ((int)(($page-1)*12)+12) ; $i++){ //construction des div et intégration des photos en fonction de la page
     if(isset($tabPhoto[$i]))
-      $html .= '<div class="col-md-4 col-xs-12 overflowHidden"><a id="photo_'.$i.'" data-url-photo="'.$tabPhoto[$i]['url'].'" class="photo col-xs-12 photo-random"><img src="' . $tabPhoto[$i]['url_miniature'] . '"></a></div>';
+      $html .= '<div class="col-md-4 col-sm-6 col-xs-12 overflowHidden"><a id="photo_'.$i.'" data-url-photo="'.$tabPhoto[$i]['url'].'" class="photo col-xs-12 photo-random"><img src="' . $tabPhoto[$i]['url_miniature'] . '"></a></div>';
   }
 
   //Stockage du tableau de résultat en cour d'affichage dans la session
@@ -64,7 +64,7 @@ function addPhotoAndPaginate($tabPhoto,$mode,$page,$id_invite = null){
 //Merci michou je te laisse commenter si besoin :P
 function getPhotoByCategory(string $mode):array{
   $connexion = getDB();
-  if($mode == "mairie" || $mode == "vin_honneur" || $mode == "salle"){
+  if($mode == "mairie" || $mode == "vin_honneur" || $mode == "salle" || $mode == "photobooth"){
     $sql = "SELECT id_photo, url, url_miniature FROM photos WHERE categorie = ?;";
     $query = $connexion->prepare($sql);
     $query->execute(array($mode));
@@ -103,6 +103,7 @@ switch ($mode){
   case 'vin_honneur' :
   case 'mairie' :
   case 'salle' :
+  case 'photobooth' :
     $photoResult = getPhotoByCategory($mode);
     $resultHtml = addPhotoAndPaginate($photoResult,$mode,$page);
     break;
