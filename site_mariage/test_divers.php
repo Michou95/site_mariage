@@ -97,3 +97,17 @@ foreach ($photo_vh_ch as $key => $value) {
     // $query->execute();
   }
 }
+
+echo "<hr><h1>Photobooth</h1><hr>";
+$photobooth = scandir('mariage/photobooth');
+$photobooth_min = scandir('mariage_miniature/photobooth');
+
+foreach ($photobooth as $key => $value) {
+  if($key > 1){
+    $url_min = $photobooth_min[$key];
+
+    // $sql = "INSERT INTO photos (url_miniature, url, prise_par, categorie, statut) VALUES ('mariage_miniature/photobooth/$url_min', 'mariage/photobooth/$value', 'invites', 'photobooth', 'not_tagged');";
+    // $query = $connexion->prepare($sql);
+    // $query->execute();
+  }
+}

@@ -9,9 +9,9 @@ if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
 <!-- Section rubrique clickables -->
       <div class="section_all">
 
-        <div class="section col-md-4 col-xs-12">
+        <div class="section col-md-3 col-sm-6 col-xs-12">
           <a data-section="salle">
-            <img src="mariage/photos_charline/mairie/413-compressor.jpg">
+            <img src="mariage/photos_categories/mairie.jpg">
           </a>
           <div data-mode="mairie" class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
@@ -20,9 +20,9 @@ if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
           </div>
         </div>
 
-        <div class="section col-md-4 col-xs-12">
+        <div class="section col-md-3 col-sm-6 col-xs-12">
           <a data-section="salle">
-            <img src="mariage/photos_charline/vin_honneur/544-compressor.jpg">
+            <img src="mariage/photos_categories/vin_honneur.jpg">
           </a>
           <div data-mode="vin_honneur" class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
@@ -31,9 +31,9 @@ if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
           </div>
         </div>
 
-        <div class="section col-md-4 col-xs-12">
+        <div class="section col-md-3 col-sm-6 col-xs-12">
           <a data-section="salle">
-            <img src="mariage/photos_charline/vin_honneur/546-compressor.jpg">
+            <img src="mariage/photos_categories/salle.jpg">
           </a>
           <div data-mode="salle" class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
@@ -41,17 +41,30 @@ if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
             </h2>
           </div>
         </div>
+
+        <div class="section col-md-3 col-sm-6 col-xs-12">
+          <a data-section="salle">
+            <img src="mariage/photos_categories/photobooth.jpg">
+          </a>
+          <div data-mode="salle" class="hover_section" style="display:none;">
+            <h2 class="title_section_hover">
+              Photos Photobooth
+            </h2>
+          </div>
+        </div>
+
       </div>
 
+
 <!-- Barre de scroll -->
-    <div id="go_to_photo" class="col-cs-12 text-center scroll_barre">
+    <div id="go_to_photo" class="col-xs-12 text-center scroll_barre">
       <i class="fas fa-chevron-down fa-3x"></i>
     </div>
 
-<!-- Section titre photos random -->
-      <div class="photo_title">
-        <h2>La sélection aléatoire</h2>
-      </div>
+    <!-- Section titre photos random -->
+    <div class="photo_title">
+      <h2>La sélection aléatoire</h2>
+    </div>
 
 
 <!-- Section affichage photo random -->
