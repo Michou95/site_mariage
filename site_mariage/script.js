@@ -17,8 +17,14 @@ $(function(){
     });
 
     function eventListener(){
+        //Ajout de l'évènement de recherche de photo sur la pagination
         $('.paginate_link').click(function(){
             selectPhoto($(this));
+        });
+
+        //Ajout de l'évènement pour affichage de la modal sur les résultat de recherche
+        $('.photo').click(function(){
+            $('#myModal .modal-content').load('modal_photo.php?urlPhoto='+$(this).attr('data-url-photo')+'&photoClick='+$(this).attr('id'),function(){$('#myModal').modal('show');});
         });
     }
 

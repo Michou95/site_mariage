@@ -164,19 +164,26 @@ footer h4{
 }
 
 .photo-random{
+  padding: 5px !important;
+  background-color: black;
+  text-align: center;
+  box-shadow: inset 0px 0px 0px 5px white;
   overflow: hidden;
-}
-
-.photo-random img{
-  padding: 5px;
-  width: 400px!important;
-  height: 300px!important;
   transition: all 0.5s ease;
 }
 
-.photo-random img:hover{
+.photo-random img{
+  height: 300px!important;
+}
+
+.photo-random:hover{
   cursor: pointer;
   transform: scale(1.1);
+}
+
+.overflowHidden{
+  max-height: 380px!important;
+  overflow: hidden;
 }
 
 
@@ -220,4 +227,38 @@ footer h4{
 #photoModal{
   max-height: calc(100vh - 100px);
   max-width: 100%;
+}
+
+/*PAGINATION MODAL*/
+
+#paginate_left{
+  position: absolute;
+  width: 8%;
+  height: 96.7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+#paginate_right{
+  position: absolute;
+  right: 0;
+  top: 15px;
+  width: 8%;
+  height: 96.7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+#paginate_right:hover{
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.30);
+}
+
+#paginate_left:hover{
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.30);
 }
