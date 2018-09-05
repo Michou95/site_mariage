@@ -15,7 +15,7 @@ if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
           </a>
           <div data-mode="mairie" class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
-              Photos Mairie
+              Mairie
             </h2>
           </div>
         </div>
@@ -26,7 +26,7 @@ if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
           </a>
           <div data-mode="vin_honneur" class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
-              Photos Vin D'honneur
+              Vin D'honneur
             </h2>
           </div>
         </div>
@@ -37,7 +37,7 @@ if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
           </a>
           <div data-mode="salle" class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
-              Photos Salle des fêtes
+              Salle des fêtes
             </h2>
           </div>
         </div>
@@ -48,7 +48,7 @@ if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
           </a>
           <div data-mode="photobooth" class="hover_section" style="display:none;">
             <h2 class="title_section_hover">
-              Photos Photobooth
+              Photobooth
             </h2>
           </div>
         </div>
