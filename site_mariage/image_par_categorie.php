@@ -26,8 +26,10 @@ function addPhotoAndPaginate($tabPhoto,$mode,$page,$id_invite = null){
 
   for($i = (($page-1)*12); $i < ((int)(($page-1)*12)+12) ; $i++){ //construction des div et intégration des photos en fonction de la page
     if(isset($tabPhoto[$i]))
-      $html .= '<a id="'.$i.'" onclick="$(\'#myModal .modal-content\').load(\'modal_photo.php?urlPhoto='.$tabPhoto[$i]['url'].'\',function(){$(\'#myModal\').modal(\'show\');});" class="section col-md-4 col-xs-12 photo-random"><img src="' . $tabPhoto[$i]['url_miniature'] . '"></a>';
+      $html .= '<div class="col-md-4 col-xs-12 overflowHidden"><a id="photo_'.$i.'" data-url-photo="'.$tabPhoto[$i]['url'].'" class="photo col-xs-12 photo-random"><img src="' . $tabPhoto[$i]['url_miniature'] . '"></a></div>';
   }
+
+  //Stockage du tableau de résultat en cour d'affichage dans la session
 
   //Si les résultat nécéssite plus d'une page, on met une pagination
   if($nbrPage > 1){

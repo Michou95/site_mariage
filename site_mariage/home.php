@@ -59,9 +59,11 @@ if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
       <?php
         $random = getRandomPhoto();
         for ($i=0; $i < count($random) ; $i++) {
-          echo '<a onclick="$(\'#myModal .modal-content\').load(\'modal_photo.php?urlPhoto='.$random[$i]['url'].'\',function(){$(\'#myModal\').modal(\'show\');});" class="section col-md-4 col-xs-12 photo-random">
-                  <img src="' . $random[$i]['url_miniature'] . '">
-                </a>';
+          echo '<div class="col-md-4 col-xs-12 overflowHidden">
+                  <a onclick="$(\'#myModal .modal-content\').load(\'modal_photo.php?urlPhoto='.$random[$i]['url'].'\',function(){$(\'#myModal\').modal(\'show\');});" class="col-xs-12 photo-random">
+                    <img src="' . $random[$i]['url_miniature'] . '">
+                  </a>
+                </div>';
         }
        ?>
     </div>
