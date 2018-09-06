@@ -244,9 +244,17 @@ footer h4{
   transition: all 0.5s ease;
 }
 
+#paginate_left i{
+  color: rgb(224, 224, 224);
+}
+
+#paginate_right i{
+  color: rgb(224, 224, 224);
+}
+
 #paginate_right{
   position: absolute;
-  right: 0;
+  right: 15px;
   top: 15px;
   width: 8%;
   height: 96.7%;

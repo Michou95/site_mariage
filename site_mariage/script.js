@@ -91,7 +91,7 @@ $(function(){
     //------------- GESTION SCROLL ------------------------//
 
     $('.scroll_barre').click(function(){
-    var scrollTo = ($(this).offset().top * 2);
+    var scrollTo = ($(this).offset().top);
         $('html, body').animate({ scrollTop: scrollTo }, 500);
     });
 
@@ -102,7 +102,7 @@ $(function(){
         var mode = $(element).attr('data-mode');
         var id_invite = $(element).attr('data-id');
         var NomInvite = $(element).val();
-        var scrollTo = ($('.scroll_barre').offset().top * 2);
+        var scrollTo = ($('.scroll_barre').offset().top + 50);
         var titre = '';
 
         var request = $.ajax({
