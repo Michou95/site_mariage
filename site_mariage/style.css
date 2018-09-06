@@ -150,7 +150,7 @@ footer h4{
   color: white;
   font-family: 'allura', verdana, Arial, sans-serif;
   text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
-  font-size: 3em;
+  font-size: 2em;
 }
 
 
@@ -277,5 +277,9 @@ footer h4{
 @media screen and (max-width:420px){
   video{
     display: none;
+  }
+
+  .title_section_hover{
+    font-size: 1.7em;
   }
 }
