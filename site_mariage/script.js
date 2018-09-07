@@ -25,8 +25,18 @@ $(function(){
         });
 
         //Ajout de l'évènement pour affichage de la modal sur les résultat de recherche
-        $('.photo').click(function(){
-            $('#myModal .modal-content').load('modal_photo.php?urlPhoto='+$(this).attr('data-url-photo')+'&photoClick='+$(this).attr('id'),function(){$('#myModal').modal('show');});
+        $('.hover_photo').click(function(){
+            $('#myModal .modal-content').load('modal_photo.php?urlPhoto='+$(this).prev('.photo').attr('data-url-photo')+'&photoClick='+$(this).prev('.photo').attr('id'),function(){$('#myModal').modal('show');});
+        });
+
+        
+        //GESTION AFFICHAGE HOVER PHOTO 
+        $(".hover_photo").mouseleave(function(){
+            $(this).fadeOut('fast');
+        });
+
+        $('.photo').mouseenter(function(){
+            $(this).next('.hover_photo').fadeIn('fast');
         });
     }
 
@@ -51,22 +61,11 @@ $(function(){
 
 
     //------------ GESTION AFFICHAGE SECTION HOME -------------------//
-    $(document).hover(function(event) {
-        if(!$(event.target).closest('#monElement').length) {
-        //Le clic s'est produit en dehors de l'élément monElement
-        }
-    });
 
     $(".section").mouseleave(function(){
         if(!rechercheOn)
         $(this).children('.hover_section').slideUp('fast');
 	});
-
-
-    $(".section").mouseleave(function(){
-        $(this).children('.photo_section').slideUp('fast');
-  });
-
 
     $('.section').mouseenter(function(){
         if(rechercheOn){
@@ -74,11 +73,6 @@ $(function(){
             rechercheOn = false;
         }
         $(this).children('.hover_section').slideDown('fast');
-    });
-
-
-    $('.section').mouseenter(function(){
-        $(this).children('.photo_section').slideDown('fast');
     });
 
     //------------- GESTION SON  ------------------------//
