@@ -133,6 +133,18 @@ footer h4{
   justify-content: center;
 }
 
+.hover_section_photo{
+  cursor: pointer;
+  position:absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-color: rgb(173, 173, 173,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .photo_section{
   cursor: pointer;
   position:absolute;

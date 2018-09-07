@@ -3,7 +3,7 @@ $(function(){
 
     // -------- ECOUTEUR D'EVENEMENT ------------//
     eventListener();
-    
+
     $('.hover_section').click(function(){
         selectPhoto($(this));
     });
@@ -206,4 +206,14 @@ $(function(){
 
     }
 
+    //------------ GESTION AFFICHAGE PAGE VIDEOS ----------------//
+
+    $('#videos').click(function(){
+      $('.photo_title').fadeOut('fast');
+      $('.container').fadeOut('fast');
+      setTimeout(function(){
+        $('.container').load("videos.php");
+      }, 150);
+      $('.container').fadeIn();
+    });
 });

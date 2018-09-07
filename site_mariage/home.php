@@ -57,7 +57,7 @@ if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
           <a data-section="salle">
             <img src="mariage/photos_categories/videos.jpg">
           </a>
-          <div data-mode="photobooth" class="hover_section" style="display:none;">
+          <div class="photo_section" id="videos" style="display:none;">
             <h2 class="title_section_hover">
               Vidéos
             </h2>
@@ -68,7 +68,7 @@ if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
           <a data-section="salle">
             <img src="mariage/photos_categories/a_propos.jpg">
           </a>
-          <div data-mode="photobooth" class="hover_section" style="display:none;">
+          <div class="photo_section" style="display:none;">
             <h2 class="title_section_hover">
               A propos
             </h2>
