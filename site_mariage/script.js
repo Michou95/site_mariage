@@ -29,8 +29,8 @@ $(function(){
             $('#myModal .modal-content').load('modal_photo.php?urlPhoto='+$(this).prev('.photo').attr('data-url-photo')+'&photoClick='+$(this).prev('.photo').attr('id'),function(){$('#myModal').modal('show');});
         });
 
-        
-        //GESTION AFFICHAGE HOVER PHOTO 
+
+        //GESTION AFFICHAGE HOVER PHOTO
         $(".hover_photo").mouseleave(function(){
             $(this).fadeOut('fast');
         });
@@ -73,6 +73,14 @@ $(function(){
             rechercheOn = false;
         }
         $(this).children('.hover_section').slideDown('fast');
+    });
+
+    $('.section').mouseenter(function(){
+        $(this).children('.photo_section').slideDown('fast');
+    });
+
+    $(".section").mouseleave(function(){
+        $(this).children('.photo_section').slideUp('fast');
     });
 
     //------------- GESTION SON  ------------------------//

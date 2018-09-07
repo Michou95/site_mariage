@@ -172,7 +172,11 @@ footer h4{
 
 .photo_title h2{
   font-family: 'allura', verdana, arial, sans-serif;
-  font-size: 5em;;
+  font-size: 5em;
+}
+
+h2{
+  font-family: 'allura', verdana, arial, sans-serif;
 }
 
 .photo{
