@@ -2,7 +2,8 @@ $(function(){
     var rechercheOn = false;
 
     // -------- ECOUTEUR D'EVENEMENT ------------//
-
+    eventListener();
+    
     $('.hover_section').click(function(){
         selectPhoto($(this));
     });
@@ -16,6 +17,7 @@ $(function(){
         selectPhoto($('#search'));
     });
 
+    //Evenement a lancer apres requetes ajax
     function eventListener(){
         //Ajout de l'évènement de recherche de photo sur la pagination
         $('.paginate_link').click(function(){
@@ -102,7 +104,7 @@ $(function(){
         var mode = $(element).attr('data-mode');
         var id_invite = $(element).attr('data-id');
         var NomInvite = $(element).val();
-        var scrollTo = ($('.scroll_barre').offset().top + 50);
+        var scrollTo = ($('.scroll_barre').offset().top + 30);
         var titre = '';
 
         var request = $.ajax({

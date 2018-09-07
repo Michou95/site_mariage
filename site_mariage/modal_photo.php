@@ -1,22 +1,29 @@
 
 <?php
   if(isset($_GET['urlPhoto']) && !empty($_GET['urlPhoto'])){
+    
+    $numPhoto = explode('_', $_GET['photoClick']);  //Stockage du num de la photo
+    
 ?>
-
 
 <div class="modal-body">
   <div id="paginate_left"><i class="fas fa-chevron-left fa-3x"></i></div>
 
-  <div style="transition: all 0.5s ease;" id="divPhotoModal"><img id="photoModal" src="<?php echo $_GET['urlPhoto'] ?>"></div>
+  <div id="divPhotoModal"><img id="photoModal" src="<?php echo $_GET['urlPhoto'] ?>"></div>
 
   <div  id="paginate_right"><i class="fas fa-chevron-right fa-3x"></i></div>
 </div>
 
 <script>
+
 $(function(){
-  var photoSuivante = $('#photo_2').attr('data-url-photo');
-  var photoPrecedente = $('#photo_0').attr('data-url-photo');
+  var numPhoto = <?php echo $numPhoto[1]; ?>// index 0 : la clé de l'id (photo) - index 1 : le numéro de la photo
   
+  //On alloue l'url des photo au bouton suivant précédent
+  var photoPrecedente = $('#photo_'+(numPhoto-1)).attr('data-url-photo');
+  var photoSuivante = $('#photo_'+(numPhoto+1)).attr('data-url-photo');
+
+  //Vérifie si la photo existe pour afficher la touche de pagination au premier chargement
   if(photoPrecedente == undefined){
     $('#paginate_left').css('display','none');
   }
@@ -24,21 +31,36 @@ $(function(){
     $('#paginate_right').css('display','none');
   }
 
-  console.log(photoSuivante);
+//Pagination 
+  $('#paginate_left, #paginate_right').click(function(){
 
-//Pagination précédent
-  $('#paginate_left').click(function(){
-    if(photoPrecedente.length > 0){
-      $('#divPhotoModal').html('<img id="photoModal" src="'+photoPrecedente+'">');
-    }
-  });
-
-//Pagination suivant
-  $('#paginate_right').click(function(){
-    console.log(photoSuivante.length);
-    if(photoSuivante.length > 0){
+    //On modifie la valeur de l'id en fonction de si le click est sur précédent ou suivant
+    if($(this).attr('id') == 'paginate_right'){
+      numPhoto++;
       $('#divPhotoModal').html('<img id="photoModal" src="'+photoSuivante+'">');
     }
+    else{
+      numPhoto--;
+      $('#divPhotoModal').html('<img id="photoModal" src="'+photoPrecedente+'">');
+    }
+
+    //On modifie les url en fonction de la photo actuel
+    photoPrecedente = $('#photo_'+(numPhoto-1)).attr('data-url-photo');
+    photoSuivante = $('#photo_'+(numPhoto+1)).attr('data-url-photo');
+
+    //On affiche ou non la pagination si la photo existe 
+    if(photoPrecedente == undefined){
+      $('#paginate_left').hide();
+    }else if(photoPrecedente != undefined && !($('#paginate_left').is(':visible')) ){
+      $('#paginate_left').show();
+    }
+
+    if(photoSuivante == undefined){
+      $('#paginate_right').hide();
+    }else if(photoSuivante != undefined && !($('#paginate_right').is(':visible')) ){
+      $('#paginate_right').show();
+    }
+
   });
 
 });

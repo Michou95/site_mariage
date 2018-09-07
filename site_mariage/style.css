@@ -5,7 +5,6 @@
     font-style: normal;
 }
 
-
 *{
   margin:0;
   padding:0;
@@ -164,7 +163,7 @@ footer h4{
   font-size: 5em;;
 }
 
-.photo-random{
+.photo{
   padding: 5px !important;
   height: 300px!important;
   padding: 5px!important;
@@ -174,11 +173,11 @@ footer h4{
   overflow: hidden;
 }
 
-.photo-random img{
+.photo img{
   height: 290px!important;
 }
 
-.photo-random:hover{
+.photo:hover{
   cursor: pointer;
 }
 
@@ -223,6 +222,7 @@ footer h4{
 }
 
 .modal-content{
+  transition: all 0.5s ease;
   margin: 1% auto;
   display: inline-block;
 }
@@ -237,7 +237,7 @@ footer h4{
 #paginate_left{
   position: absolute;
   width: 8%;
-  height: 96.7%;
+  height: 97%;
   display: flex;
   justify-content: center;
   align-items: center;
