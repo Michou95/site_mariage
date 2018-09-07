@@ -211,6 +211,8 @@ $(function(){
     //------------ GESTION AFFICHAGE PAGE VIDEOS ----------------//
 
     $('#videos').click(function(){
+      var scrollTo = ($('.scroll_barre').offset().top + 30);
+      $('html, body').animate({ scrollTop: scrollTo }, 500);
       $('.photo_title').fadeOut('fast');
       $('.container').fadeOut('fast');
       setTimeout(function(){

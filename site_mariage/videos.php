@@ -60,6 +60,9 @@
   .for_mobile{
     display: none;
   }
+  .section_video{
+    margin-top: 10px!important;
+  }
 
   @media screen and (max-width: 420px){
     .section_video{
