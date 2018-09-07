@@ -186,11 +186,33 @@ footer h4{
 }
 
 .photo img{
+  max-width: 370px;
   height: 290px!important;
 }
 
 .photo:hover{
   cursor: pointer;
+}
+
+.hover_photo{
+  box-shadow: inset 0px 0px 0px 5px white;
+  display: none;
+  padding: 5px !important;
+  height: 300px!important;
+  overflow: hidden;
+  cursor: pointer;
+  position:absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-color: rgb(173, 173, 173,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-search-plus{
+  color: rgb(104, 104, 104);
 }
 
 .overflowHidden{
@@ -234,7 +256,6 @@ footer h4{
 }
 
 .modal-content{
-  transition: all 0.5s ease;
   margin: 1% auto;
   display: inline-block;
 }

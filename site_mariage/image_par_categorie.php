@@ -26,7 +26,7 @@ function addPhotoAndPaginate($tabPhoto,$mode,$page,$id_invite = null){
 
   for($i = (($page-1)*12); $i < ((int)(($page-1)*12)+12) ; $i++){ //construction des div et intégration des photos en fonction de la page
     if(isset($tabPhoto[$i]))
-      $html .= '<div class="col-md-4 col-sm-6 col-xs-12 overflowHidden"><a id="photo_'.$i.'" data-url-photo="'.$tabPhoto[$i]['url'].'" class="photo col-xs-12"><img src="' . $tabPhoto[$i]['url_miniature'] . '"></a></div>';
+      $html .= '<div class="col-md-4 col-sm-6 col-xs-12 overflowHidden"><a id="photo_'.$i.'" data-url-photo="'.$tabPhoto[$i]['url'].'" class="photo col-xs-12"><img src="' . $tabPhoto[$i]['url_miniature'] . '"></a><div style="display:none" class="hover_photo"><i class="fas fa-search-plus fa-4x"></i></div></div>';
   }
 
   //Stockage du tableau de résultat en cour d'affichage dans la session
@@ -82,7 +82,7 @@ function getPhotoByCategory(string $mode):array{
 function getPhotoByInvite(int $id_invite):array{
   $connexion = getDB();
   if(!is_nan($id_invite)){
-    $sql = "SELECT p.url_miniature FROM photos p, invite_photo i WHERE i.id_photo = p.id_photo AND i.id_invite = '" .$id_invite . "';";
+    $sql = "SELECT p.url, p.url_miniature FROM photos p, invite_photo i WHERE i.id_photo = p.id_photo AND i.id_invite = '" .$id_invite . "';";
     $query = $connexion->prepare($sql);
     $query->execute(array($id_invite));
     $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
