@@ -8,49 +8,56 @@
 
 <div class="col-md-4 section_video" >
   <h2 class="text-center photo_title">Le Montage RLC</h2>
-  <video contextmenu="return false;" oncontextmenu="return false;" src="videos/montage.mp4" controls preload="auto" controlsList="nodownload" class="col-xs-12">
+  <video contextmenu="return false;" oncontextmenu="return false;" src="videos/montage.mp4" controls  controlsList="nodownload" class="col-xs-12">
     Répétitions ouverture de bal.
   </video>
 </div>
 
 <div class="col-md-4 section_video" >
   <h2 class="text-center photo_title">Thriller</h2>
-  <video contextmenu="return false;" oncontextmenu="return false;" src="videos/thriller.mp4" controls preload="auto" controlsList="nodownload" class="col-xs-12">
+  <video contextmenu="return false;" oncontextmenu="return false;" src="videos/thriller.mp4" controls  controlsList="nodownload" class="col-xs-12">
     Répétitions ouverture de bal.
   </video>
 </div>
 
 <div class="col-md-4 section_video" >
   <h2 class="text-center photo_title">Ouverture De Bal Intégrale</h2>
-  <video contextmenu="return false;" oncontextmenu="return false;" src="videos/ouverture_bal.mp4" controls preload="auto" controlsList="nodownload" class="col-xs-12">
+  <video contextmenu="return false;" oncontextmenu="return false;" src="videos/ouverture_bal.mp4" controls  controlsList="nodownload" class="col-xs-12">
     Répétitions ouverture de bal.
   </video>
 </div>
 
 <div class="col-md-4 section_video" >
   <h2 class="text-center photo_title">Bruno Mars - Uptown Funk</h2>
-  <video contextmenu="return false;" oncontextmenu="return false;" src="videos/soiree1.mp4" controls preload="auto" controlsList="nodownload" class="col-xs-12">
+  <video contextmenu="return false;" oncontextmenu="return false;" src="videos/soiree1.mp4" controls  controlsList="nodownload" class="col-xs-12">
     Répétitions ouverture de bal.
   </video>
 </div>
 
 <div class="col-md-4 section_video" >
   <h2 class="text-center photo_title">Vidéo de Chocho</h2>
-  <video contextmenu="return false;" oncontextmenu="return false;" src="videos/soiree2.mp4" controls preload="auto" controlsList="nodownload" class="col-xs-12">
+  <video contextmenu="return false;" oncontextmenu="return false;" src="videos/soiree2.mp4" controls  controlsList="nodownload" class="col-xs-12">
     Répétitions ouverture de bal.
   </video>
 </div>
 
 <div class="col-md-4 section_video" >
   <h2 class="text-center photo_title">Vidéo de Chocho</h2>
-  <video contextmenu="return false;" oncontextmenu="return false;" src="videos/soiree3.mp4" controls preload="auto" controlsList="nodownload" class="col-xs-12">
+  <video contextmenu="return false;" oncontextmenu="return false;" src="videos/soiree3.mp4" controls  controlsList="nodownload" class="col-xs-12">
     Répétitions ouverture de bal.
   </video>
 </div>
 
 <div class="col-md-4 section_video" >
   <h2 class="text-center photo_title">La grand mère !</h2>
-  <video contextmenu="return false;" oncontextmenu="return false;" src="videos/mamie.mp4" controls preload="auto" controlsList="nodownload" class="col-xs-12">
+  <video contextmenu="return false;" oncontextmenu="return false;" src="videos/mamie.mp4" controls  controlsList="nodownload" class="col-xs-12">
+    Répétitions ouverture de bal.
+  </video>
+</div>
+
+<div class="col-md-4 section_video" >
+  <h2 class="text-center photo_title">L'alcool c'est de l'eau</h2>
+  <video contextmenu="return false;" oncontextmenu="return false;" src="videos/alcool.mp4" controls  controlsList="nodownload" class="col-xs-12">
     Répétitions ouverture de bal.
   </video>
 </div>

@@ -59,7 +59,7 @@ $admin_ip = $connexion->isAllowedIp($ip);
   </video>
   <?php if($admin_ip){ ?>
     <div class="admin">
-      <a href="log_admin.php" type="button" class="btn btn-default">Accès Admin Dashboard</a>
+      <a href="log_admin.php" type="button" class="btn btn-primary">Accès Admin Dashboard</a>
     </div>
   <?php } ?>
   <div class="title">
