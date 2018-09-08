@@ -8,8 +8,10 @@ if(isset($_GET['tag']) && $_GET['tag'] == "success"){
   echo '<div class="col-md-12 alert alert-success text-center">Photo Taguée avec Succès</div>';
 } ?>
 <h1>Tagguer des invités</h1>
+<?php if($nb_not_tagged > 0){ ?>
 <h2>Vous avez <?php echo $nb_not_tagged; ?> photos non taguées</h2>
 <?php
+}
 
 //----- Récupération de la première photos du lot non taguée -----//
 $photo_tag = array();
@@ -29,6 +31,7 @@ for ($i=0; $i < 1 ; $i++) {
  //----- Definition de l'url et de l'id de la photo à taguer -----//
 $url_photo = $photo_tag['url'];
 $id_photo = $photo_tag['id_photo'];
+if($nb_not_tagged > 0){
  ?>
    <div class="col-md-12">
      <div class="col-md-12">
@@ -89,3 +92,14 @@ $id_photo = $photo_tag['id_photo'];
   }
 
 </script>
+<?php
+}
+else{ ?>
+  <div class="col-md-12">
+    <div class="alert alert-success">
+      <h1>Toutes les photos sont taguées</h1>
+    </div>
+  </div>
+<?php
+}
+?>
