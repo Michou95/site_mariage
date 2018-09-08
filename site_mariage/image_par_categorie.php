@@ -78,7 +78,8 @@ function getPhotoByCategory(string $mode):array{
 } //end function getPhotoByCategory()
 
 
-// Recupere les photos du user concerné //
+// Recupere les photos du user concerné -- YOUX CA BUGG POUR CERTAINES PERSONNES AU NIVEAU DE LA RECUP PHOTOBOOTH !!!//
+// Expemple pour stephane ferrand ca recup 32 photos mais ca en affiche que 24 en front //
 function getPhotoByInvite(int $id_invite):array{
   $connexion = getDB();
   if(!is_nan($id_invite)){
@@ -86,6 +87,12 @@ function getPhotoByInvite(int $id_invite):array{
     $query = $connexion->prepare($sql);
     $query->execute(array($id_invite));
     $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
+    //----- Debug pour probleme affichage de toutes les photos -----//
+    // echo "<pre>";
+    // var_dump($resultat);
+    // echo "</pre>";
+    // die();
+    //--------------------------------------------------------------//
     return $resultat;
   }
   else{
