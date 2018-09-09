@@ -115,7 +115,7 @@ $(function(){
         var page = $(element).attr('data-page');
         var mode = $(element).attr('data-mode');
         var id_invite = $(element).attr('data-id');
-        var NomInvite = ($(element).attr('data-nom-invite') != undefined) ? $(element).attr('data-nom-invite') : $(element).val() ;
+        var NomInvite = ($(element).attr('data-nom-invite') != undefined) ? $(element).attr('data-nom-invite') : $(element).val();
         var scrollTo = ($('.scroll_barre').offset().top + 30);
         var titre = '';
 
@@ -231,4 +231,29 @@ $(function(){
       }, 150);
       $('.container').fadeIn();
     });
+
+    //------------ AJOUT DE LIKE SUR LES PHOTOS -----------------//
+
+    $('.like').click(function(){
+      console.log('kikou');
+      //----- Recuperation valeur dans data-id-photo
+      var id_photo = $(this).attr('data-id-photo');
+
+      var request = $.ajax({
+          url: "vote_photo.php",
+          method: "POST",
+          data: {
+                  id_photo : id_photo,
+                }
+      });
+
+      request.done(function( data ) {
+                console.log(data);
+              });
+
+      request.fail(function( jqXHR, textStatus ) {
+          alert( "Request failed: " + textStatus );
+      });
+    });
+
 });
