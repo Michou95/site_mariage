@@ -22,7 +22,8 @@ else
 function addPhotoAndPaginate($tabPhoto,$mode,$page,$id_invite = null){
   $id = ($id_invite != null) ? 'data-id="'.$id_invite.'"' : '' ;
   $html = '';//init rendu html
-  $nbrPage = floor(count($tabPhoto) / 12); //compte du nombre de page
+  $nbrPage = ceil(count($tabPhoto) / 12); //compte du nombre de page au supérieur si il y a plus de photo que de page
+  
 
   for($i = (($page-1)*12); $i < ((int)(($page-1)*12)+12) ; $i++){ //construction des div et intégration des photos en fonction de la page
     if(isset($tabPhoto[$i]))
