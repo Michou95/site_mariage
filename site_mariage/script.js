@@ -33,10 +33,20 @@ $(function(){
         //GESTION AFFICHAGE HOVER PHOTO
         $(".hover_photo").mouseleave(function(){
             $(this).fadeOut('fast');
+            $('.barre_miniature_hover').slideToggle(50);
         });
 
         $('.photo').mouseenter(function(){
+            $('.barre_miniature_hover').slideToggle('fast');
             $(this).next('.hover_photo').fadeIn('fast');
+        });
+
+        $('.btn-custom').mouseenter(function(){
+            $(this).prev().toggle("slide", { direction: "right" }, 150);
+        });
+
+        $('.btn-custom').mouseleave(function(){
+            $(this).prev().hide();
         });
     }
 
