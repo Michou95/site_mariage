@@ -4,7 +4,7 @@
 </div>
 
 <div class="col-xs-12">
-  <p class="text-center alert-success">Ici son regroupées les photos ayant reçu le + de like. N'hésitez pas à clicker sur le bouton like lorsqu'une photo vous plait! Le classement changera en fonction des likes obtenus par les photos.</p>
+  <p class="text-center alert-success">Ici son regroupées les photos ayant reçu le + de "J'aime". N'hésitez pas à clicker sur le bouton "J'aime" lorsqu'une photo vous plait! Le classement changera en fonction des "J'aime" obtenus par les photos.</p>
 </div>
 <?php
   $best_photo = getBestPhotos();
