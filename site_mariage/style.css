@@ -303,6 +303,7 @@ h2{
 }
 
 /* MODAL PHOTO */
+
 #myModal{
   text-align: center;
 }
@@ -315,6 +316,20 @@ h2{
 #photoModal{
   max-height: calc(100vh - 100px);
   max-width: 100%;
+}
+
+.close{
+  opacity: 1 !important;
+  top: 20px;
+  right: 25px;
+  text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+  color: white;
+  z-index: 10;
+  position: absolute;
+}
+
+.close:hover{
+  color: white !important;
 }
 
 /*PAGINATION MODAL*/
