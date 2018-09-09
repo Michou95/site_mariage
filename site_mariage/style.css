@@ -110,7 +110,7 @@ footer h4{
   background-color: rgb(182, 227, 245);
 }
 
-/* SECTION DE LA HOME */
+/*********** SECTION DE LA HOME ******************/
 
 .section{
   padding:0px !important;
@@ -164,6 +164,8 @@ footer h4{
   font-size: 2em;
 }
 
+/**************** MINIATURE PHOTO **************************/
+
 
 .photo_title{
     padding-top: 25px;
@@ -200,19 +202,32 @@ h2{
 
 .hover_photo{
   box-shadow: inset 0px 0px 0px 5px white;
-  display: none;
   padding: 5px !important;
   height: 300px!important;
   overflow: hidden;
   cursor: pointer;
   position:absolute;
-  height: 100%;
   width: 100%;
   top: 0;
   background-color: rgb(173, 173, 173,0.6);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.barre_miniature_hover{
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+  padding: 5px !important;
+  bottom: 0;
+  position: absolute;
+  z-index: 10;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .fa-search-plus{
@@ -225,6 +240,38 @@ h2{
   overflow: hidden;
   padding-right: 0px!important;
   padding-left: 0px!important;
+}
+
+.btn-custom{
+  margin-right: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 72%;
+  width: 10%;
+  color: white;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.btn-custom:hover{
+  transform: scale(1.2);
+  text-decoration: none;
+  color: white;
+}
+
+.btn-like{
+  background-color: red;
+}
+
+.btn-download{
+  background-color: rgb(61, 61, 202);
+}
+
+.text-info{
+  display: none;
+  position: relative;
+  right: 10px;
 }
 
 
@@ -256,6 +303,7 @@ h2{
 }
 
 /* MODAL PHOTO */
+
 #myModal{
   text-align: center;
 }
@@ -268,6 +316,20 @@ h2{
 #photoModal{
   max-height: calc(100vh - 100px);
   max-width: 100%;
+}
+
+.close{
+  opacity: 1 !important;
+  top: 20px;
+  right: 25px;
+  text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+  color: white;
+  z-index: 10;
+  position: absolute;
+}
+
+.close:hover{
+  color: white !important;
 }
 
 /*PAGINATION MODAL*/

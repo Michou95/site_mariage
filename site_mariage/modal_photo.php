@@ -7,6 +7,7 @@
 ?>
 
 <div class="modal-body">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
   <div id="paginate_left"><i class="fas fa-chevron-left fa-3x"></i></div>
 
   <div id="divPhotoModal"><img id="photoModal" src="<?php echo $_GET['urlPhoto'] ?>"></div>
