@@ -62,10 +62,12 @@ $admin_ip = $connexion->isAllowedIp($ip);
       <a href="log_admin.php" type="button" class="btn btn-primary">Accès Admin Dashboard</a>
     </div>
   <?php } ?>
-  <div class="title">
-    <h1>Mickael & Jennifer</h1>
-    <h2>28 Juillet 2018</h2>
-  </div>
+  <a href="home.php?refresh=none" style="text-decoration: none; color: white;">
+    <div class="title">
+      <h1>Mickael & Jennifer</h1>
+      <h2>28 Juillet 2018</h2>
+    </div>
+  </a>
   <div id="audio">
     <!-- <audio autoplay src='mariage/son.mp3'></audio> -->
   </div>

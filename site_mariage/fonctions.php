@@ -143,7 +143,8 @@ function getAllVisites():string{
   $compteur = $resultat[0]['compteur'];
 
   return $compteur;
-}
+} //end function getAllVisites()
+
 
 //------------------------------//
 // Recupere 12 photos en random //
@@ -155,4 +156,16 @@ function getRandomPhoto():array{
   $resultat = $response->fetchAll(PDO::FETCH_ASSOC);
 
   return $resultat;
-}
+} //end fucntion getRandomPhoto()
+
+
+//------------------------------------------------------//
+// Récupère les première photos ayant reçu le + de like //
+//------------------------------------------------------//
+function getBestPhotos():array{
+  $connexion = getDb();
+  $sql = "SELECT url_miniature, url, id_photo FROM photos WHERE vote != 0 ORDER BY vote DESC LIMIT 0, 20;";
+  $query = $connexion->query($sql);
+  $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
+  return $resultat;
+} //end function getBestPhotos()

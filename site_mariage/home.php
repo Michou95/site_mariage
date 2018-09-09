@@ -68,9 +68,9 @@ if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
           <a data-section="salle">
             <img src="mariage/photos_categories/a_propos.jpg">
           </a>
-          <div class="photo_section" style="display:none;">
+          <div class="photo_section" id="best_picture" style="display:none;">
             <h2 class="title_section_hover">
-              A propos
+              Vos photos favorites
             </h2>
           </div>
         </div>

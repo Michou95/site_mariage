@@ -255,4 +255,17 @@ $(function(){
       });
     });
 
+    //------------ GESTION AFFICHAGE PAGE MEILLEURES PHOTOS ----------------//
+
+    $('#best_picture').click(function(){
+      var scrollTo = ($('.scroll_barre').offset().top + 30);
+      $('html, body').animate({ scrollTop: scrollTo }, 500);
+      $('.photo_title').fadeOut('fast');
+      $('.container').fadeOut('fast');
+      setTimeout(function(){
+        $('.container').load("best_picture.php");
+      }, 150);
+      $('.container').fadeIn();
+    });
+
 });
