@@ -169,3 +169,21 @@ function getBestPhotos():array{
   $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
   return $resultat;
 } //end function getBestPhotos()
+
+//-------------------------------------------------------------//
+// Récupère la date et la met au format  pour les commentaires //
+//-------------------------------------------------------------//
+function getDateByTimestamp($timestamp) {
+  $month = [1 => 'Janvier', 2 => 'Février', 3 => 'Mars', 4 => 'Avril', 5 => 'Mais', 6 => 'Juin', 7 => 'Juillet', 8 => 'Août', 9 => 'Septembre', 10 => 'Octobre', 11 => 'Novembre', 12 => 'Décembre'];
+
+  $jour = date('d', $timestamp);
+  $mois = date('n', $timestamp);
+  $mois_en_lettre = $month[$mois];
+  $annee = date('Y', $timestamp);
+  $heure = date('H', $timestamp);
+  $minute = date('i', $timestamp);
+
+  $result = "Ajouté le ".$jour." ".$mois_en_lettre." ".$annee." à ".$heure."h".$minute;
+
+  return $result;
+}

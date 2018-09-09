@@ -95,6 +95,7 @@ if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
         $random = getRandomPhoto();
         for ($i=0; $i < count($random) ; $i++) {
           echo '<div class="col-md-4 col-sm-6 col-xs-12 overflowHidden">
+                  <input type="hidden" name="photo_'.$i.'" value="'.$random[$i]['id_photo'].'" />
                   <a id="photo_'.$i.'" data-url-photo="'.$random[$i]['url'].'" class="photo col-xs-12">
                     <img src="' . $random[$i]['url_miniature'] . '">
                   </a>

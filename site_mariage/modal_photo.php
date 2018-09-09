@@ -1,23 +1,26 @@
 
 <?php
   if(isset($_GET['urlPhoto']) && !empty($_GET['urlPhoto'])){
-    
     $numPhoto = explode('_', $_GET['photoClick']);  //Stockage du num de la photo
-    
 ?>
 
-<div class="modal-body">
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+<div class="modal-body col-lg-8">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
   <div id="paginate_left"><i class="fas fa-chevron-left fa-3x"></i></div>
 
   <div id="divPhotoModal"><img id="photoModal" src="<?php echo $_GET['urlPhoto'] ?>"></div>
 
   <div  id="paginate_right"><i class="fas fa-chevron-right fa-3x"></i></div>
 </div>
+<div class="commentarys col-lg-4"></div>
 
 <script>
 
 $(function(){
+  // Récupération de l'idPhoto
+  var idPhoto = $('input[name=<?php echo $_GET['photoClick'] ?>]').val();
+  refreshCommentary(idPhoto);
+
   var numPhoto = <?php echo $numPhoto[1]; ?>// index 0 : la clé de l'id (photo) - index 1 : le numéro de la photo
   
   //On alloue l'url des photo au bouton suivant précédent
@@ -38,10 +41,14 @@ $(function(){
     //On modifie la valeur de l'id en fonction de si le click est sur précédent ou suivant
     if($(this).attr('id') == 'paginate_right'){
       numPhoto++;
+      idPhoto = $('input[name="photo_'+numPhoto+'"]').val();
+      refreshCommentary(idPhoto);
       $('#divPhotoModal').html('<img id="photoModal" src="'+photoSuivante+'">');
     }
     else{
       numPhoto--;
+      idPhoto = $('input[name="photo_'+numPhoto+'"]').val();
+      refreshCommentary(idPhoto);
       $('#divPhotoModal').html('<img id="photoModal" src="'+photoPrecedente+'">');
     }
 
@@ -63,6 +70,27 @@ $(function(){
     }
 
   });
+
+  //------------ AJAX SELECTION ET AFFICHAGE DES COMMENTAIRES ----------------//
+
+    function refreshCommentary(idPhoto){
+      var request = $.ajax({
+              url: "commentaire.php",
+              method: "POST",
+              data: {
+                      id_photo : idPhoto,
+                    }
+          });
+    
+          request.done(function( data ) {
+            $('.commentarys').html('');
+            $('.commentarys').html(data);
+          });
+    
+          request.fail(function( jqXHR, textStatus ) {
+              alert( "Request failed: " + textStatus );
+          });
+    }
 
 });
 </script>

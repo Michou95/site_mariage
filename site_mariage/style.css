@@ -274,6 +274,42 @@ h2{
   right: 10px;
 }
 
+/* SECTION COMMENTAIRE */
+.commentarys {
+  margin: 15px 0px;
+  padding-left: 0px!important;
+}
+
+.nb_commentary .redNumber{
+  color:  rgb(190, 0, 0);
+  font-weight: bold;
+}
+
+.commentary .username{
+  border-top: 1px dashed black;
+  color: rgb(190, 0, 0);
+  margin-top: 10px;
+  padding-top: 10px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  width: 100%;
+  text-align: left;
+}
+
+.commentary .content{
+  color: black;
+  font-size: 1.2rem;
+  word-wrap:break-word;
+  text-align: left;
+}
+
+.commentary .date_time{
+  color: silver;
+  font-size: 1.1rem;
+  width: 100%;
+  text-align: right;
+  font-style: italic;
+}
 
 /* MEDIA QUERIES DE L'ESPACE !!!!! <= qui tue tout sur leurs passage !*/
 
