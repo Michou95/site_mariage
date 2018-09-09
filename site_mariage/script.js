@@ -105,7 +105,7 @@ $(function(){
         var page = $(element).attr('data-page');
         var mode = $(element).attr('data-mode');
         var id_invite = $(element).attr('data-id');
-        var NomInvite = $(element).val();
+        var NomInvite = ($(element).attr('data-nom-invite') != undefined) ? $(element).attr('data-nom-invite') : $(element).val() ;
         var scrollTo = ($('.scroll_barre').offset().top + 30);
         var titre = '';
 
@@ -116,6 +116,7 @@ $(function(){
                     page : page,
                     mode : mode,
                     id_invite : id_invite,
+                    nom_invite : NomInvite,
                   }
         });
 
