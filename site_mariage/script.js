@@ -235,7 +235,6 @@ $(function(){
     //------------ AJOUT DE LIKE SUR LES PHOTOS -----------------//
 
     $('.like').click(function(){
-      console.log('kikou');
       //----- Recuperation valeur dans data-id-photo
       var id_photo = $(this).attr('data-id-photo');
 
