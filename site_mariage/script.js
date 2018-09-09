@@ -220,4 +220,8 @@ $(function(){
       }, 150);
       $('.container').fadeIn();
     });
+
+    //------------ AJOUT DE LIKE SUR LES PHOTOS -----------------//
+
+    
 });
