@@ -92,9 +92,9 @@ function getPhotoByInvite(int $id_invite):array{
     return $error;
   }
 }
-//-----------------------
-// SELECTION FONCTION BDD
-//-----------------------
+//------------------------//
+// SELECTION FONCTION BDD //
+//------------------------//
 //choix de la requete en fonction du mode de recherche
 switch ($mode){
   case 'vin_honneur' :
