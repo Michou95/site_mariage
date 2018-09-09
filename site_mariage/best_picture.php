@@ -1,5 +1,4 @@
 <?php require_once ('fonctions.php'); ?>
-
 <div class="photo_title">
   <h2>Vos Photo Favorites</h2>
 </div>
@@ -10,10 +9,15 @@
 <?php
   $best_photo = getBestPhotos();
   for ($i=0; $i < count($best_photo) ; $i++) {
-    echo '<div class="col-md-4 col-sm-6 col-xs-12 overflowHidden">
-            <a id="photo_'.$i.'" data-url-photo="'.$best_photo[$i]['url'].'" class="photo col-xs-12">
+    $number = $i+1;
+    $title = "Numéro " . $number;
+    if($title == "Numéro 1")
+      $title = "The Best Photo Ever !";
+    echo '<div class="col-md-12 col-sm-12 col-xs-12 overflowHidden">
+            <a id="photo_'.$i.'" data-url-photo="'.$best_photo[$i]['url'].'" class="photo col-md-offset-3 col-md-4 col-xs-12">
               <img src="' . $best_photo[$i]['url_miniature'] . '">
             </a>
+            <h2 class="col-md-5">'. $title .'</h2>
             <div style="display:none" class="hover_photo">
               <i class="fas fa-search-plus fa-4x"></i>
               <div style="display:none" class="barre_miniature_hover col-xs-12">
