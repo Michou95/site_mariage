@@ -19,12 +19,12 @@ else
 // FONCTION DE PAGINATION ET MISE EN PAGE
 //---------------------------------------
 
-function addPhotoAndPaginate($tabPhoto,$mode,$page,$id_invite = null){
-  $id = ($id_invite != null) ? 'data-id="'.$id_invite.'"' : '' ;
+function addPhotoAndPaginate($tabPhoto,$mode,$page,$id_invite = null, $nom_invite = null){
+  $nom = ($nom_invite != null) ? 'data-nom-invite="'.$nom_invite.'" ' : '' ;
+  $id = ($id_invite != null) ? 'data-id="'.$id_invite.'" ' : '' ;
   $html = '';//init rendu html
   $nbrPage = ceil(count($tabPhoto) / 12); //compte du nombre de page au supérieur si il y a plus de photo que de page
   
-
   for($i = (($page-1)*12); $i < ((int)(($page-1)*12)+12) ; $i++){ //construction des div et intégration des photos en fonction de la page
     if(isset($tabPhoto[$i]))
       $html .= '<div class="col-md-4 col-sm-6 col-xs-12 overflowHidden"><a id="photo_'.$i.'" data-url-photo="'.$tabPhoto[$i]['url'].'" class="photo col-xs-12"><img src="' . $tabPhoto[$i]['url_miniature'] . '"></a><div style="display:none" class="hover_photo"><i class="fas fa-search-plus fa-4x"></i></div></div>';
@@ -36,20 +36,20 @@ function addPhotoAndPaginate($tabPhoto,$mode,$page,$id_invite = null){
   if($nbrPage > 1){
     //On met le bouton précédent si on est pas sur la page 1
     if($page > 1)
-      $html .= '<div class="col-xs-12 text-center"><a class="paginate_link btn btn-default" data-mode="' . $mode . '" data-page="'. ($page - 1) .'"' . $id . '> < </a>';
+      $html .= '<div class="col-xs-12 text-center"><a class="paginate_link btn btn-default" data-mode="' . $mode . '" data-page="'. ($page - 1) .'"' . $id . $nom .'> < </a>';
     else
       $html .= '<div class="col-xs-12 text-center">';
 
       //Incrémentation des pages en fonction du nombre de résultats (on remet la catégorie et le mode pour relancer la même fonction ajax)
       for($j = 0; $j < $nbrPage; $j++){
-          $html .= ' <a data-mode="' . $mode . '" data-page="'. ($j+1) .'"' . $id . ' class="paginate_link btn btn-default ';
+          $html .= ' <a data-mode="' . $mode . '" data-page="'. ($j+1) .'"' . $id . $nom .' class="paginate_link btn btn-default ';
           $html .= (($j+1) == $page) ? 'active' : '' ; //On met ou non la class active si c'est la page en cours
           $html .= '"> ' . ($j+1) . '</a> ';
       }
 
     //Bouton suivant si on est pas sur la dernière page
     if($page != $nbrPage)
-      $html .= '<a class="paginate_link btn btn-default" data-mode="' . $mode . '" data-page="'. ($page+1) .'"' . $id . '> > </a></div>';
+      $html .= '<a class="paginate_link btn btn-default" data-mode="' . $mode . '" data-page="'. ($page+1) .'"' . $id . $nom .'> > </a></div>';
     else
       $html .= '</div>';
   }
@@ -117,13 +117,15 @@ switch ($mode){
     break;
 
   case 'personne' :
-    if(isset($_POST['id_invite']) && !empty($_POST['id_invite']))
+    if(isset($_POST['id_invite']) && !empty($_POST['id_invite']) && isset($_POST['nom_invite']) && !empty($_POST['nom_invite'])){
       $id_invite = strip_tags(trim((int)$_POST['id_invite']));
+      $nom_invite = strip_tags(trim($_POST['nom_invite']));
+    }
     else
       return false;
 
       $photoResult = getPhotoByInvite($id_invite);
-      $resultHtml = addPhotoAndPaginate($photoResult,$mode,$page,$id_invite);
+      $resultHtml = addPhotoAndPaginate($photoResult,$mode,$page,$id_invite,$nom_invite);
     break;
 }
 
