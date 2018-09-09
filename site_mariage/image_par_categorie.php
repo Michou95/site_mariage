@@ -24,10 +24,18 @@ function addPhotoAndPaginate($tabPhoto,$mode,$page,$id_invite = null, $nom_invit
   $id = ($id_invite != null) ? 'data-id="'.$id_invite.'" ' : '' ;
   $html = '';//init rendu html
   $nbrPage = ceil(count($tabPhoto) / 12); //compte du nombre de page au supérieur si il y a plus de photo que de page
-  
+
   for($i = (($page-1)*12); $i < ((int)(($page-1)*12)+12) ; $i++){ //construction des div et intégration des photos en fonction de la page
-    if(isset($tabPhoto[$i]))
-      $html .= '<div class="col-md-4 col-sm-6 col-xs-12 overflowHidden"><a id="photo_'.$i.'" data-url-photo="'.$tabPhoto[$i]['url'].'" class="photo col-xs-12"><img src="' . $tabPhoto[$i]['url_miniature'] . '"></a><div style="display:none" class="hover_photo"><i class="fas fa-search-plus fa-4x"></i></div></div>';
+    if(isset($tabPhoto[$i])){
+
+      if($tabPhoto[$i]['prise_par'] == "charline"){
+        $html .= '<div class="col-md-4 col-sm-6 col-xs-12 overflowHidden"><a id="photo_'.$i.'" data-url-photo="'.$tabPhoto[$i]['url'].'" data-photo-charline="true" class="photo col-xs-12"><img src="' . $tabPhoto[$i]['url_miniature'] . '"></a><div style="display:none" class="hover_photo"><i class="fas fa-search-plus fa-4x"></i></div></div>';
+      }
+      else{
+        $html .= '<div class="col-md-4 col-sm-6 col-xs-12 overflowHidden"><a id="photo_'.$i.'" data-url-photo="'.$tabPhoto[$i]['url'].'" data-photo-charline="false" class="photo col-xs-12"><img src="' . $tabPhoto[$i]['url_miniature'] . '"></a><div style="display:none" class="hover_photo"><i class="fas fa-search-plus fa-4x"></i></div></div>';
+      }
+
+    }
   }
 
   //Stockage du tableau de résultat en cour d'affichage dans la session
@@ -66,7 +74,7 @@ function addPhotoAndPaginate($tabPhoto,$mode,$page,$id_invite = null, $nom_invit
 function getPhotoByCategory(string $mode):array{
   $connexion = getDB();
   if($mode == "mairie" || $mode == "vin_honneur" || $mode == "salle" || $mode == "photobooth"){
-    $sql = "SELECT id_photo, url, url_miniature FROM photos WHERE categorie = ?;";
+    $sql = "SELECT id_photo, url, url_miniature, prise_par FROM photos WHERE categorie = ?;";
     $query = $connexion->prepare($sql);
     $query->execute(array($mode));
     $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -84,7 +92,7 @@ function getPhotoByCategory(string $mode):array{
 function getPhotoByInvite(int $id_invite):array{
   $connexion = getDB();
   if(!is_nan($id_invite)){
-    $sql = "SELECT p.url, p.url_miniature FROM photos p, invite_photo i WHERE i.id_photo = p.id_photo AND i.id_invite = '" .$id_invite . "';";
+    $sql = "SELECT p.url, p.url_miniature, p.prise_par FROM photos p, invite_photo i WHERE i.id_photo = p.id_photo AND i.id_invite = '" .$id_invite . "';";
     $query = $connexion->prepare($sql);
     $query->execute(array($id_invite));
     $resultat = $query->fetchAll(PDO::FETCH_ASSOC);

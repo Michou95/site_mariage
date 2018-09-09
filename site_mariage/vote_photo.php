@@ -14,4 +14,6 @@ function addLike($id_photo){
   $reslutat = $query->fetch(PDO::FETCH_ASSOC);
   var_dump($resultat);
   die();
+
+  
 } //end function addLike()
