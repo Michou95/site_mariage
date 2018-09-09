@@ -262,6 +262,7 @@ $(function(){
       $('html, body').animate({ scrollTop: scrollTo }, 500);
       $('.photo_title').fadeOut('fast');
       $('.container').fadeOut('fast');
+      $('.container').html('');
       setTimeout(function(){
         $('.container').load("best_picture.php");
       }, 150);
