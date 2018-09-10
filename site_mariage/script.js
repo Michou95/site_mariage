@@ -208,6 +208,11 @@ $(function(){
           return false;
         }
 
+        if(saisie == "vincent" || saisie == "vincent joly" || saisie == 'vincent Joly' || saisie == 'Vincent joly' || saisie == 'Vincent'){
+          $('.title').html('<h1>Suce Batard !</h1>');
+        }
+
+
         var request = $.ajax({
             url: "autocomplete.php",
             method: "POST",
@@ -231,9 +236,13 @@ $(function(){
 
             $('#resultSearch').html(li).slideDown('fast');
 
+
             $('.searchPerson').click(function(){
                 $('#search').val($(this).text()).attr('data-id', $(this).val());
                 $('#resultSearch').slideUp('fast').html('');
+                if($(this).val() == 56){
+                  $('.title').html('<h1>Suce Batard !</h1>');
+                }
             });
 
         });

@@ -109,7 +109,7 @@ $(function(){
               var autoScroll = document.getElementById('only_commentarys');
               autoScroll.scrollTo(0, autoScroll.scrollHeight);
             }
-            
+
             var request = $.ajax({
               url: "modal_photo.php",
               method: "POST",
@@ -122,7 +122,7 @@ $(function(){
             request.done(function( data ) {
               $('#username').val(data);
             })
-            
+
             formCommentary(idPhoto);
           });
 
@@ -158,7 +158,7 @@ $(function(){
                       commentary : content,
                     }
           });
-    
+
           request.done(function() {
             refreshCommentary(idPhoto, username);
           });
