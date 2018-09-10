@@ -26,7 +26,7 @@ $(function(){
 
         //Ajout de l'évènement pour affichage de la modal sur les résultat de recherche
         $('.hover_photo').click(function(){
-            if(!$(event.target).closest('.btn-like, btn-download').length) {
+            if(!$(event.target).closest('.btn-like, .btn-download').length) {
             //Le clic s'est produit en dehors de l'élément btn-like
             $('#myModal .modal-content').load('modal_photo.php?urlPhoto='+$(this).prev('.photo').attr('data-url-photo')+'&photoClick='+$(this).prev('.photo').attr('id'),function(){$('#myModal').modal('show');});
             }
