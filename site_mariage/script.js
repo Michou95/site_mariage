@@ -209,7 +209,7 @@ $(function(){
         }
 
         if(saisie == "vincent" || saisie == "vincent joly" || saisie == 'vincent Joly' || saisie == 'Vincent joly' || saisie == 'Vincent'){
-          $('.title').html('<h1>Suce Batard !</h1>');
+          $('.title').html('<h1>Vinz Suce Batard !</h1>');
         }
 
 
@@ -241,7 +241,7 @@ $(function(){
                 $('#search').val($(this).text()).attr('data-id', $(this).val());
                 $('#resultSearch').slideUp('fast').html('');
                 if($(this).val() == 56){
-                  $('.title').html('<h1>Suce Batard !</h1>');
+                  $('.title').html('<h1>Vinz Suce Batard !</h1>');
                 }
             });
 
