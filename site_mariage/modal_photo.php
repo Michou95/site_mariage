@@ -1,7 +1,16 @@
-
 <?php
-  if(isset($_GET['urlPhoto']) && !empty($_GET['urlPhoto'])){
-    $numPhoto = explode('_', $_GET['photoClick']);  //Stockage du num de la photo
+
+function setUsernameSession() {
+  if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+  } else {
+    $username = '';
+  }
+
+  return $username;
+}
+if(isset($_GET['urlPhoto']) && !empty($_GET['urlPhoto'])){
+  $numPhoto = explode('_', $_GET['photoClick']);  //Stockage du num de la photo
 ?>
 <div class="modal-body col-lg-8">
   <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
@@ -85,12 +94,15 @@ $(function(){
             $('.commentarys').html('');
             $('.commentarys').html(data)
             if ($('#only_commentarys').length > 0) {
-              console.log('test');
               var autoScroll = document.getElementById('only_commentarys');
-              console.log(autoScroll);
               autoScroll.scrollTo(0, autoScroll.scrollHeight);
               // document.getElementById('only_commentarys').scrollTop = document.getElementById('only_commentarys').scrollHeight;
             }
+
+            <?php $username = setUsernameSession(); ?>
+            $('input[name=username]').val(<?= $username ?>);
+
+            formCommentary(idPhoto);
           });
     
           request.fail(function( jqXHR, textStatus ) {
@@ -98,7 +110,52 @@ $(function(){
           });
     }
 
-  
+  //------------ AJAX INSERTION ET RAFFRAICHISSEMENT DES COMMENTAIRES + GESTION "SECURITE" FORMULAIRE ----------------//
+  function formCommentary(idPhoto) {
+    $('.form_commentary .submit').click(function(e) {
+      e.preventDefault();
+      var error = 0;
+      var details = '<div class="errorFormCommentary alert-danger">';
+
+      if ($('#username').val().length === 0) {
+        error = 1;
+        details += 'Veuillez nous dire qui vous êtes<br/>';
+      }
+
+      if ($('#content').val().length === 0) {
+        error = 1;
+        details += 'Veuillez saisir un commentaire';
+      }
+
+      details += '</div>';
+
+      if (error === 0) {
+        $('#error').html('');
+        var username = $('#username').val();
+        var content = $('#content').val();
+
+        var request = $.ajax({
+              url: "ajout_commentaire.php",
+              method: "POST",
+              data: {
+                      id_photo : idPhoto,
+                      name : username,
+                      commentary : content,
+                    }
+          });
+    
+          request.done(function( data ) {
+            refreshCommentary(idPhoto);
+          });
+    
+          request.fail(function( jqXHR, textStatus ) {
+              alert( "Request failed: " + textStatus );
+          });
+      } else {
+        $('#error').html(details);
+      }
+    })
+  }
 
 });
 </script>

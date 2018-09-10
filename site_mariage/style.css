@@ -279,6 +279,11 @@ h2{
   padding: 15px!important;
 }
 
+.no_commentary {
+  margin: 15px 0;
+  padding: 15px 0;
+}
+
 .nb_commentary{
   margin-bottom: 5px;
 }
@@ -293,23 +298,27 @@ h2{
   overflow: auto;
   padding: 0px 15px;
   max-height: 250px;
-  background-color: rgba(248, 200, 200, 0.432);
+  background-color: rgba(145, 229, 255, 0.432);
 }
 
 .commentary .username{
   border-top: 1px dashed black;
-  color: rgb(190, 0, 0);
+  color: rgb(0, 91, 175);
   margin-top: 5px;
   padding-top: 5px;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: bold;
   width: 100%;
   text-align: left;
 }
 
+div#only_commentarys div.commentary:first-child .username{
+  border: none;
+}
+
 .commentary .content{
   color: black;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   word-wrap:break-word;
   text-align: left;
 }
@@ -337,9 +346,9 @@ h2{
   margin-bottom: 5px;
 }
 
-.add_commentary {
-  /* position: relative;
-  bottom:0px; */
+.errorFormCommentary{
+  margin: 15px 0;
+  padding: 15px 0;
 }
 
 /* MEDIA QUERIES DE L'ESPACE !!!!! <= qui tue tout sur leurs passage !*/

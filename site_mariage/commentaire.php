@@ -11,7 +11,7 @@
     $query->execute();
     $resultats = $query->fetchAll(PDO::FETCH_ASSOC);
     if (empty($resultats)) {
-      $data .= "<div class='no_commentary'>Aucun commmentaire sur cette photo.</div>";
+      $data .= "<div class='no_commentary alert-info'>Aucun commmentaire sur cette photo.</div>";
     } else {
       $data .= "<div class='nb_commentary'><span class='redNumber'>".count($resultats)."</span> commentaire(s) sur cette photo</div>";
       $data .= "<div id='only_commentarys'>";
@@ -35,19 +35,14 @@
       $data .= "</div>";
     }
 
-    if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
-      $username = $_SESSION['username'];
-    } else {
-      $username = "";
-    }
-
     $data .= "<div class='add_commentary'>
+                <div id='error'></div>
                 <form class='form_commentary' method='POST' action=''>
                   <label for='username'>Votre Nom / Prénom / Pseudo :</label>
-                  <input type='text' id='username' name='username' value='".$username."' placeholder='Dite nous qui vous êtes !' />
+                  <input type='text' id='username' name='username' autofocus placeholder='Dite nous qui vous êtes !' />
                   <label for='content'>Votre commentaire :</label>
                   <textarea id='content' name='content' placeholder='Taper votre commentaire ...' rows='4'></textarea>
-                  <input type='submit' class='btn btn-primary' value='Envoyer' />
+                  <input type='submit' class='submit btn btn-primary' value='Envoyer' />
                 </form>
               </div>";
   }
