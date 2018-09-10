@@ -26,17 +26,17 @@ $(function(){
 
         //Ajout de l'évènement pour affichage de la modal sur les résultat de recherche
         $('.hover_photo').click(function(){
-            if(!$(event.target).closest('.btn-like').length) {
+            if(!$(event.target).closest('.btn-like, btn-download').length) {
             //Le clic s'est produit en dehors de l'élément btn-like
             $('#myModal .modal-content').load('modal_photo.php?urlPhoto='+$(this).prev('.photo').attr('data-url-photo')+'&photoClick='+$(this).prev('.photo').attr('id'),function(){$('#myModal').modal('show');});
             }
         });
 
-
         //GESTION AFFICHAGE HOVER PHOTO
         $(".hover_photo").mouseleave(function(){
             $(this).fadeOut('fast');
-            $('.barre_miniature_hover').slideToggle(50);
+            if($(this).children('.barre_miniature_hover').is(':visible'))
+                $('.barre_miniature_hover').slideToggle(50);
         });
 
         $('.photo').mouseenter(function(){
@@ -54,10 +54,10 @@ $(function(){
 
         $('.btn-custom').mouseleave(function(){
             if($(this).hasClass('btn-like'))
-                $(this).next().toggle("slide", { direction: "left" }, 150);
+                $(this).next().hide();
 
             if($(this).hasClass('btn-download'))
-                $(this).prev().toggle("slide", { direction: "right" }, 150);
+                $(this).prev().hide();
         });
     }
 
@@ -276,6 +276,7 @@ $(function(){
       $('.container').html('');
       setTimeout(function(){
         $('.container').load("best_picture.php");
+        eventListener();
       }, 150);
       $('.container').fadeIn();
     });
