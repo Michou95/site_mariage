@@ -101,13 +101,13 @@ if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
                   </a>
                   <div style="display:none" class="hover_photo">
                     <i class="fas fa-search-plus fa-4x"></i>
-                    <div style="display:none"  class="barre_miniature_hover col-xs-12">
+                    <div style="display:none" class="barre_miniature_hover col-xs-12">
                       <a data-id-photo="'.$random[$i]['id_photo'].'" class="btn-custom btn-like like">
                         <i class="fas fa-heart"></i>
                       </a>
                       <span class="text-info">J\'aime</span>
                       <span class="text-info">Télécharger</span>
-                      <a class="btn-custom btn-download" href="'.$random[$i]['url'].'">
+                      <a class="btn-custom btn-download" href="'.$random[$i]['url'].'" download>
                         <i class="fas fa-download"></i>
                       </a>
                     </div>

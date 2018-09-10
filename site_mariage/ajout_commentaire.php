@@ -14,7 +14,7 @@ if($_POST) {
     $query = $connexion->prepare($sql);
     $query->execute();
 
-    echo $username;
+    return true;
 }
 
 ?>
