@@ -107,7 +107,7 @@ if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
                       </a>
                       <span class="text-info">J\'aime</span>
                       <span class="text-info">Télécharger</span>
-                      <a class="btn-custom btn-download" href="'.$random[$i]['url'].'">
+                      <a class="btn-custom btn-download" href="'.$random[$i]['url'].'" download>
                         <i class="fas fa-download"></i>
                       </a>
                     </div>
