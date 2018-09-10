@@ -5,7 +5,7 @@
         <script type="text/javascript" src="script.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 
-        <h4>&copy; Developpé & Designé par Mickael & Kévin Régent & Kévin Cessac tout droit réservé</h4>
+        <h4>&copy; Développeurs et Designers: Mickael, Kévin Régent & Kévin Cessac tout droit réservé</h4>
     </footer>
 
   </body>
