@@ -11,7 +11,8 @@ if ($_POST) {
         $username = $_SESSION['username'];
       }
     } else {
-      $username = '';
+      $_SESSION['username'] = $_POST['username'];
+      $username = $_POST['username'];
     }
 
     echo $username;
