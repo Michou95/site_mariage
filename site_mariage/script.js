@@ -26,7 +26,10 @@ $(function(){
 
         //Ajout de l'évènement pour affichage de la modal sur les résultat de recherche
         $('.hover_photo').click(function(){
+            if(!$(event.target).closest('.btn-like').length) {
+            //Le clic s'est produit en dehors de l'élément btn-like
             $('#myModal .modal-content').load('modal_photo.php?urlPhoto='+$(this).prev('.photo').attr('data-url-photo')+'&photoClick='+$(this).prev('.photo').attr('id'),function(){$('#myModal').modal('show');});
+            }
         });
 
 
@@ -42,11 +45,19 @@ $(function(){
         });
 
         $('.btn-custom').mouseenter(function(){
-            $(this).prev().toggle("slide", { direction: "right" }, 150);
+            if($(this).hasClass('btn-like'))
+                $(this).next().toggle("slide", { direction: "left" }, 150);
+
+            if($(this).hasClass('btn-download'))
+                $(this).prev().toggle("slide", { direction: "right" }, 150);
         });
 
         $('.btn-custom').mouseleave(function(){
-            $(this).prev().hide();
+            if($(this).hasClass('btn-like'))
+                $(this).next().toggle("slide", { direction: "left" }, 150);
+
+            if($(this).hasClass('btn-download'))
+                $(this).prev().toggle("slide", { direction: "right" }, 150);
         });
     }
 
