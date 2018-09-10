@@ -49,7 +49,7 @@ $admin_ip = $connexion->isAllowedIp($ip);
 </head>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-content"></div>
+  <div class="modal-content col-lg-10 col-lg-offset-1"></div>
 </div>
 
 <header>

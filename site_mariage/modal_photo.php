@@ -3,7 +3,6 @@
   if(isset($_GET['urlPhoto']) && !empty($_GET['urlPhoto'])){
     $numPhoto = explode('_', $_GET['photoClick']);  //Stockage du num de la photo
 ?>
-
 <div class="modal-body col-lg-8">
   <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
   <div id="paginate_left"><i class="fas fa-chevron-left fa-3x"></i></div>
@@ -84,13 +83,22 @@ $(function(){
     
           request.done(function( data ) {
             $('.commentarys').html('');
-            $('.commentarys').html(data);
+            $('.commentarys').html(data)
+            if ($('#only_commentarys').length > 0) {
+              console.log('test');
+              var autoScroll = document.getElementById('only_commentarys');
+              console.log(autoScroll);
+              autoScroll.scrollTo(0, autoScroll.scrollHeight);
+              // document.getElementById('only_commentarys').scrollTop = document.getElementById('only_commentarys').scrollHeight;
+            }
           });
     
           request.fail(function( jqXHR, textStatus ) {
               alert( "Request failed: " + textStatus );
           });
     }
+
+  
 
 });
 </script>
