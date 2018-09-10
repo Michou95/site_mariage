@@ -1,12 +1,23 @@
 <?php
-function setUsernameSession() {
-  if (isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];
-  } else {
-    $username = '';
+session_start();
+
+if ($_POST) {
+  if ($_POST['action'] == 'setUsername') {
+    if (isset($_SESSION['username'])) {
+      if ($_SESSION['username'] == $_POST['username'] || (($_SESSION['username'] != $_POST['username']) && empty($_POST['username']))) {
+        $username = $_SESSION['username'];
+      } else if ($_SESSION['username'] != $_POST['username'] && !empty($_POST['username'])) {
+        $_SESSION['username'] = $_POST['username'];
+        $username = $_SESSION['username'];
+      }
+    } else {
+      $username = '';
+    }
+
+    echo $username;
   }
-  return $username;
 }
+
 if(isset($_GET['urlPhoto']) && !empty($_GET['urlPhoto'])){
   $numPhoto = explode('_', $_GET['photoClick']);  //Stockage du num de la photo
 ?>
@@ -81,7 +92,8 @@ $(function(){
     }
   });
   //------------ AJAX SELECTION ET AFFICHAGE DES COMMENTAIRES ----------------//
-    function refreshCommentary(idPhoto){
+
+    function refreshCommentary(idPhoto, usernameExist = ''){
       var request = $.ajax({
               url: "commentaire.php",
               method: "POST",
@@ -95,11 +107,25 @@ $(function(){
             $('.commentarys').html(data)
             if ($('#only_commentarys').length > 0) {
               var autoScroll = document.getElementById('only_commentarys');
+              console.log(autoScroll)
+              console.log('avant')
               autoScroll.scrollTo(0, autoScroll.scrollHeight);
-              // document.getElementById('only_commentarys').scrollTop = document.getElementById('only_commentarys').scrollHeight;
+              console.log('apres')
             }
-            <?php $username = setUsernameSession(); ?>
-            $('input[name=username]').val(<?= $username ?>);
+            
+            var request = $.ajax({
+              url: "modal_photo.php",
+              method: "POST",
+              data: {
+                      action : 'setUsername',
+                      username : usernameExist
+                    }
+            });
+
+            request.done(function( data ) {
+              $('#username').val(data);
+            })
+            
             formCommentary(idPhoto);
           });
 
@@ -135,9 +161,9 @@ $(function(){
                       commentary : content,
                     }
           });
-
-          request.done(function( data ) {
-            refreshCommentary(idPhoto);
+    
+          request.done(function() {
+            refreshCommentary(idPhoto, username);
           });
 
           request.fail(function( jqXHR, textStatus ) {
