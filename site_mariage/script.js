@@ -17,6 +17,10 @@ $(function(){
         selectPhoto($('#search'));
     });
 
+    $('#best_picture').click(function(){
+      selectPhoto($(this));
+    });
+
     //Evenement a lancer apres requetes ajax
     function eventListener(){
         //Ajout de l'évènement de recherche de photo sur la pagination
@@ -161,14 +165,24 @@ $(function(){
                 case 'personne' :
                     titre = 'Photo de '+ NomInvite;
                     break;
+                case 'best_photos' :
+                    titre = 'Vos photos favorites';
+                    break;
             }
             $('.photo_title').fadeOut('fast',function(){ //modification du titre
                 $('.photo_title').html('<h2>' + titre + '</h2>');
                 $('.photo_title').fadeIn('slow');
             });
             $('.container').fadeOut('fast',function(){ //Chargement et affichage des photo
-                $('.container').html(data);
-                $('.container').fadeIn('slow');
+                if(mode == 'best_photos'){
+                  var best = '<div class="col-xs-12"><p class="text-center alert-success" style="font-family: \'allura\', verdana, arial, sans-serif;">Ici son regroupées les photos ayant reçu le + de "J\'aime". N\'hésitez pas à clicker sur le bouton "J\'aime" lorsqu\'une photo vous plait! Le classement changera en fonction des "J\'aime" obtenus par les photos.</p></div>' + data;
+                  $('.container').html(best);
+                  $('.container').fadeIn('slow');
+                }
+                else{
+                  $('.container').html(data);
+                  $('.container').fadeIn('slow');
+                }
                 eventListener(); // /!\IMPORTANT/!\ permet de relancer l'event listener pour les bouton de pagination
             });
             //$( ".container" ).html( data );
@@ -266,18 +280,5 @@ $(function(){
       });
     });
 
-    //------------ GESTION AFFICHAGE PAGE MEILLEURES PHOTOS ----------------//
-
-    $('#best_picture').click(function(){
-      var scrollTo = ($('.scroll_barre').offset().top + 30);
-      $('html, body').animate({ scrollTop: scrollTo }, 500);
-      $('.photo_title').fadeOut('fast');
-      $('.container').fadeOut('fast');
-      $('.container').html('');
-      setTimeout(function(){
-        $('.container').load("best_picture.php");
-      }, 150);
-      $('.container').fadeIn();
-    });
 
 });

@@ -164,7 +164,7 @@ function getRandomPhoto():array{
 //------------------------------------------------------//
 function getBestPhotos():array{
   $connexion = getDb();
-  $sql = "SELECT url_miniature, url, id_photo FROM photos WHERE vote != 0 ORDER BY vote DESC LIMIT 0, 20;";
+  $sql = "SELECT url_miniature, url, id_photo, prise_par FROM photos WHERE vote != 0 ORDER BY vote DESC LIMIT 0, 20;";
   $query = $connexion->query($sql);
   $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
   return $resultat;

@@ -52,6 +52,7 @@ function addPhotoAndPaginate($tabPhoto,$mode,$page,$id_invite = null, $nom_invit
   }
  return $html;
 }
+
 //--------------------------
 // FONCTION DE SELECTION BDD
 //--------------------------
@@ -113,6 +114,10 @@ switch ($mode){
       return false;
       $photoResult = getPhotoByInvite($id_invite);
       $resultHtml = addPhotoAndPaginate($photoResult,$mode,$page,$id_invite,$nom_invite);
+    break;
+  case 'best_photos' :
+      $photoResult = getBestPhotos();
+      $resultHtml = addPhotoAndPaginate($photoResult, $mode, 1);
     break;
 }
 echo $resultHtml;die();

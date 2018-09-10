@@ -408,6 +408,11 @@ div#only_commentarys div.commentary:first-child .username{
   color: white !important;
 }
 
+p{
+  font-family: 'allura', verdana, arial, sans-serif;
+  font-size: 2em;
+}
+
 /*PAGINATION MODAL*/
 
 #paginate_left{
