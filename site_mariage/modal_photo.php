@@ -107,10 +107,7 @@ $(function(){
             $('.commentarys').html(data)
             if ($('#only_commentarys').length > 0) {
               var autoScroll = document.getElementById('only_commentarys');
-              console.log(autoScroll)
-              console.log('avant')
               autoScroll.scrollTo(0, autoScroll.scrollHeight);
-              console.log('apres')
             }
             
             var request = $.ajax({
