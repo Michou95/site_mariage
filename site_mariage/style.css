@@ -367,6 +367,12 @@ div#only_commentarys div.commentary:first-child .username{
   #SearchForm small{
     display: none;
   }
+
+  .form-group {
+    width: 80% !important;
+    position: relative;
+    right: 10px;
+  }
 }
 
 /* BARRE DE SCROLL */
@@ -462,5 +468,21 @@ p{
 
   .title_section_hover{
     font-size: 1.7em;
+  }
+
+  .title {
+    padding-top: 300px;
+    font-size: .6rem;
+  }
+
+  .form-group {
+    width: 80% !important;
+    position: relative;
+    right: 10px;
+  }
+
+  header {
+    background-image: url('mariage/photos_charline/mairie/424-compressor.jpg');
+    background-position-x: -180px;
   }
 }
