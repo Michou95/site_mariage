@@ -353,6 +353,42 @@ div#only_commentarys div.commentary:first-child .username{
 }
 
 /* MEDIA QUERIES DE L'ESPACE !!!!! <= qui tue tout sur leurs passage !*/
+@media screen and (max-width: 768px){
+
+  .hover_photo{
+    display: block!important;
+    background: none;
+    text-align: center;
+    padding-top: 100px!important;
+  }
+
+  .hover_photo i.fa-search-plus{
+    border: none;
+    opacity: 0.4;
+  }
+
+  .barre_miniature_hover{
+    transition: none!important;
+    display: block!important;
+  }
+
+  .barre_miniature_hover .like{
+    width: 20px;
+    margin-top: 5px;
+    margin-right: 65%;
+    float: left;
+  }
+
+  .text-info{
+    display: none!important;
+  }
+
+  .barre_miniature_hover .btn-download{
+    width: 37px;
+    margin-top: 5px;
+  }
+
+}
 
 @media screen and (max-width: 505px){
   .title{
@@ -374,6 +410,50 @@ div#only_commentarys div.commentary:first-child .username{
     position: relative;
     right: 10px;
   }
+
+  .hover_section{
+    transition: none!important;
+    display: block!important;
+    text-align: center;
+  }
+
+  .hover_section h2{
+    margin-top: 50px;
+  }
+
+  .hover_photo{
+    display: block!important;
+    background: none;
+    text-align: center;
+    padding-top: 100px!important;
+  }
+
+  .hover_photo i.fa-search-plus{
+    border: none;
+    opacity: 0.4;
+  }
+
+  .barre_miniature_hover{
+    transition: none!important;
+    display: block!important;
+  }
+
+  .barre_miniature_hover .like{
+    width: 37px;
+    margin-top: 5px;
+    margin-right: 60%;
+    float: left;
+  }
+
+  .text-info{
+    display: none!important;
+  }
+
+  .barre_miniature_hover .btn-download{
+    width: 37px;
+    margin-top: 5px;
+  }
+
 }
 
 /* BARRE DE SCROLL */
@@ -511,12 +591,46 @@ p{
   }
 
   .hover_section{
+    transition: none!important;
     display: block!important;
     text-align: center;
   }
 
   .hover_section h2{
     margin-top: 50px;
+  }
+
+  .hover_photo{
+    display: block!important;
+    background: none;
+    text-align: center;
+    padding-top: 100px!important;
+  }
+
+  .hover_photo i.fa-search-plus{
+    border: none;
+    opacity: 0.4;
+  }
+
+  .barre_miniature_hover{
+    transition: none!important;
+    display: block!important;
+  }
+
+  .barre_miniature_hover .like{
+    width: 37px;
+    margin-top: 5px;
+    margin-right: 60%;
+    float: left;
+  }
+
+  .text-info{
+    display: none!important;
+  }
+
+  .barre_miniature_hover .btn-download{
+    width: 37px;
+    margin-top: 5px;
   }
 
   .photo_section{
