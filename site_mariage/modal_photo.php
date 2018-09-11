@@ -38,6 +38,7 @@ if(isset($_GET['urlPhoto']) && !empty($_GET['urlPhoto'])){
 $(function(){
   // Récupération de l'idPhoto
   var idPhoto = $('input[name=<?php echo $_GET['photoClick'] ?>]').val();
+  var url_photo = '<?php echo $_GET['urlPhoto'] ?>';
   refreshCommentary(idPhoto);
   var numPhoto = <?php echo $numPhoto[1]; ?>// index 0 : la clé de l'id (photo) - index 1 : le numéro de la photo
 
@@ -100,12 +101,14 @@ $(function(){
               method: "POST",
               data: {
                       id_photo : idPhoto,
+                      url_photo : url_photo,
                     }
           });
 
           request.done(function( data ) {
             $('.commentarys').html('');
             $('.commentarys').html(data)
+            eventListenerModal(); //reboot des event sur les bouton de la modal
             if ($('#only_commentarys').length > 0) {
               var autoScroll = document.getElementById('only_commentarys');
               autoScroll.scrollTo(0, autoScroll.scrollHeight);
@@ -172,6 +175,57 @@ $(function(){
       }
     })
   }
+
+  //---------------- ECOUTEUR D'EVENEMENT SUR LES BOUTONS DE LA MODAL ---------//
+
+  function eventListenerModal(){
+
+    $('.btn-custom-modal').mouseenter(function(){
+      if($(this).hasClass('btn-like'))
+          $(this).next().toggle("slide", { direction: "left" }, 150);
+  
+      if($(this).hasClass('btn-download'))
+          $(this).prev().toggle("slide", { direction: "right" }, 150);
+    });
+  
+    $('.btn-custom-modal').mouseleave(function(){
+      console.log('kikou');
+      if($(this).hasClass('btn-like'))
+          $(this).next().hide();
+  
+      if($(this).hasClass('btn-download'))
+          $(this).prev().hide();
+    });
+
+    $('.like').click(function(){
+      likePhotoModal($(this));
+    });
+    
+  }
+
+  // ----------------- FONCTION POUR AJOUTER UN LIKE A LA PHOTO ----------------//
+
+   function likePhotoModal(element){
+        //----- Recuperation valeur dans data-id-photo
+        var id_photo = $(element).attr('data-id-photo');
+  
+        var request = $.ajax({
+            url: "vote_photo.php",
+            method: "POST",
+            data: {
+                    id_photo : id_photo,
+                  }
+        });
+  
+        request.done(function( data ) {
+                  console.log(data);
+                });
+  
+        request.fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
+    }
+
 });
 </script>
 

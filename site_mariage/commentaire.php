@@ -5,6 +5,7 @@
 
     $connexion = getDB();
     $id_photo = $_POST['id_photo'];
+    $url_photo = $_POST['url_photo']; 
   
     $sql = "SELECT * FROM commentary WHERE photo_id = $id_photo ORDER BY id";
     $query = $connexion->prepare($sql);
@@ -45,6 +46,17 @@
                   <input type='submit' class='submit btn btn-primary' value='Envoyer' />
                 </form>
               </div>";
+
+    $data .= '<div class="barre_modal-btn">
+                <a data-id-photo="'.$id_photo.'" class="btn-custom-modal btn-like like">
+                  <i class="fas fa-heart"></i>
+                </a>
+                <span class="text-info">J\'aime</span>
+                <span class="text-info">Télécharger</span>
+                <a class="btn-custom-modal btn-download" href="'.$url_photo.'" download>
+                  <i class="fas fa-download"></i>
+                </a>
+              </div>';
   }
 
   echo $data;

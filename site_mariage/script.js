@@ -36,6 +36,11 @@ $(function(){
             }
         });
 
+        //Ajout de l'évenement sur le bouton pour like photo
+        $('.like').click(function(){
+            likePhoto($(this));
+        });
+
         //GESTION AFFICHAGE HOVER PHOTO
         $(".hover_photo").mouseleave(function(){
             $(this).fadeOut('fast');
@@ -268,25 +273,25 @@ $(function(){
 
     //------------ AJOUT DE LIKE SUR LES PHOTOS -----------------//
 
-    $('.like').click(function(){
-      //----- Recuperation valeur dans data-id-photo
-      var id_photo = $(this).attr('data-id-photo');
-
-      var request = $.ajax({
-          url: "vote_photo.php",
-          method: "POST",
-          data: {
-                  id_photo : id_photo,
-                }
-      });
-
-      request.done(function( data ) {
-                console.log(data);
-              });
-
-      request.fail(function( jqXHR, textStatus ) {
-          alert( "Request failed: " + textStatus );
-      });
-    });
+    function likePhoto(element){
+        //----- Recuperation valeur dans data-id-photo
+        var id_photo = $(element).attr('data-id-photo');
+  
+        var request = $.ajax({
+            url: "vote_photo.php",
+            method: "POST",
+            data: {
+                    id_photo : id_photo,
+                  }
+        });
+  
+        request.done(function( data ) {
+                  console.log(data);
+                });
+  
+        request.fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
+    }
 
 });
