@@ -151,7 +151,7 @@ function getAllVisites():string{
 //------------------------------//
 function getRandomPhoto():array{
   $connexion = getDB();
-  $sql = "SELECT id_photo, url, url_miniature FROM photos ORDER BY RAND() LIMIT 0, 12;";
+  $sql = "SELECT id_photo, url, url_miniature, prise_par FROM photos ORDER BY RAND() LIMIT 0, 12;";
   $response = $connexion->query($sql);
   $resultat = $response->fetchAll(PDO::FETCH_ASSOC);
 
