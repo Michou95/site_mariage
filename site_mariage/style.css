@@ -481,6 +481,28 @@ p{
     right: 10px;
   }
 
+  .hover_section{
+    display: block!important;
+    text-align: center;
+  }
+
+  .hover_section h2{
+    margin-top: 50px;
+  }
+
+  .photo_section{
+    display: block!important;
+    text-align: center;
+  }
+
+  .photo_section h2{
+    margin-top: 50px;
+  }
+
+  .photo_title{
+    font-size: 10px;
+  }
+
   header {
     background-image: url('mariage/photos_charline/mairie/424-compressor.jpg');
     background-position-x: -180px;
