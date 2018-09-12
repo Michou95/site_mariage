@@ -47,6 +47,7 @@ $(function(){
   var photoSuivante = $('#photo_'+(numPhoto+1)).attr('data-url-photo');
   var charline = $('#photo_'+(numPhoto)).attr('data-photo-charline');
 
+
   //Vérifie si la photo existe pour afficher la touche de pagination au premier chargement
   if(photoPrecedente == undefined){
     $('#paginate_left').css('display','none');
@@ -71,12 +72,16 @@ $(function(){
       idPhoto = $('input[name="photo_'+numPhoto+'"]').val();
       refreshCommentary(idPhoto);
       $('#divPhotoModal').html('<img id="photoModal" src="'+photoSuivante+'">');
+      var charline = $('#photo_'+(numPhoto)).attr('data-photo-charline');
+      console.log(charline);
     }
     else{
       numPhoto--;
       idPhoto = $('input[name="photo_'+numPhoto+'"]').val();
       refreshCommentary(idPhoto);
       $('#divPhotoModal').html('<img id="photoModal" src="'+photoPrecedente+'">');
+      var charline = $('#photo_'+(numPhoto)).attr('data-photo-charline');
+      console.log(charline);
     }
     //On modifie les url en fonction de la photo actuel
     photoPrecedente = $('#photo_'+(numPhoto-1)).attr('data-url-photo');
@@ -183,16 +188,16 @@ $(function(){
     $('.btn-custom-modal').mouseenter(function(){
       if($(this).hasClass('btn-like'))
           $(this).next().toggle("slide", { direction: "left" }, 150);
-  
+
       if($(this).hasClass('btn-download'))
           $(this).prev().toggle("slide", { direction: "right" }, 150);
     });
-  
+
     $('.btn-custom-modal').mouseleave(function(){
       console.log('kikou');
       if($(this).hasClass('btn-like'))
           $(this).next().hide();
-  
+
       if($(this).hasClass('btn-download'))
           $(this).prev().hide();
     });
@@ -200,7 +205,7 @@ $(function(){
     $('.like').click(function(){
       likePhotoModal($(this));
     });
-    
+
   }
 
   // ----------------- FONCTION POUR AJOUTER UN LIKE A LA PHOTO ----------------//
@@ -208,7 +213,7 @@ $(function(){
    function likePhotoModal(element){
         //----- Recuperation valeur dans data-id-photo
         var id_photo = $(element).attr('data-id-photo');
-  
+
         var request = $.ajax({
             url: "vote_photo.php",
             method: "POST",
@@ -216,11 +221,11 @@ $(function(){
                     id_photo : id_photo,
                   }
         });
-  
+
         request.done(function( data ) {
                   console.log(data);
                 });
-  
+
         request.fail(function( jqXHR, textStatus ) {
             alert( "Request failed: " + textStatus );
         });
