@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if ($_POST) {
   if ($_POST['action'] == 'setUsername') {
     if (isset($_SESSION['username'])) {
@@ -14,11 +13,9 @@ if ($_POST) {
       $_SESSION['username'] = $_POST['username'];
       $username = $_POST['username'];
     }
-
     echo $username;
   }
 }
-
 if(isset($_GET['urlPhoto']) && !empty($_GET['urlPhoto'])){
   $numPhoto = explode('_', $_GET['photoClick']);  //Stockage du num de la photo
 ?>
@@ -41,12 +38,10 @@ $(function(){
   var url_photo = '<?php echo $_GET['urlPhoto'] ?>';
   refreshCommentary(idPhoto);
   var numPhoto = <?php echo $numPhoto[1]; ?>// index 0 : la clé de l'id (photo) - index 1 : le numéro de la photo
-
   //On alloue l'url des photo au bouton suivant précédent
   var photoPrecedente = $('#photo_'+(numPhoto-1)).attr('data-url-photo');
   var photoSuivante = $('#photo_'+(numPhoto+1)).attr('data-url-photo');
   var charline = $('#photo_'+(numPhoto)).attr('data-photo-charline');
-
 
   //Vérifie si la photo existe pour afficher la touche de pagination au premier chargement
   if(photoPrecedente == undefined){
@@ -72,16 +67,14 @@ $(function(){
       idPhoto = $('input[name="photo_'+numPhoto+'"]').val();
       refreshCommentary(idPhoto);
       $('#divPhotoModal').html('<img id="photoModal" src="'+photoSuivante+'">');
-      var charline = $('#photo_'+(numPhoto)).attr('data-photo-charline');
-      console.log(charline);
+      charline = $('#photo_'+(numPhoto)).attr('data-photo-charline');
     }
     else{
       numPhoto--;
       idPhoto = $('input[name="photo_'+numPhoto+'"]').val();
       refreshCommentary(idPhoto);
       $('#divPhotoModal').html('<img id="photoModal" src="'+photoPrecedente+'">');
-      var charline = $('#photo_'+(numPhoto)).attr('data-photo-charline');
-      console.log(charline);
+      charline = $('#photo_'+(numPhoto)).attr('data-photo-charline');
     }
     //On modifie les url en fonction de la photo actuel
     photoPrecedente = $('#photo_'+(numPhoto-1)).attr('data-url-photo');
@@ -97,9 +90,17 @@ $(function(){
     }else if(photoSuivante != undefined && !($('#paginate_right').is(':visible')) ){
       $('#paginate_right').show();
     }
+
+    // Ajoute un lien vers le site de Accubens... PUTAIN c'est vraiment pour être fair play !
+    if(charline == "false"){
+      $('#charline').css('display', 'none');
+    }
+    else{
+      $('#charline').css('display', 'block');
+    }
+    
   });
   //------------ AJAX SELECTION ET AFFICHAGE DES COMMENTAIRES ----------------//
-
     function refreshCommentary(idPhoto, usernameExist = ''){
       var request = $.ajax({
               url: "commentaire.php",
@@ -109,7 +110,6 @@ $(function(){
                       url_photo : url_photo,
                     }
           });
-
           request.done(function( data ) {
             $('.commentarys').html('');
             $('.commentarys').html(data)
@@ -118,7 +118,6 @@ $(function(){
               var autoScroll = document.getElementById('only_commentarys');
               autoScroll.scrollTo(0, autoScroll.scrollHeight);
             }
-
             var request = $.ajax({
               url: "modal_photo.php",
               method: "POST",
@@ -127,14 +126,11 @@ $(function(){
                       username : usernameExist
                     }
             });
-
             request.done(function( data ) {
               $('#username').val(data);
             })
-
             formCommentary(idPhoto);
           });
-
           request.fail(function( jqXHR, textStatus ) {
               alert( "Request failed: " + textStatus );
           });
@@ -167,11 +163,9 @@ $(function(){
                       commentary : content,
                     }
           });
-
           request.done(function() {
             refreshCommentary(idPhoto, username);
           });
-
           request.fail(function( jqXHR, textStatus ) {
               alert( "Request failed: " + textStatus );
           });
@@ -180,36 +174,32 @@ $(function(){
       }
     })
   }
-
   //---------------- ECOUTEUR D'EVENEMENT SUR LES BOUTONS DE LA MODAL ---------//
-
   function eventListenerModal(){
+    if (window.matchMedia("(min-width: 420px)").matches) {
+      $('.btn-custom-modal').mouseenter(function(){
+        if($(this).hasClass('btn-like'))
+            $(this).next().show("fast");
 
-    $('.btn-custom-modal').mouseenter(function(){
-      if($(this).hasClass('btn-like'))
-          $(this).next().toggle("slide", { direction: "left" }, 150);
+        if($(this).hasClass('btn-download'))
+            $(this).prev().show("fast");
+      });
 
-      if($(this).hasClass('btn-download'))
-          $(this).prev().toggle("slide", { direction: "right" }, 150);
-    });
+      $('.btn-custom-modal').mouseleave(function(){
+        console.log('kikou');
+        if($(this).hasClass('btn-like'))
+            $(this).next().hide();
 
-    $('.btn-custom-modal').mouseleave(function(){
-      console.log('kikou');
-      if($(this).hasClass('btn-like'))
-          $(this).next().hide();
-
-      if($(this).hasClass('btn-download'))
-          $(this).prev().hide();
-    });
-
+        if($(this).hasClass('btn-download'))
+            $(this).prev().hide();
+      });
+    }
     $('.like').click(function(){
       likePhotoModal($(this));
     });
 
   }
-
   // ----------------- FONCTION POUR AJOUTER UN LIKE A LA PHOTO ----------------//
-
    function likePhotoModal(element){
         //----- Recuperation valeur dans data-id-photo
         var id_photo = $(element).attr('data-id-photo');
@@ -230,7 +220,6 @@ $(function(){
             alert( "Request failed: " + textStatus );
         });
     }
-
 });
 </script>
 
