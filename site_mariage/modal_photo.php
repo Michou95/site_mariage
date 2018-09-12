@@ -33,6 +33,7 @@ if(isset($_GET['urlPhoto']) && !empty($_GET['urlPhoto'])){
 
 <script>
 $(function(){
+
   // Récupération de l'idPhoto
   var idPhoto = $('input[name=<?php echo $_GET['photoClick'] ?>]').val();
   var url_photo = '<?php echo $_GET['urlPhoto'] ?>';
@@ -76,6 +77,7 @@ $(function(){
       $('#divPhotoModal').html('<img id="photoModal" src="'+photoPrecedente+'">');
       charline = $('#photo_'+(numPhoto)).attr('data-photo-charline');
     }
+
     //On modifie les url en fonction de la photo actuel
     photoPrecedente = $('#photo_'+(numPhoto-1)).attr('data-url-photo');
     photoSuivante = $('#photo_'+(numPhoto+1)).attr('data-url-photo');
@@ -85,6 +87,7 @@ $(function(){
     }else if(photoPrecedente != undefined && !($('#paginate_left').is(':visible')) ){
       $('#paginate_left').show();
     }
+    
     if(photoSuivante == undefined){
       $('#paginate_right').hide();
     }else if(photoSuivante != undefined && !($('#paginate_right').is(':visible')) ){
