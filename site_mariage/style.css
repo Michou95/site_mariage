@@ -375,13 +375,29 @@ div#only_commentarys div.commentary:first-child .username{
 }
 
 /* MEDIA QUERIES DE L'ESPACE !!!!! <= qui tue tout sur leurs passage !*/
-@media screen and (max-width: 768px){
+@media screen and (min-width: 506px) and (max-width: 768px){
 
   .hover_photo{
     display: block!important;
     background: none;
     text-align: center;
     padding-top: 100px!important;
+  }
+
+  .hover_section{
+    transition: none!important;
+    display: block!important;
+    background: inherit;
+    text-align: center;
+    margin-top: 20%;
+  }
+
+  .photo_section{
+    transition: none!important;
+    display: block!important;
+    background: inherit;
+    text-align: center;
+    margin-top: 20%;
   }
 
   .hover_photo i.fa-search-plus{
@@ -408,7 +424,7 @@ div#only_commentarys div.commentary:first-child .username{
 
 }
 
-@media screen and (max-width: 505px){
+@media screen and (min-width: 421px) and (max-width: 505px){
   .title{
     top: -50px;
     left: 0%!important;
@@ -432,7 +448,16 @@ div#only_commentarys div.commentary:first-child .username{
   .hover_section{
     transition: none!important;
     display: block!important;
+    background: inherit;
     text-align: center;
+  }
+
+  .photo_section{
+    transition: none!important;
+    display: block!important;
+    background: inherit;
+    text-align: center;
+    margin-top: 15%;
   }
 
   .hover_section h2{
@@ -618,6 +643,7 @@ p{
   .hover_section{
     transition: none!important;
     display: block!important;
+    background: inherit;
     text-align: center;
   }
 
@@ -656,6 +682,7 @@ p{
 
   .photo_section{
     display: block!important;
+    background: inherit;
     text-align: center;
   }
 
