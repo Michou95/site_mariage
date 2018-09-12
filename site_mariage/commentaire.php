@@ -51,12 +51,14 @@
                 <a data-id-photo="'.$id_photo.'" class="btn-custom-modal btn-like like">
                   <i class="fas fa-heart"></i>
                 </a>
-                <span class="text-info">J\'aime</span>
-                <span class="text-info">Télécharger</span>
+                <span class="text-info-modal-like">J\'aime</span>
+                <a class="btn-shareFb" target="_blank" href="https://www.facebook.com/sharer/sharer.php?                 u=http%3A//www.mj-mariage.fr/site_mariage/'.$url_photo.'"><i class="fab fa-facebook-f fa-2x"></i></a>
+                <span class="text-info-modal-download">Télécharger</span>
                 <a class="btn-custom-modal btn-download" href="'.$url_photo.'" download>
                   <i class="fas fa-download"></i>
                 </a>
               </div>';
+    
   }
 
   echo $data;

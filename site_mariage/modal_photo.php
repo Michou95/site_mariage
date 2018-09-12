@@ -179,23 +179,26 @@ $(function(){
   //---------------- ECOUTEUR D'EVENEMENT SUR LES BOUTONS DE LA MODAL ---------//
 
   function eventListenerModal(){
+    if (window.matchMedia("(min-width: 420px)").matches) {
 
-    $('.btn-custom-modal').mouseenter(function(){
-      if($(this).hasClass('btn-like'))
-          $(this).next().toggle("slide", { direction: "left" }, 150);
-  
-      if($(this).hasClass('btn-download'))
-          $(this).prev().toggle("slide", { direction: "right" }, 150);
-    });
-  
-    $('.btn-custom-modal').mouseleave(function(){
-      console.log('kikou');
-      if($(this).hasClass('btn-like'))
-          $(this).next().hide();
-  
-      if($(this).hasClass('btn-download'))
-          $(this).prev().hide();
-    });
+      $('.btn-custom-modal').mouseenter(function(){
+        if($(this).hasClass('btn-like'))
+            $(this).next().show("fast");
+    
+        if($(this).hasClass('btn-download'))
+            $(this).prev().show("fast");
+      });
+    
+      $('.btn-custom-modal').mouseleave(function(){
+        console.log('kikou');
+        if($(this).hasClass('btn-like'))
+            $(this).next().hide();
+    
+        if($(this).hasClass('btn-download'))
+            $(this).prev().hide();
+      });
+
+    }
 
     $('.like').click(function(){
       likePhotoModal($(this));
