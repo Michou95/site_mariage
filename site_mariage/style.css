@@ -269,8 +269,30 @@ h2{
   background-color: rgb(61, 61, 202);
 }
 
+.btn-shareFb{
+  background-color: #23527c;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #23527c;
+  height: 50px!important;
+  width: 50px;
+  min-width: 50px;
+  height: 70%; 
+}
+
+.btn-shareFb:hover{
+  transition: all 0.2s ease;
+  cursor: pointer;
+  transform: scale(1.2);
+  text-decoration: none;
+  color: white;
+}
+
 .text-info{
-  display: none;
+  display:none;
   position: relative;
   right: 10px;
 }
@@ -379,10 +401,6 @@ div#only_commentarys div.commentary:first-child .username{
     float: left;
   }
 
-  .text-info{
-    display: none!important;
-  }
-
   .barre_miniature_hover .btn-download{
     width: 37px;
     margin-top: 5px;
@@ -445,10 +463,6 @@ div#only_commentarys div.commentary:first-child .username{
     float: left;
   }
 
-  .text-info{
-    display: none!important;
-  }
-
   .barre_miniature_hover .btn-download{
     width: 37px;
     margin-top: 5px;
@@ -505,12 +519,11 @@ p{
   display: flex;
   width: 100%;
   height: 65px;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
 .btn-custom-modal{
-  margin: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -526,6 +539,18 @@ p{
   transform: scale(1.2);
   text-decoration: none;
   color: white;
+}
+
+.text-info-modal-like{
+  display: none;
+  position: absolute;
+  margin: 0 -20%;
+}
+
+.text-info-modal-download{
+  display: none;
+  position: absolute;
+  margin: 0 18%;
 }
 
 /*PAGINATION MODAL*/
@@ -622,10 +647,6 @@ p{
     margin-top: 5px;
     margin-right: 60%;
     float: left;
-  }
-
-  .text-info{
-    display: none!important;
   }
 
   .barre_miniature_hover .btn-download{

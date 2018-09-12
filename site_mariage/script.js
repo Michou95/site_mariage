@@ -42,32 +42,40 @@ $(function(){
         });
 
         //GESTION AFFICHAGE HOVER PHOTO
-        $(".hover_photo").mouseleave(function(){
-            $(this).fadeOut('fast');
-            if($(this).children('.barre_miniature_hover').is(':visible'))
-                $('.barre_miniature_hover').slideToggle(50);
-        });
+        if (window.matchMedia("(min-width: 420px)").matches) {
 
-        $('.photo').mouseenter(function(){
-            $('.barre_miniature_hover').slideToggle('fast');
-            $(this).next('.hover_photo').fadeIn('fast');
-        });
+            $(".hover_photo").mouseleave(function(){
+                $(this).fadeOut('fast');
+                if($(this).children('.barre_miniature_hover').is(':visible'))
+                    $('.barre_miniature_hover').slideToggle(50);
+            });
 
-        $('.btn-custom').mouseenter(function(){
-            if($(this).hasClass('btn-like'))
-                $(this).next().toggle("slide", { direction: "left" }, 150);
+            $('.photo').mouseenter(function(){
+                
+                if($('.hover_photo') != $(this) && $('.hover_photo').is(':visible')){
+                    $('.hover_photo').fadeOut('fast');
+                }
+                $(this).next('.hover_photo').fadeIn('fast');
+                $('.barre_miniature_hover').slideToggle('fast');
+            });
 
-            if($(this).hasClass('btn-download'))
-                $(this).prev().toggle("slide", { direction: "right" }, 150);
-        });
+            $('.btn-custom').mouseenter(function(){
+                if($(this).hasClass('btn-like'))
+                    $(this).next().toggle("slide", { direction: "left" }, 150);
 
-        $('.btn-custom').mouseleave(function(){
-            if($(this).hasClass('btn-like'))
-                $(this).next().hide();
+                if($(this).hasClass('btn-download'))
+                    $(this).prev().toggle("slide", { direction: "right" }, 150);
+            });
 
-            if($(this).hasClass('btn-download'))
-                $(this).prev().hide();
-        });
+            $('.btn-custom').mouseleave(function(){
+                if($(this).hasClass('btn-like'))
+                    $(this).next().hide();
+
+                if($(this).hasClass('btn-download'))
+                    $(this).prev().hide();
+            });
+
+        }
     }
 
     // lancement autocomplétion a la modification du champ de saisie
