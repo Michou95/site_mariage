@@ -1,5 +1,7 @@
 $(function(){
     var rechercheOn = false;
+    //ibitialisation recherche par saisie a false
+    var saisieSearch = false;
 
     // -------- ECOUTEUR D'EVENEMENT ------------//
     eventListener();
@@ -10,10 +12,6 @@ $(function(){
 
     $('#SearchForm').submit(function(e){
         e.preventDefault();
-        selectPhoto($('#search'));
-    });
-
-    $('#submitForm').click(function(){
         selectPhoto($('#search'));
     });
 
@@ -80,6 +78,10 @@ $(function(){
 
     // lancement autocomplétion a la modification du champ de saisie
     $('#search').keyup(function(){
+        //On remet a 0 la détéction de validation du nom par autocomplète
+        if(saisieSearch == true)
+            saisieSearch = false;
+
         if($(this).val().length > 0)//Lancement si la valeur est supérieur a 0
             autocomplete($(this));
         else //Sionon on cache l'autocomplète car vide
@@ -97,6 +99,16 @@ $(function(){
         }
     });
 
+    // -------------- GESTION SUBMIT RECHERCHE --------------------//
+
+    $('#submitForm').click(function(){
+        //Si l'utilisateur tente de faire une recherche sans passer par l'autocomplète on ne recherche rien
+        if(($('#search').attr('data-id') == '') || ($('#search').val() == '') || (saisieSearch == false)){
+            console.log('kikou');
+            return false;
+        }
+        selectPhoto($('#search'));
+    });
 
     //------------ GESTION AFFICHAGE SECTION HOME -------------------//
 
@@ -251,6 +263,8 @@ $(function(){
 
 
             $('.searchPerson').click(function(){
+                //Si l'utilisateur est passer par l'autocomplète, on autorise la recherche
+                saisieSearch = true;
                 $('#search').val($(this).text()).attr('data-id', $(this).val());
                 $('#resultSearch').slideUp('fast').html('');
                 if($(this).val() == 56){
