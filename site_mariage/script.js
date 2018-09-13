@@ -110,7 +110,7 @@ $(function(){
         var path = window.location.pathname;
 
         // Si on est pas sur la page index on va chercher les photos
-        if (path != '/site_mariage/') {
+        if (path != '/site_mariage/' && path != '/site_mariage/index.php') {
             selectPhoto($('#search'));
         } else { // si on est sur la page index
             // on remplis la session
@@ -127,8 +127,15 @@ $(function(){
                         id_invite : id_invite
                       }
             });
+           
             // et on redirige vers la home
-            window.location.href = window.location.href+"site_mariage/home.php";
+            if (window.location.href.substr(-9) == 'index.php') {
+                var link = window.location.href.replace("index.php", "site_mariage/home.php");
+            } else {
+                var link = window.location.href = window.location.href+"site_mariage/home.php";
+            }
+
+            window.location.href = link;
         }
     });
 
@@ -270,7 +277,7 @@ $(function(){
         var link = '';
 
         // Si on est PAS sur la page index
-        if (path !== '/site_mariage/' && path !== '/site_mariage/index.php') {
+        if (path != '/site_mariage/' && path != '/site_mariage/index.php') {
             if(saisie == "what the funk"){
                 $('.mute').html('<i class="fas fa-ban fa-2x"></i><br><small>Stop</small>');
                 $('.fillWidth').html("");
