@@ -22,9 +22,15 @@
       foreach ($resultats as $resultat) {
         $date = getDateByTimestamp($resultat['timestamp']);
 
+        if ($resultat['username'] != $resultat['realname']) {
+          $realname = "<span class='realname'> ( ".$resultat['realname']." )</span>";
+        } else {
+          $realname = "";
+        }
+
         $data['content'] .= "<div class='commentary'>
                     <div class='username'>
-                      ".$resultat['username']."
+                      ".$resultat['username']."".$realname."
                     </div>
                     <div class='content'>
                       ".$resultat['content']."
