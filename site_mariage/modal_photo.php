@@ -87,7 +87,7 @@ $(function(){
     }else if(photoPrecedente != undefined && !($('#paginate_left').is(':visible')) ){
       $('#paginate_left').show();
     }
-    
+
     if(photoSuivante == undefined){
       $('#paginate_right').hide();
     }else if(photoSuivante != undefined && !($('#paginate_right').is(':visible')) ){
@@ -101,7 +101,7 @@ $(function(){
     else{
       $('#charline').css('display', 'block');
     }
-    
+
   });
   //------------ AJAX SELECTION ET AFFICHAGE DES COMMENTAIRES ----------------//
     function refreshCommentary(idPhoto, usernameExist = ''){
@@ -123,7 +123,7 @@ $(function(){
       var request = $.ajax({
               url: "commentaire.php",
               method: "POST",
-              dataType : "json", 
+              dataType : "json",
               data: {
                       id_photo : idPhoto,
                       url_photo : url_photo,
@@ -149,7 +149,7 @@ $(function(){
               })
 
             } else {
-              $('#goToBottom').css('display', 'none');              
+              $('#goToBottom').css('display', 'none');
             }
 
             eventListenerModal(); //reboot des event sur les bouton de la modal
