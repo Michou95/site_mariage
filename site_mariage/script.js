@@ -49,7 +49,7 @@ $(function(){
             });
 
             $('.photo').mouseenter(function(){
-                
+
                 if($('.hover_photo') != $(this) && $('.hover_photo').is(':visible')){
                     $('.hover_photo').fadeOut('fast');
                 }
@@ -127,7 +127,7 @@ $(function(){
                         id_invite : id_invite
                       }
             });
-           
+
             // et on redirige vers la home
             if (window.location.href.substr(-9) == 'index.php') {
                 var link = window.location.href.replace("index.php", "site_mariage/home.php");
@@ -145,7 +145,7 @@ $(function(){
         e.preventDefault();
         // on récupère le password saisi par l'utilisateur
         var password = $('input[name=password]').val();
-        
+
         // on vérifie qu'il est correct
         if (password == 'Suce ma bite 2018!') {
             // on cache le premier formulaire
@@ -285,7 +285,7 @@ $(function(){
                 $('.title').html('<h1>What The Funk !</h1>');
                 return false;
             }
-    
+
             if(saisie == "vincent" || saisie == "vincent joly" || saisie == 'vincent Joly' || saisie == 'Vincent joly' || saisie == 'Vincent'){
                 $('.title').html('<h1>Vinz Suce Batard !</h1>');
             }
@@ -355,7 +355,7 @@ $(function(){
     function likePhoto(element){
         //----- Recuperation valeur dans data-id-photo
         var id_photo = $(element).attr('data-id-photo');
-  
+
         var request = $.ajax({
             url: "vote_photo.php",
             method: "POST",
@@ -363,11 +363,11 @@ $(function(){
                     id_photo : id_photo,
                   }
         });
-  
+
         request.done(function( data ) {
                   console.log(data);
                 });
-  
+
         request.fail(function( jqXHR, textStatus ) {
             alert( "Request failed: " + textStatus );
         });
