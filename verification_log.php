@@ -11,6 +11,7 @@ if($_POST){
       session_start();
       $_SESSION['user'] = 'allowed';
       $_SESSION['realname'] = $_POST['username'];
+      $_SESSION['username'] = $_POST['username'];
       $_SESSION['id_invite'] = $_POST['id_invite'];
     }
     else{

@@ -1,13 +1,11 @@
 <?php
 session_start();
-// echo '<pre>';
-// var_dump($_SESSION);
-// echo '</pre>';
-// die();
 if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
  ?>
 <?php require_once ('fonctions.php'); ?>
 <?php include_once'head.php'; ?>
+
+<input type="hidden" name="userName" value="<?= $_SESSION['username'] ?>">
 
 <!-- Section rubrique clickables -->
       <div class="section_all">
