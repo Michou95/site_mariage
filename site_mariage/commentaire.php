@@ -1,7 +1,8 @@
 <?php
   if ($_POST) {
     require_once ('fonctions.php');
-    $data = '';
+    $data['content'] = '';
+    $data['nbCom'] = '';
 
     $connexion = getDB();
     $id_photo = $_POST['id_photo'];
@@ -12,15 +13,16 @@
     $query->execute();
     $resultats = $query->fetchAll(PDO::FETCH_ASSOC);
     if (empty($resultats)) {
-      $data .= "<div class='no_commentary alert-info'>Aucun commmentaire sur cette photo.</div>";
+      $data['content'] .= "<div class='no_commentary alert-info'>Aucun commmentaire sur cette photo.</div>";
     } else {
-      $data .= "<div class='nb_commentary'><span class='redNumber'>".count($resultats)."</span> commentaire(s) sur cette photo</div>";
-      $data .= "<div id='only_commentarys'>";
+      $data['nbCom'] .= count($resultats);
+      $data['content'] .= "<div class='nb_commentary'><span class='redNumber'>".count($resultats)."</span> commentaire(s) sur cette photo</div>";
+      $data['content'] .= "<div id='only_commentarys'><div id='goToBottom' title='Aller en bas'><i class='fas fa-arrow-down'></i></div>";
 
       foreach ($resultats as $resultat) {
         $date = getDateByTimestamp($resultat['timestamp']);
 
-        $data .= "<div class='commentary'>
+        $data['content'] .= "<div class='commentary'>
                     <div class='username'>
                       ".$resultat['username']."
                     </div>
@@ -33,10 +35,10 @@
                   </div>";
       }
       
-      $data .= "</div>";
+      $data['content'] .= "</div>";
     }
 
-    $data .= "<div class='add_commentary'>
+    $data['content'] .= "<div class='add_commentary'>
                 <div id='error'></div>
                 <form class='form_commentary' method='POST' action=''>
                   <label for='username'>Votre Nom / Prénom / Pseudo :</label>
@@ -47,7 +49,7 @@
                 </form>
               </div>";
 
-    $data .= '<div class="barre_modal-btn">
+    $data['content'] .= '<div class="barre_modal-btn">
                 <a data-id-photo="'.$id_photo.'" class="btn-custom-modal btn-like like">
                   <i class="fas fa-heart"></i>
                 </a>
@@ -61,5 +63,5 @@
     
   }
 
-  echo $data;
+  echo json_encode($data);
 ?>

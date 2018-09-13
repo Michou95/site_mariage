@@ -108,6 +108,7 @@ $(function(){
       var request = $.ajax({
               url: "commentaire.php",
               method: "POST",
+              dataType : "json", 
               data: {
                       id_photo : idPhoto,
                       url_photo : url_photo,
@@ -115,12 +116,29 @@ $(function(){
           });
           request.done(function( data ) {
             $('.commentarys').html('');
-            $('.commentarys').html(data)
-            eventListenerModal(); //reboot des event sur les bouton de la modal
+            $('.commentarys').html(data.content)
+
             if ($('#only_commentarys').length > 0) {
-              var autoScroll = document.getElementById('only_commentarys');
-              autoScroll.scrollTo(0, autoScroll.scrollHeight);
+              document.getElementById('only_commentarys').scrollTo(0, document.getElementById('only_commentarys').scrollHeight);
+
+              if (data.nbCom >= 4) {
+                $('#goToBottom').css('display', 'block');
+              }
+
+              $('#only_commentarys').scroll(function () {
+                if ((this.scrollTop + this.clientHeight - this.scrollHeight) == 0) {
+                  $('#goToBottom').css('display', 'none');
+                } else {
+                  $('#goToBottom').css('display', 'block');
+                }
+              })
+
+            } else {
+              $('#goToBottom').css('display', 'none');              
             }
+
+            eventListenerModal(); //reboot des event sur les bouton de la modal
+
             var request = $.ajax({
               url: "modal_photo.php",
               method: "POST",
@@ -189,7 +207,7 @@ $(function(){
       });
 
       $('.btn-custom-modal').mouseleave(function(){
-        console.log('kikou');
+
         if($(this).hasClass('btn-like'))
             $(this).next().hide();
 
@@ -200,7 +218,9 @@ $(function(){
     $('.like').click(function(){
       likePhotoModal($(this));
     });
-
+    $('#goToBottom').click(function () {
+      $('#only_commentarys').animate( { scrollTop: document.getElementById('only_commentarys').scrollHeight }, 'speed' )
+    })
   }
   // ----------------- FONCTION POUR AJOUTER UN LIKE A LA PHOTO ----------------//
    function likePhotoModal(element){
