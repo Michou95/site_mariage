@@ -1,6 +1,9 @@
 <?php
 session_start();
-
+// echo '<pre>';
+// var_dump($_SESSION);
+// echo '</pre>';
+// die();
 if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
  ?>
 <?php require_once ('fonctions.php'); ?>

@@ -104,11 +104,53 @@ $(function(){
     $('#submitForm').click(function(){
         //Si l'utilisateur tente de faire une recherche sans passer par l'autocomplète on ne recherche rien
         if(($('#search').attr('data-id') == '') || ($('#search').val() == '') || (saisieSearch == false)){
-            console.log('kikou');
             return false;
         }
-        selectPhoto($('#search'));
+
+        var path = window.location.pathname;
+
+        // Si on est pas sur la page index on va chercher les photos
+        if (path != '/site_mariage/') {
+            selectPhoto($('#search'));
+        } else { // si on est sur la page index
+            // on remplis la session
+            var password = $('input[name=passwordSave]').val();
+            var username = $('#search').val();
+            var id_invite = $('#search').attr('data-id');
+
+            $.ajax({
+                url: "verification_log.php",
+                method: "POST",
+                data: {
+                        password : password,
+                        username : username,
+                        id_invite : id_invite
+                      }
+            });
+            // et on redirige vers la home
+            window.location.href = window.location.href+"site_mariage/home.php";
+        }
     });
+
+    //------------ GESTION PASSWORD INDEX -------------------//
+
+    $('#valider').click(function(e) {
+        e.preventDefault();
+        // on récupère le password saisi par l'utilisateur
+        var password = $('input[name=password]').val();
+        
+        // on vérifie qu'il est correct
+        if (password == 'Suce ma bite 2018!') {
+            // on cache le premier formulaire
+            $('.form-login').css('display', 'none');
+
+            // on fait apparaitre le deuxième
+            $('.form-inline').css('display', 'block');
+
+            // on inscrit le password dans un champs caché pour la vérication PHP d'après
+            $('input[name=passwordSave]').val(password);
+        }
+    })
 
     //------------ GESTION AFFICHAGE SECTION HOME -------------------//
 
@@ -224,22 +266,30 @@ $(function(){
     function autocomplete(element){
         var element = $(element);
         var saisie = $(element).val();
+        var path = window.location.pathname;
+        var link = '';
 
-        if(saisie == "what the funk"){
-          $('.mute').html('<i class="fas fa-ban fa-2x"></i><br><small>Stop</small>');
-          $('.fillWidth').html("");
-          $('#what_the_funk').html('<iframe style="top: 0px!important;" width="1500" height="500" src="https://www.youtube.com/embed/Io47l-upI5M?rel=0&amp;autoplay=1&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
-          $('.title').html('<h1>What The Funk !</h1>');
-          return false;
+        // Si on est PAS sur la page index
+        if (path !== '/site_mariage/' && path !== '/site_mariage/index.php') {
+            if(saisie == "what the funk"){
+                $('.mute').html('<i class="fas fa-ban fa-2x"></i><br><small>Stop</small>');
+                $('.fillWidth').html("");
+                $('#what_the_funk').html('<iframe style="top: 0px!important;" width="1500" height="500" src="https://www.youtube.com/embed/Io47l-upI5M?rel=0&amp;autoplay=1&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+                $('.title').html('<h1>What The Funk !</h1>');
+                return false;
+            }
+    
+            if(saisie == "vincent" || saisie == "vincent joly" || saisie == 'vincent Joly' || saisie == 'Vincent joly' || saisie == 'Vincent'){
+                $('.title').html('<h1>Vinz Suce Batard !</h1>');
+            }
+
+            link = "autocomplete.php";
+        } else { // Sinon
+            link = '/site_mariage/site_mariage/autocomplete.php';
         }
-
-        if(saisie == "vincent" || saisie == "vincent joly" || saisie == 'vincent Joly' || saisie == 'Vincent joly' || saisie == 'Vincent'){
-          $('.title').html('<h1>Vinz Suce Batard !</h1>');
-        }
-
 
         var request = $.ajax({
-            url: "autocomplete.php",
+            url: link,
             method: "POST",
             data: {
                     saisie : saisie,

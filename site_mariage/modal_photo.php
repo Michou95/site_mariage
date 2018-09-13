@@ -3,15 +3,15 @@ session_start();
 if ($_POST) {
   if ($_POST['action'] == 'setUsername') {
     if (isset($_SESSION['username'])) {
-      if ($_SESSION['username'] == $_POST['username'] || (($_SESSION['username'] != $_POST['username']) && empty($_POST['username']))) {
+      if ($_SESSION['username'] == $_POST['username']) {
         $username = $_SESSION['username'];
-      } else if ($_SESSION['username'] != $_POST['username'] && !empty($_POST['username'])) {
+      } else if ($_SESSION['username'] != $_POST['username']) {
         $_SESSION['username'] = $_POST['username'];
         $username = $_SESSION['username'];
       }
     } else {
       $_SESSION['username'] = $_POST['username'];
-      $username = $_POST['username'];
+      $username = $_SESSION['username'];
     }
     echo $username;
   }
@@ -105,6 +105,21 @@ $(function(){
   });
   //------------ AJAX SELECTION ET AFFICHAGE DES COMMENTAIRES ----------------//
     function refreshCommentary(idPhoto, usernameExist = ''){
+      console.log('de base')
+      console.log(usernameExist)
+      if (usernameExist.length == 0) {
+        usernameExist = '<?= (isset($_SESSION['username']))? $_SESSION['username'] : ''; ?>';
+        console.log('session username')
+        console.log(usernameExist)
+        if (usernameExist.length == 0) {
+          usernameExist = '<?= $_SESSION['realname']; ?>';
+          console.log('session realname')
+          console.log(usernameExist)
+        }
+      }
+      console.log('a la fin')
+      console.log(usernameExist)
+
       var request = $.ajax({
               url: "commentaire.php",
               method: "POST",
@@ -138,7 +153,6 @@ $(function(){
             }
 
             eventListenerModal(); //reboot des event sur les bouton de la modal
-
             var request = $.ajax({
               url: "modal_photo.php",
               method: "POST",

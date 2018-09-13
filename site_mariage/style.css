@@ -297,6 +297,11 @@ h2{
   right: 10px;
 }
 
+/* SUPPLEMENT PAGE INDEX.PHP */
+#space {
+  padding-top: 110px;
+}
+
 /* SECTION COMMENTAIRE */
 .commentarys {
   padding: 15px!important;
