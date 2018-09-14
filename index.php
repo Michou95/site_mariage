@@ -33,7 +33,12 @@
           </div>
           <button type="submit" class="btn btn-primary" id="valider">Valider</button>
         </form>
+
         <form id="SearchForm" class="form-inline" method="post" style="display:none">
+        <div style="display:none;top:65px;width65%;" class="popUp">
+          <span class='textPopup'></span>
+          <div class="arrowPopup"></div>
+        </div>
           <label for="search" id="space">Veuillez vous sélectionner dans la liste</label>
           <div class="mute"></div>
           <div class="form-group">

@@ -1,7 +1,7 @@
 $(function(){
     var rechercheOn = false;
     //ibitialisation recherche par saisie a false
-    var saisieSearch = false;
+    var saisieSearch = true;
 
     // -------- ECOUTEUR D'EVENEMENT ------------//
     eventListener();
@@ -11,6 +11,17 @@ $(function(){
     });
 
     $('#SearchForm').submit(function(e){
+        if(($('#search').attr('data-id') == '') || ($('#search').val() == '') || (saisieSearch == false)){
+            if($('#search').val() == ''){
+                var text = 'Veuillez entrer un prénom dans le champ ci-dessous';
+                $('.popUp').fadeIn('fast').children('.textPopup').text();
+            }else{
+                var text = 'Veuillez sélectionner prénom dans la liste ci-dessous';
+            }
+
+            $('.popUp').fadeIn('fast').children('.textPopup').text(text);
+            return false;
+        }
         e.preventDefault();
         selectPhoto($('#search'));
     });
@@ -82,10 +93,14 @@ $(function(){
     }
 
     // lancement autocomplétion a la modification du champ de saisie
-    $('#search').keyup(function(){
+    $('#search').keyup(function(e){
         //On remet a 0 la détéction de validation du nom par autocomplète
         if(saisieSearch == true)
             saisieSearch = false;
+
+        if($('.popUp').is(':visible') && e.keyCode != 13){
+            $('.popUp').hide().children('span').text('');
+        }
 
         if($(this).val().length > 0)//Lancement si la valeur est supérieur a 0
             autocomplete($(this));
@@ -109,6 +124,14 @@ $(function(){
     $('#submitForm').click(function(){
         //Si l'utilisateur tente de faire une recherche sans passer par l'autocomplète on ne recherche rien
         if(($('#search').attr('data-id') == '') || ($('#search').val() == '') || (saisieSearch == false)){
+            if($('#search').val() == ''){
+                var text = 'Veuillez entrer un prénom dans le champ ci-dessous';
+                $('.popUp').fadeIn('fast').children('.textPopup').text();
+            }else{
+                var text = 'Veuillez sélectionner prénom dans la liste ci-dessous';
+            }
+
+            $('.popUp').fadeIn('fast').children('.textPopup').text(text);
             return false;
         }
 
