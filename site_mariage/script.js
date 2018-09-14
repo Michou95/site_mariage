@@ -29,10 +29,15 @@ $(function(){
         //Ajout de l'évènement pour affichage de la modal sur les résultat de recherche
         $('.hover_photo').click(function(){
             if(!$(event.target).closest('.btn-like, .btn-download').length) {
-            //Le clic s'est produit en dehors de l'élément btn-like
-            $('#myModal .modal-content').load('modal_photo.php?urlPhoto='+$(this).prev('.photo').attr('data-url-photo')+'&photoClick='+$(this).prev('.photo').attr('id'),function(){$('#myModal').modal('show');});
+                var stateLike = $(this).children('.barre_miniature_hover').children('.btn-like').data('state-like');
+
+                //Le clic s'est produit en dehors de l'élément btn-like
+                $('#myModal .modal-content').load('modal_photo.php?urlPhoto='+$(this).prev('.photo').attr('data-url-photo')+'&photoClick='+$(this).prev('.photo').attr('id')+'&stateLike='+stateLike,function(){$('#myModal').modal('show');});
             }
         });
+
+        // Ajout du bouton j'aime en gris ou rouge selon l'etat
+        stateLike('TRUE');
 
         //Ajout de l'évenement sur le bouton pour like photo
         $('.like').click(function(){
@@ -367,12 +372,46 @@ $(function(){
         });
 
         request.done(function( data ) {
-                  console.log(data);
+                  if (data == 'true') {
+                    $(element).data('state-like', 'dislike');
+                    stateLike('FALSE', element);
+                  } else {
+                    $(element).data('state-like', 'like');
+                    stateLike('FALSE', element);
+                  }
                 });
 
         request.fail(function( jqXHR, textStatus ) {
             alert( "Request failed: " + textStatus );
         });
+    }
+
+    //------------ MISE A JOUR DU STATUS DU LIKE SUR LES PHOTOS -----------------//
+    function stateLike(firstLoad = 'FALSE', element = 'NULL') {
+       
+        if (firstLoad == 'TRUE') {
+            var countLike = $('.like');
+            for (var i = 0; i < countLike.length; i++) {
+                var like = $(countLike[i]).data('state-like');
+                if (like == "like") {
+                    $(countLike[i]).removeClass('dislike');
+                    $(countLike[i]).addClass('addToLike');
+                } else {
+                    $(countLike[i]).removeClass('addToLike');
+                    $(countLike[i]).addClass('dislike');
+                }
+            }
+        } else {
+            var self = element;
+            var like = self.data('state-like');
+            if (like == "like") {
+                self.removeClass('dislike');
+                self.addClass('addToLike');
+            } else if (like == "dislike") {
+                self.removeClass('addToLike');
+                self.addClass('dislike');
+            }
+        }
     }
 
 });

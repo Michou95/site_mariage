@@ -1,4 +1,5 @@
 <?php
+session_start();
   if ($_POST) {
     require_once ('fonctions.php');
     $data['content'] = '';
@@ -12,6 +13,20 @@
     $query = $connexion->prepare($sql);
     $query->execute();
     $resultats = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    $realname = $_SESSION['realname'];
+
+    $sql = "SELECT COUNT(*) AS 'status' FROM invite_vote WHERE realname = ? AND id_photo = ?";
+    $query = $connexion->prepare($sql);
+    $query->execute(array($realname, $id_photo));
+    $like = $query->fetch(PDO::FETCH_ASSOC);
+
+    if ($like['status'] == 1) {
+      $stateLike = 'dislike';
+    } else {
+      $stateLike = 'like';
+    }
+
     if (empty($resultats)) {
       $data['content'] .= "<div class='no_commentary alert-info'>Aucun commmentaire sur cette photo.</div>";
     } else {
@@ -56,7 +71,7 @@
               </div>";
 
     $data['content'] .= '<div class="barre_modal-btn">
-                <a data-id-photo="'.$id_photo.'" class="btn-custom-modal btn-like like">
+                <a data-state-like="'.$stateLike.' "data-id-photo="'.$id_photo.'" class="btn-custom-modal btn-like like like-modal">
                   <i class="fas fa-heart"></i>
                 </a>
                 <span class="text-info-modal-like">J\'aime</span>

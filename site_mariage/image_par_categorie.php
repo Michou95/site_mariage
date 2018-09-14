@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once ('fonctions.php');
 //--------------------------------------------------//
 // Récupérer les photos en fonction de la catégorie //
@@ -24,11 +25,11 @@ function addPhotoAndPaginate($tabPhoto,$mode,$page,$id_invite = null, $nom_invit
     if(isset($tabPhoto[$i])){
       if($tabPhoto[$i]['prise_par'] == "charline"){
         $html .= '<div class="col-md-4 col-sm-6 col-xs-12 overflowHidden"><input type="hidden" name="photo_'.$i.'" value="'.$tabPhoto[$i]["id_photo"].'" /><a id="photo_'.$i.'" data-url-photo="'.$tabPhoto[$i]['url'].'" data-photo-charline="true" class="photo col-xs-12"><img src="' . $tabPhoto[$i]['url_miniature'] . '"></a><div style="display:none" class="hover_photo"><i class="fas fa-search-plus fa-4x"></i><div style="display:none" class="barre_miniature_hover col-xs-12">
-        <a data-id-photo="'.$tabPhoto[$i]['id_photo'].'" class="btn-custom btn-like like"><i class="fas fa-heart"></i></a><span class="text-info">J\'aime</span><span class="text-info">Télécharger</span><a class="btn-custom btn-download" href="'.$tabPhoto[$i]['url'].'" download><i class="fas fa-download"></i></a></div></div></div>';
+        <a data-state-like="'.$tabPhoto[$i]['like'].'" data-id-photo="'.$tabPhoto[$i]['id_photo'].'" class="btn-custom btn-like like like-mini"><i class="fas fa-heart"></i></a><span class="text-info">J\'aime</span><span class="text-info">Télécharger</span><a class="btn-custom btn-download" href="'.$tabPhoto[$i]['url'].'" download><i class="fas fa-download"></i></a></div></div></div>';
       }
       else{
         $html .= '<div class="col-md-4 col-sm-6 col-xs-12 overflowHidden"><input type="hidden" name="photo_'.$i.'" value="'.$tabPhoto[$i]["id_photo"].'" /><a id="photo_'.$i.'" data-url-photo="'.$tabPhoto[$i]['url'].'" data-photo-charline="false" class="photo col-xs-12"><img src="' . $tabPhoto[$i]['url_miniature'] . '"></a><div style="display:none" class="hover_photo"><i class="fas fa-search-plus fa-4x"></i><div style="display:none" class="barre_miniature_hover col-xs-12">
-        <a data-id-photo="'.$tabPhoto[$i]['id_photo'].'" class="btn-custom btn-like like"><i class="fas fa-heart"></i></a><span class="text-info">J\'aime</span><span class="text-info">Télécharger</span><a class="btn-custom btn-download" href="'.$tabPhoto[$i]['url'].'" download><i class="fas fa-download"></i></a></div></div></div>';
+        <a data-state-like="'.$tabPhoto[$i]['like'].'" data-id-photo="'.$tabPhoto[$i]['id_photo'].'" class="btn-custom btn-like like like-mini"><i class="fas fa-heart"></i></a><span class="text-info">J\'aime</span><span class="text-info">Télécharger</span><a class="btn-custom btn-download" href="'.$tabPhoto[$i]['url'].'" download><i class="fas fa-download"></i></a></div></div></div>';
       }
     }
   }
@@ -62,11 +63,29 @@ function addPhotoAndPaginate($tabPhoto,$mode,$page,$id_invite = null, $nom_invit
 function getPhotoByCategory(string $mode):array{
   $connexion = getDB();
   if($mode == "mairie" || $mode == "vin_honneur" || $mode == "salle" || $mode == "photobooth"){
-    $sql = "SELECT id_photo, url, url_miniature, prise_par FROM photos WHERE categorie = ?;";
+    $sql = "SELECT id_photo, url, url_miniature, prise_par FROM photos WHERE categorie = ?";
     $query = $connexion->prepare($sql);
     $query->execute(array($mode));
-    $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
-    return $resultat;
+    $resultats = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    $realname = $_SESSION['realname'];
+
+    for ($i = 0; $i < count($resultats); $i++) {
+      $id_photo = $resultats[$i]['id_photo'];
+
+      $sql = "SELECT COUNT(*) AS 'status' FROM invite_vote WHERE realname = ? AND id_photo = ?";
+      $query = $connexion->prepare($sql);
+      $query->execute(array($realname, $id_photo));
+      $like = $query->fetch(PDO::FETCH_ASSOC);
+
+      if ($like['status'] == 1) {
+        $resultats[$i]['like'] = 'dislike';
+      } else {
+        $resultats[$i]['like'] = 'like';
+      }
+    }
+
+    return $resultats;
   }
   else{
     $error[] = "Erreur: la categorie doit être 'mairie', 'vin_honneur' ou 'salle'";
@@ -81,14 +100,31 @@ function getPhotoByInvite(int $id_invite):array{
     $sql = "SELECT p.url, p.url_miniature, p.prise_par, p.id_photo FROM photos p, invite_photo i WHERE i.id_photo = p.id_photo AND i.id_invite = '" .$id_invite . "';";
     $query = $connexion->prepare($sql);
     $query->execute(array($id_invite));
-    $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
+    $resultats = $query->fetchAll(PDO::FETCH_ASSOC);
     //----- Debug pour probleme affichage de toutes les photos -----//
     // echo "<pre>";
     // var_dump($resultat);
     // echo "</pre>";
     // die();
     //--------------------------------------------------------------//
-    return $resultat;
+    $realname = $_SESSION['realname'];
+
+    for ($i = 0; $i < count($resultats); $i++) {
+      $id_photo = $resultats[$i]['id_photo'];
+
+      $sql = "SELECT COUNT(*) AS 'status' FROM invite_vote WHERE realname = ? AND id_photo = ?";
+      $query = $connexion->prepare($sql);
+      $query->execute(array($realname, $id_photo));
+      $like = $query->fetch(PDO::FETCH_ASSOC);
+
+      if ($like['status'] == 1) {
+        $resultats[$i]['like'] = 'dislike';
+      } else {
+        $resultats[$i]['like'] = 'like';
+      }
+    }
+
+    return $resultats;
   }
   else{
     $error[] = "Erreur: l'id renseigné doit être un INT() correspondant à l'invité ciblé (1 à 90)";

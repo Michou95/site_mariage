@@ -29,7 +29,6 @@ function addLike($id_photo){
   $query->execute();
   $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
 
-
   if(count($resultat) == 0){
 
     $sql = "SELECT vote FROM photos WHERE id_photo = '" . $id_photo . "';";
@@ -49,7 +48,21 @@ function addLike($id_photo){
     echo "true";
     die();
   }
-  else{
+  else {
+    $sql = "SELECT vote FROM photos WHERE id_photo = '" . $id_photo . "';";
+    $query = $connexion->prepare($sql);
+    $query->execute();
+    $resultat = $query->fetch(PDO::FETCH_ASSOC);
+
+    $like = $resultat['vote'] - 1;
+    $sql = "UPDATE photos SET vote = '" . $like . "' WHERE id_photo = '" . $id_photo . "';";
+    $query = $connexion->prepare($sql);
+    $query->execute();
+
+    $sql = "DELETE FROM invite_vote WHERE realname = ? AND id_photo = ?";
+    $query = $connexion->prepare($sql);
+    $query->execute(array($name, $id_photo));
+
     echo "false";
     die();
   }

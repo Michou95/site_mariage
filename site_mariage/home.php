@@ -105,7 +105,7 @@ if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
                     <div style="display:none" class="hover_photo">
                       <i class="fas fa-search-plus fa-4x"></i>
                       <div style="display:none" class="barre_miniature_hover col-xs-12">
-                        <a data-id-photo="'.$random[$i]['id_photo'].'" class="btn-custom btn-like like">
+                        <a data-state-like="'.$random[$i]['like'].'" data-id-photo="'.$random[$i]['id_photo'].'" class="btn-custom btn-like like like-mini">
                           <i class="fas fa-heart"></i>
                         </a>
                         <span class="text-info">J\'aime</span>
@@ -127,7 +127,7 @@ if($_SESSION['user'] == "allowed" || $_SESSION['user'] == "admin"){
                     <div style="display:none" class="hover_photo">
                       <i class="fas fa-search-plus fa-4x"></i>
                       <div style="display:none" class="barre_miniature_hover col-xs-12">
-                        <a data-id-photo="'.$random[$i]['id_photo'].'" class="btn-custom btn-like like">
+                        <a data-state-like="'.$random[$i]['like'].'" data-id-photo="'.$random[$i]['id_photo'].'" class="btn-custom btn-like like like-mini">
                           <i class="fas fa-heart"></i>
                         </a>
                         <span class="text-info">J\'aime</span>

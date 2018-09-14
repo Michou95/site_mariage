@@ -1,5 +1,4 @@
 <?php
-
 //--------------------------------//
 // Connexion à la Base de Données //
 //--------------------------------//
@@ -153,9 +152,25 @@ function getRandomPhoto():array{
   $connexion = getDB();
   $sql = "SELECT id_photo, url, url_miniature, prise_par FROM photos ORDER BY RAND() LIMIT 0, 12;";
   $response = $connexion->query($sql);
-  $resultat = $response->fetchAll(PDO::FETCH_ASSOC);
+  $resultats = $response->fetchAll(PDO::FETCH_ASSOC);
 
-  return $resultat;
+  $realname = $_SESSION['realname'];
+
+  for ($i = 0; $i < count($resultats); $i++) {
+    $id_photo = $resultats[$i]['id_photo'];
+
+    $sql = "SELECT COUNT(*) AS 'status' FROM invite_vote WHERE realname = ? AND id_photo = ?";
+    $query = $connexion->prepare($sql);
+    $query->execute(array($realname, $id_photo));
+    $like = $query->fetch(PDO::FETCH_ASSOC);
+
+    if ($like['status'] == 1) {
+      $resultats[$i]['like'] = 'dislike';
+    } else {
+      $resultats[$i]['like'] = 'like';
+    }
+  }
+  return $resultats;
 } //end fucntion getRandomPhoto()
 
 
@@ -166,8 +181,25 @@ function getBestPhotos():array{
   $connexion = getDb();
   $sql = "SELECT url_miniature, url, id_photo, prise_par FROM photos WHERE vote != 0 ORDER BY vote DESC LIMIT 0, 12;";
   $query = $connexion->query($sql);
-  $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
-  return $resultat;
+  $resultats = $query->fetchAll(PDO::FETCH_ASSOC);
+
+  $realname = $_SESSION['realname'];
+
+  for ($i = 0; $i < count($resultats); $i++) {
+    $id_photo = $resultats[$i]['id_photo'];
+
+    $sql = "SELECT COUNT(*) AS 'status' FROM invite_vote WHERE realname = ? AND id_photo = ?";
+    $query = $connexion->prepare($sql);
+    $query->execute(array($realname, $id_photo));
+    $like = $query->fetch(PDO::FETCH_ASSOC);
+
+    if ($like['status'] == 1) {
+      $resultats[$i]['like'] = 'dislike';
+    } else {
+      $resultats[$i]['like'] = 'like';
+    }
+  }
+  return $resultats;
 } //end function getBestPhotos()
 
 //-------------------------------------------------------------//

@@ -13,6 +13,7 @@ if ($_POST) {
 }
 if(isset($_GET['urlPhoto']) && !empty($_GET['urlPhoto'])){
   $numPhoto = explode('_', $_GET['photoClick']);  //Stockage du num de la photo
+
 ?>
 <div class="modal-body col-lg-8">
   <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
@@ -214,8 +215,11 @@ $(function(){
         if($(this).hasClass('btn-download'))
             $(this).prev().hide();
       });
-    }
-    $('.like').click(function(){
+    }    
+
+    stateLikeModal('PAS NULL');
+
+    $('.like-modal').click(function(){
       likePhotoModal($(this));
     });
     $('#goToBottom').click(function () {
@@ -236,13 +240,75 @@ $(function(){
         });
 
         request.done(function( data ) {
-                  console.log(data);
+                  if (data == 'true') {
+                    $(element).data('state-like', 'dislike');
+                    stateLikeModal();
+                  } else {
+                    $(element).data('state-like', 'like');
+                    stateLikeModal();
+                  }
                 });
 
         request.fail(function( jqXHR, textStatus ) {
             alert( "Request failed: " + textStatus );
         });
     }
+
+  //------------ MISE A JOUR DU STATUS DU LIKE SUR LES PHOTOS -----------------//
+  function stateLikeModal(stateLike = 'NULL') {
+    var self = $('.like-modal');
+    var idPhotoModal = $('.like-modal').data('id-photo');
+    // si on modifie l'état du like depuis la modal
+    if (stateLike == 'NULL') {
+      // depuis la modal on modifie l'etat de la miniature
+      var countLike = $('.like-mini');
+      for (var i = 0; i < countLike.length; i++) {
+          var idPhoto = $(countLike[i]).data('id-photo');
+          // si les 2 idPhoto correspondent on est sur la bonne miniature
+          if (idPhotoModal == idPhoto) {
+            // On récupère l'état du like modal
+            var like = $('.like-modal').data('state-like');
+            // on l'applique sur la miniature
+            if (like == "like") {
+                $(countLike[i]).removeClass('dislike');
+                $(countLike[i]).addClass('addToLike');
+            } else {
+                $(countLike[i]).removeClass('addToLike');
+                $(countLike[i]).addClass('dislike');
+            }
+          }
+      }
+      var like = $('.like-modal').data('state-like');
+      if (like == "like") {
+          self.removeClass('dislike');
+          self.addClass('addToLike');
+      } else {
+          self.removeClass('addToLike');
+          self.addClass('dislike');
+      }
+    } else { // Si on vient d'arriver sur la modal
+
+      var idPhotoModal = $('.like-modal').data('id-photo');
+      // depuis la modal on cherche l'etat de la miniature
+      var countLike = $('.like-mini');
+      for (var i = 0; i < countLike.length; i++) {
+          var idPhoto = $(countLike[i]).data('id-photo');
+          // si les 2 idPhoto correspondent on est sur la bonne miniature
+          if (idPhotoModal == idPhoto) {
+            // On récupère l'état du like miniature
+            var like = $(countLike[i]).data('state-like');
+            // on l'applique sur la modal
+            if (like == "like") {
+                $('.like-modal').removeClass('dislike');
+                $('.like-modal').addClass('addToLike');
+            } else {
+                $('.like-modal').removeClass('addToLike');
+                $('.like-modal').addClass('dislike');
+            }
+          }
+      }
+    }
+  }
 });
 </script>
 

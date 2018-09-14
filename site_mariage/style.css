@@ -166,7 +166,6 @@ footer h4{
 
 /**************** MINIATURE PHOTO **************************/
 
-
 .photo_title{
     padding-top: 25px;
     text-align: center;
@@ -261,7 +260,11 @@ h2{
   color: white;
 }
 
-.btn-like{
+.addToLike {
+  background-color: grey;
+}
+
+.dislike {
   background-color: red;
 }
 
@@ -328,7 +331,7 @@ h2{
   width: 2.3rem;
   height: 2.3rem;
   border: 2px outset rgb(0, 91, 175);
-  background-color: rgb(222, 245, 252);
+  background-color: white;
   border-radius: 5px;
   color: rgb(0, 91, 175);
   cursor: pointer;
@@ -340,7 +343,7 @@ h2{
 }
 
 #only_commentarys {
-  border: 1px solid black;
+  box-shadow: 0px 0px 10px rgb(222, 245, 252);
   overflow: auto;
   padding: 0px 15px;
   max-height: 250px;
