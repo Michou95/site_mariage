@@ -45,7 +45,7 @@
               <input type="hidden" name="passwordSave">
               <div class="input-group">
                 <input id="search" type="text" class="form-control" data-id="" data-mode="personne" placeholder="Entrez Votre Prénom" autocomplete="off">
-                <div id="submitForm" class="input-group-addon" style="width:5%"><a><i class="fas fa-search"></i></a></div>
+                <div id="submitForm" class="input-group-addon" style="width:5%"><a><i class="fas fa-check"></i></a></div>
               </div>
               <ul id="resultSearch"></ul>
               <small id="small">Entrez votre prénom et/ou votre nom</small>
