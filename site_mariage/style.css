@@ -56,7 +56,7 @@ header h1, header h2{
 }
 
 footer{
-  height: 150px;
+  height: 200px;
   background-color: lightgrey;
   color: Black;
   text-align: center;
@@ -96,6 +96,7 @@ footer h4{
 }
 
 #apropos:hover{
+  transform: scale(1.1);
   cursor: pointer;
   color: #4285F4;
 }
