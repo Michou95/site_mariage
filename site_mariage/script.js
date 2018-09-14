@@ -16,7 +16,7 @@ $(function(){
                 var text = 'Veuillez entrer un prénom dans le champ ci-dessous';
                 $('.popUp').fadeIn('fast').children('.textPopup').text();
             }else{
-                var text = 'Veuillez sélectionner prénom dans la liste ci-dessous';
+                var text = 'Veuillez sélectionner un prénom dans la liste ci-dessous';
             }
 
             $('.popUp').fadeIn('fast').children('.textPopup').text(text);
