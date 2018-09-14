@@ -21,7 +21,9 @@ function addPhotoAndPaginate($tabPhoto,$mode,$page,$id_invite = null, $nom_invit
   $id = ($id_invite != null) ? 'data-id="'.$id_invite.'" ' : '' ;
   $html = '';//init rendu html
   $nbrPage = ceil(count($tabPhoto) / 12); //compte du nombre de page au supérieur si il y a plus de photo que de page
+
   for($i = (($page-1)*12); $i < ((int)(($page-1)*12)+12) ; $i++){ //construction des div et intégration des photos en fonction de la page
+
     if(isset($tabPhoto[$i])){
       if($tabPhoto[$i]['prise_par'] == "charline"){
         $html .= '<div class="col-md-4 col-sm-6 col-xs-12 overflowHidden"><input type="hidden" name="photo_'.$i.'" value="'.$tabPhoto[$i]["id_photo"].'" /><a id="photo_'.$i.'" data-url-photo="'.$tabPhoto[$i]['url'].'" data-photo-charline="true" class="photo col-xs-12"><img src="' . $tabPhoto[$i]['url_miniature'] . '"></a><div style="display:none" class="hover_photo"><i class="fas fa-search-plus fa-4x"></i><div style="display:none" class="barre_miniature_hover col-xs-12">
