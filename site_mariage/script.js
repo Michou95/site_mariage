@@ -40,10 +40,8 @@ $(function(){
         //Ajout de l'évènement pour affichage de la modal sur les résultat de recherche
         $('.hover_photo').click(function(){
             if(!$(event.target).closest('.btn-like, .btn-download').length) {
-                var stateLike = $(this).children('.barre_miniature_hover').children('.btn-like').data('state-like');
-
                 //Le clic s'est produit en dehors de l'élément btn-like
-                $('#myModal .modal-content').load('modal_photo.php?urlPhoto='+$(this).prev('.photo').attr('data-url-photo')+'&photoClick='+$(this).prev('.photo').attr('id')+'&stateLike='+stateLike,function(){$('#myModal').modal('show');});
+                $('#myModal .modal-content').load('modal_photo.php?urlPhoto='+$(this).prev('.photo').attr('data-url-photo')+'&photoClick='+$(this).prev('.photo').attr('id'),function(){$('#myModal').modal('show');});
             }
         });
 
@@ -65,7 +63,6 @@ $(function(){
             });
 
             $('.photo').mouseenter(function(){
-
                 if($('.hover_photo') != $(this) && $('.hover_photo').is(':visible')){
                     $('.hover_photo').fadeOut('fast');
                 }
@@ -295,7 +292,7 @@ $(function(){
             });
             $('.container').fadeOut('fast',function(){ //Chargement et affichage des photo
                 if(mode == 'best_photos'){
-                  var best = '<div class="col-xs-12"><p class="text-center alert-success" style="font-family: \'allura\', verdana, arial, sans-serif;">Ici son regroupées les photos ayant reçu le + de "J\'aime". N\'hésitez pas à clicker sur le bouton "J\'aime" lorsqu\'une photo vous plait! Le classement changera en fonction des "J\'aime" obtenus par les photos.</p></div>' + data;
+                  var best = '<div class="col-xs-12"><p class="text-center alert-info message-best" style="font-family: \'allura\', verdana, arial, sans-serif;">Ici son regroupées les photos ayant reçu le + de "J\'aime". N\'hésitez pas à clicker sur le bouton "J\'aime" lorsqu\'une photo vous plait! Le classement changera en fonction des "J\'aime" obtenus par les photos.</p></div>' + data;
                   $('.container').html(best);
                   $('.container').fadeIn('slow');
                 }
