@@ -81,7 +81,7 @@ $admin_ip = $connexion->isAllowedIp($ip);
         <div id="submitForm" class="input-group-addon" style="width:5%"><a><i class="fas fa-search"></i></a></div>
       </div>
       <ul id="resultSearch"></ul>
-      <small id="small">Entrez votre prénom et/ou votre nom en minucule sans accents</small>
+      <small id="small">Entrez un prénom et/ou un nom</small>
   </div>
 </form>
 
