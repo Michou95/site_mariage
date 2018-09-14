@@ -96,6 +96,7 @@ footer h4{
 }
 
 #apropos:hover{
+  transform: scale(1.1);
   cursor: pointer;
   color: #4285F4;
 }

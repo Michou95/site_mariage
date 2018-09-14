@@ -7,8 +7,8 @@ session_start();
 
     $connexion = getDB();
     $id_photo = $_POST['id_photo'];
-    $url_photo = $_POST['url_photo']; 
-  
+    $url_photo = $_POST['url_photo'];
+
     $sql = "SELECT * FROM commentary WHERE photo_id = $id_photo ORDER BY id";
     $query = $connexion->prepare($sql);
     $query->execute();
@@ -55,7 +55,7 @@ session_start();
                     </div>
                   </div>";
       }
-      
+
       $data['content'] .= "</div>";
     }
 
@@ -75,13 +75,13 @@ session_start();
                   <i class="fas fa-heart"></i>
                 </a>
                 <span class="text-info-modal-like">J\'aime</span>
-                <a class="btn-shareFb" target="_blank" href="https://www.facebook.com/sharer/sharer.php?                 u=http%3A//www.mj-mariage.fr/site_mariage/'.$url_photo.'"><i class="fab fa-facebook-f fa-2x"></i></a>
+            <!--<a class="btn-shareFb" target="_blank" href="https://www.facebook.com/sharer/sharer.php?                 u=http%3A//www.mj-mariage.fr/site_mariage/'.$url_photo.'"><i class="fab fa-facebook-f fa-2x"></i></a>-->
                 <span class="text-info-modal-download">Télécharger</span>
                 <a class="btn-custom-modal btn-download" href="'.$url_photo.'" download>
                   <i class="fas fa-download"></i>
                 </a>
               </div>';
-    
+
   }
 
   echo json_encode($data);
