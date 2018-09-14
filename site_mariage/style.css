@@ -91,6 +91,15 @@ footer h4{
   cursor: pointer;
 }
 
+#apropos{
+  transition: all 0.5s ease;
+}
+
+#apropos:hover{
+  cursor: pointer;
+  color: #4285F4;
+}
+
 .popUp{
   padding: 18px;
   z-index: 50;
