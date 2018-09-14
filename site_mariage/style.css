@@ -105,6 +105,7 @@ footer h4{
   z-index: 50;
   border: .5px solid black;
   text-align: center;
+  top: 65px;
   bottom: 65px;
   height: 60px;
   background-color: white;
@@ -448,131 +449,6 @@ h2{
   padding: 15px 0;
 }
 
-/* MEDIA QUERIES DE L'ESPACE !!!!! <= qui tue tout sur leurs passage !*/
-@media screen and (min-width: 506px) and (max-width: 768px){
-
-  .hover_photo{
-    display: block!important;
-    background: none;
-    text-align: center;
-    padding-top: 100px!important;
-  }
-
-  .hover_section{
-    transition: none!important;
-    display: block!important;
-    background: inherit;
-    text-align: center;
-    margin-top: 20%;
-  }
-
-  .photo_section{
-    transition: none!important;
-    display: block!important;
-    background: inherit;
-    text-align: center;
-    margin-top: 20%;
-  }
-
-  .hover_photo i.fa-search-plus{
-    border: none;
-    opacity: 0.4;
-  }
-
-  .barre_miniature_hover{
-    transition: none!important;
-    display: block!important;
-  }
-
-  .barre_miniature_hover .like{
-    width: 20px;
-    margin-top: 5px;
-    margin-right: 65%;
-    float: left;
-  }
-
-  .barre_miniature_hover .btn-download{
-    width: 37px;
-    margin-top: 5px;
-  }
-
-}
-
-@media screen and (min-width: 421px) and (max-width: 505px){
-  .title{
-    top: -50px;
-    left: 0%!important;
-    font-size: 10px;
-  }
-
-  .message-best {
-    font-size: 10px;
-  }
-
-  #SearchForm{
-    margin-top: -100px;
-  }
-
-  #SearchForm small{
-    display: none;
-  }
-
-  .form-group {
-    width: 80% !important;
-    position: relative;
-    right: 10px;
-  }
-
-  .hover_section{
-    transition: none!important;
-    display: block!important;
-    background: inherit;
-    text-align: center;
-  }
-
-  .photo_section{
-    transition: none!important;
-    display: block!important;
-    background: inherit;
-    text-align: center;
-    margin-top: 15%;
-  }
-
-  .hover_section h2{
-    margin-top: 50px;
-  }
-
-  .hover_photo{
-    display: block!important;
-    background: none;
-    text-align: center;
-    padding-top: 100px!important;
-  }
-
-  .hover_photo i.fa-search-plus{
-    border: none;
-    opacity: 0.4;
-  }
-
-  .barre_miniature_hover{
-    transition: none!important;
-    display: block!important;
-  }
-
-  .barre_miniature_hover .like{
-    width: 37px;
-    margin-top: 5px;
-    margin-right: 60%;
-    float: left;
-  }
-
-  .barre_miniature_hover .btn-download{
-    width: 37px;
-    margin-top: 5px;
-  }
-
-}
-
 /* BARRE DE SCROLL */
 .scroll_barre{
   background-color: rgb(173, 173, 173);
@@ -703,7 +579,213 @@ p{
   background-color: rgba(255, 255, 255, 0.30);
 }
 
+/* MEDIA QUERIES DE L'ESPACE !!!!! <= qui tue tout sur leurs passage !*/
+@media screen and (min-width: 506px) and (max-width: 768px){
+  .title{
+    font-size: 12px;
+  }
+  
+  .popUp {
+    left: 50px;
+  }
+  
+  .popUpHome {
+    top: -70px;
+  }
+
+  .erreur {
+    font-size: 1rem;
+  }
+
+  h1.login {
+    font-size: 4.5rem;
+  }
+
+  .hover_photo{
+    display: block!important;
+    background: none;
+    text-align: center;
+    padding-top: 100px!important;
+  }
+
+  .inputSearch {
+    margin:auto;
+    width: 80% !important;
+    position: relative;
+    right: 10px;
+  }
+
+  .hover_section{
+    transition: none!important;
+    display: block!important;
+    background: inherit;
+    text-align: center;
+    margin-top: 20%;
+  }
+
+  .photo_section{
+    transition: none!important;
+    display: block!important;
+    background: inherit;
+    text-align: center;
+    margin-top: 20%;
+  }
+
+  .hover_photo i.fa-search-plus{
+    border: none;
+    opacity: 0.4;
+  }
+
+  .barre_miniature_hover{
+    transition: none!important;
+    display: block!important;
+  }
+
+  .barre_miniature_hover .like{
+    width: 20px;
+    margin-top: 5px;
+    margin-right: 65%;
+    float: left;
+  }
+
+  .barre_miniature_hover .btn-download{
+    width: 37px;
+    margin-top: 5px;
+  }
+
+}
+
+@media screen and (min-width: 421px) and (max-width: 505px){
+  .popUp {
+    top: 72px;
+    height: 50px;
+    padding: 15px;
+    left: 30px;
+    font-size: 1.2rem;
+  }
+  
+  .arrowPopup{
+    top: 20px;
+  }
+
+  .popUpHome {
+    top: -70px;
+  }
+
+  h1.login {
+    font-size: 3.5rem;
+  }
+
+  .erreur {
+    font-size: 1rem;
+  }
+
+  .formIndex {
+    width: 100%!important;
+  }
+  
+  .inputIndex {
+    width: 100%!important;
+  }
+
+  .title{
+    font-size: 10px;
+  }
+
+  .message-best {
+    font-size: 10px;
+  }
+
+  #SearchForm{
+    margin-top: -100px;
+  }
+
+  #SearchForm small{
+    display: none;
+  }
+
+  .inputSearch {
+    margin:auto;
+    width: 80% !important;
+    position: relative;
+    right: 10px;
+  }
+
+  .hover_section{
+    transition: none!important;
+    display: block!important;
+    background: inherit;
+    text-align: center;
+  }
+
+  .photo_section{
+    transition: none!important;
+    display: block!important;
+    background: inherit;
+    text-align: center;
+    margin-top: 15%;
+  }
+
+  .hover_section h2{
+    margin-top: 50px;
+  }
+
+  .hover_photo{
+    display: block!important;
+    background: none;
+    text-align: center;
+    padding-top: 100px!important;
+  }
+
+  .hover_photo i.fa-search-plus{
+    border: none;
+    opacity: 0.4;
+  }
+
+  .barre_miniature_hover{
+    transition: none!important;
+    display: block!important;
+  }
+
+  .barre_miniature_hover .like{
+    width: 37px;
+    margin-top: 5px;
+    margin-right: 60%;
+    float: left;
+  }
+
+  .barre_miniature_hover .btn-download{
+    width: 37px;
+    margin-top: 5px;
+  }
+
+}
+
 @media screen and (max-width:420px){
+  .popUp {
+    top: 80px;
+    height: 45px;
+    padding: 12px;
+    left: 30px;
+    font-size: 1.2rem;
+  }
+
+  .arrowPopup{
+    top: 12px;
+  }
+
+  .popUpHome {
+    top: -70px;
+  }
+
+  h1.login {
+    font-size: 3rem;
+  }
+
+  .erreur {
+    font-size: 1rem;
+  }
+  
   video{
     display: none;
   }
@@ -716,12 +798,17 @@ p{
     font-size: 1.7em;
   }
 
+  #SearchForm small{
+    display: none;
+  }
+
   .title {
     padding-top: 200px;
     font-size: .6rem;
   }
 
-  .form-group {
+  .inputSearch {
+    margin: auto;
     width: 80% !important;
     position: relative;
     right: 10px;

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 
@@ -20,36 +18,32 @@
     <h1 class="login">Mariage Mickael & Jennifer</h1>
     <h1 class="login">Connexion</h1>
     <div class="container">
-      <div class="col-md-offset-2 col-md-8">
+      <div class="col-md-offset-2 col-md-8 formIndex">
         <form action="index.php" method="post" class="form-login">
           <div class="form-group">
             <label for="password">Mot de Passe</label>
             <div class='erreur'></div>
-            <?php if(isset($_GET['password'])){
-              if($_GET['password'] === "false"){ ?>
-                  <p class="wrong">Mot de Passe Incorrect</p>
-      <?php   }
-            } ?>
-            <input type="password" name="password" class="form-control" placeholder="Entrez le mot de passe" required/>
+            <input type="password" name="password" class="form-control inputIndex" placeholder="Entrez le mot de passe" required/>
+            <br />
+            <button type="submit" class="btn btn-primary" id="valider">Valider</button>
           </div>
-          <button type="submit" class="btn btn-primary" id="valider">Valider</button>
         </form>
 
         <form id="SearchForm" class="form-inline" method="post" style="display:none">
-        <div style="display:none;top:65px;width65%;" class="popUp">
+        <div style="display:none;" class="popUp">
           <span class='textPopup'></span>
           <div class="arrowPopup"></div>
         </div>
+        <div class="mute"></div>
+        <div class="form-group inputSearch">
+          <input type="hidden" name="passwordSave">
           <label for="search" id="space">Veuillez vous sélectionner dans la liste</label>
-          <div class="mute"></div>
-          <div class="form-group">
-              <input type="hidden" name="passwordSave">
-              <div class="input-group">
-                <input id="search" type="text" class="form-control" data-id="" data-mode="personne" placeholder="Entrez Votre Prénom" autocomplete="off">
-                <div id="submitForm" class="input-group-addon" style="width:5%"><a><i class="fas fa-check"></i></a></div>
-              </div>
-              <ul id="resultSearch"></ul>
-              <small id="small">Entrez votre prénom et/ou votre nom</small>
+          <div class="input-group">
+            <input id="search" type="text" class="form-control inputIndex" data-id="" data-mode="personne" placeholder="Entrez Votre Prénom" autocomplete="off">
+            <div id="submitForm" class="input-group-addon" style="width:5%"><a><i class="fas fa-check"></i></a></div>
+          </div>
+          <ul id="resultSearch"></ul>
+          <small id="small">Entrez votre prénom et/ou votre nom</small>
           </div>
         </form>
       </div>

@@ -10,9 +10,12 @@
 }
 
 body{
+  background-color: black;
   background-image: url('mariage/photos_charline/mairie/424-compressor.jpg');
   background-size: cover;
+  background-repeat: no-repeat;
 }
+
 h1{
   color: white;
   text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
@@ -32,4 +35,29 @@ label{
 
 .form-admin{
   margin-top: 50%;
+}
+
+/* MEDIA QUERIES DE L'ESPACE !!!!! <= qui tue tout sur leurs passage !*/
+@media screen and (min-width: 506px) and (max-width: 768px){
+  body{
+    background-size: 160%;
+    background-position-x: -200px;
+    background-repeat: no-repeat;
+  }
+}
+
+@media screen and (min-width: 421px) and (max-width: 505px){
+  body{
+    background-size: 160%;
+    background-position-x: -130px;
+    background-repeat: no-repeat;
+  }
+}
+
+@media screen and (max-width:420px){
+  body{
+    background-size: 160%;
+    background-position-x: -100px;
+    background-repeat: no-repeat;
+  }
 }
