@@ -24,6 +24,7 @@
         <form action="index.php" method="post" class="form-login">
           <div class="form-group">
             <label for="password">Mot de Passe</label>
+            <div class='erreur'></div>
             <?php if(isset($_GET['password'])){
               if($_GET['password'] === "false"){ ?>
                   <p class="wrong">Mot de Passe Incorrect</p>

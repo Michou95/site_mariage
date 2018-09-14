@@ -128,7 +128,7 @@ $(function(){
                 var text = 'Veuillez entrer un prénom dans le champ ci-dessous';
                 $('.popUp').fadeIn('fast').children('.textPopup').text();
             }else{
-                var text = 'Veuillez sélectionner prénom dans la liste ci-dessous';
+                var text = 'Veuillez sélectionner un prénom dans la liste ci-dessous';
             }
 
             $('.popUp').fadeIn('fast').children('.textPopup').text(text);
@@ -178,6 +178,7 @@ $(function(){
 
         // on vérifie qu'il est correct
         if (password == 'Suce ma bite 2018!') {
+            $('.erreur').html('');
             // on cache le premier formulaire
             $('.form-login').css('display', 'none');
 
@@ -186,6 +187,9 @@ $(function(){
 
             // on inscrit le password dans un champs caché pour la vérication PHP d'après
             $('input[name=passwordSave]').val(password);
+        } else {
+            $('.erreur').html('');
+            $('.erreur').html('<p class="wrong">Mot de Passe Incorrect</p>');
         }
     })
 
