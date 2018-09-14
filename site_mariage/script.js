@@ -89,6 +89,18 @@ $(function(){
                     $(this).prev().hide();
             });
 
+          $('#apropos').click(function(){
+            var titre = $('.photo_title');
+            var container = $('.container');
+            $('html, body').animate({ scrollTop: scrollTo }, 500);
+            titre.fadeOut('fast');
+            container.fadeOut('fast');
+            setTimeout(function(){
+              container.load('a_propos.php');
+            }, 150);
+            container.fadeIn();
+          });
+
         }
     }
 
@@ -411,7 +423,7 @@ $(function(){
 
     //------------ MISE A JOUR DU STATUS DU LIKE SUR LES PHOTOS -----------------//
     function stateLike(firstLoad = 'FALSE', element = 'NULL') {
-       
+
         if (firstLoad == 'TRUE') {
             var countLike = $('.like');
             for (var i = 0; i < countLike.length; i++) {
