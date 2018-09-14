@@ -92,6 +92,7 @@ $(function(){
           $('#apropos').click(function(){
             var titre = $('.photo_title');
             var container = $('.container');
+            var scrollTo = ($('.scroll_barre').offset().top + 30);
             $('html, body').animate({ scrollTop: scrollTo }, 500);
             titre.fadeOut('fast');
             container.fadeOut('fast');
