@@ -83,6 +83,7 @@ footer h4{
 }
 
 #small{
+  display: block;
   color: white!important;
   text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
 }
@@ -92,6 +93,8 @@ footer h4{
 }
 
 #apropos{
+  width: 45%;
+  margin: auto;
   transition: all 0.5s ease;
 }
 
@@ -602,6 +605,10 @@ p{
     font-size: 4.5rem;
   }
 
+  #apropos {
+    color: #337ab7;
+  }
+
   .hover_photo{
     display: block!important;
     background: none;
@@ -614,6 +621,10 @@ p{
     width: 80% !important;
     position: relative;
     right: 10px;
+  }
+
+  .inputWithIcon {
+    width: 100%;
   }
 
   .hover_section{
@@ -667,6 +678,10 @@ p{
   
   .arrowPopup{
     top: 20px;
+  }
+
+  #apropos {
+    color: #337ab7;
   }
 
   .popUpHome {
@@ -781,6 +796,10 @@ p{
 
   h1.login {
     font-size: 3rem;
+  }
+
+  #apropos {
+    color: #337ab7;
   }
 
   .erreur {

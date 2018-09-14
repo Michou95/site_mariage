@@ -80,12 +80,12 @@ $admin_ip = $connexion->isAllowedIp($ip);
   </div>
   <div class="mute"></div>
   <div class="form-group inputSearch">
-      <div class="input-group col-xs-offset-1 col-xs-10">
+      <div class="input-group inputWithIcon">
         <input id="search" type="text" class="form-control" data-id="<?php if ($_SESSION) {echo $_SESSION['id_invite'];}?>" value="<?php if ($_SESSION) {echo $_SESSION['realname'];}?>" data-mode="personne" placeholder="Entrez Votre Prénom" autocomplete="off">
         <div id="submitForm" class="input-group-addon" style="width:5%"><a><i class="fas fa-search"></i></a></div>
       </div>
       <ul id="resultSearch"></ul>
-      <small id="small" class='col-xs-offset-1'>Entrez un prénom et/ou un nom</small>
-  </div>
+      <small id="small">Entrez un prénom et/ou un nom</small>
+    </div>
 </form>
 <body>

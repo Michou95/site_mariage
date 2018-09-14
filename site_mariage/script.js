@@ -362,7 +362,6 @@ $(function(){
 
             $('#resultSearch').html(li).slideDown('fast');
 
-
             $('.searchPerson').click(function(){
                 //Si l'utilisateur est passer par l'autocomplète, on autorise la recherche
                 saisieSearch = true;
