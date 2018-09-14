@@ -105,7 +105,7 @@ function getPhotoByInvite(int $id_invite):array{
     $resultats = $query->fetchAll(PDO::FETCH_ASSOC);
     //----- Debug pour probleme affichage de toutes les photos -----//
     // echo "<pre>";
-    // var_dump($resultat);
+    // var_dump($resultats);
     // echo "</pre>";
     // die();
     //--------------------------------------------------------------//
