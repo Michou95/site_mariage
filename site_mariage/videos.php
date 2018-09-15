@@ -93,6 +93,13 @@
     margin-top: 10px!important;
   }
 
+  .container{
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding-bottom: 20px;
+  }
+
   @media screen and (max-width: 420px){
     .section_video{
       display: none;
