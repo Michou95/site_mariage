@@ -130,6 +130,10 @@ footer h4{
   border-color: rgb(255, 255, 255) transparent transparent transparent;
 }
 
+.popUpHome {
+  top: -70px;
+}
+
 /* LISTE AUTOCOMPLETION */
 
 #resultSearch{
@@ -685,7 +689,7 @@ p{
   }
 
   .popUpHome {
-    top: -70px;
+    top: -65px;
   }
 
   h1.login {
@@ -791,7 +795,7 @@ p{
   }
 
   .popUpHome {
-    top: -70px;
+    top: -55px;
   }
 
   h1.login {
