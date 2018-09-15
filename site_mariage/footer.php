@@ -5,7 +5,7 @@
         <script type="text/javascript" src="script.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 
-        <h4>&copy; Développeurs et Designers: Mickael, Kévin Régent & Kévin Cessac tout droit réservé</h4>
+        <h4 class="devTitle">&copy; Développeurs et Designers: Mickael, Kévin Régent & Kévin Cessac tout droit réservé</h4>
         <h6>Vous rencontrez un problème avec le site ? <a href="mailto:regent.mickael.mai@gmail.com">Contacter l'administrateur</a></h6>
         <h6 id="apropos">A propos de notre dream team</h6>
     </footer>
