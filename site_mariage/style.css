@@ -531,13 +531,13 @@ p{
 .text-info-modal-like{
   display: none;
   position: absolute;
-  margin: 0 -20%;
+  margin: 0 -13%;
 }
 
 .text-info-modal-download{
   display: none;
   position: absolute;
-  margin: 0 18%;
+  margin: 0 10%;
 }
 
 /* PAGINATION MINIATURE */
