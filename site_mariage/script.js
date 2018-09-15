@@ -86,21 +86,23 @@ $(function(){
                     $(this).prev().hide();
             });
 
-          $('#apropos').click(function(){
-            var titre = $('.photo_title');
-            var container = $('.container');
-            var scrollTo = ($('.scroll_barre').offset().top + 30);
-            $('html, body').animate({ scrollTop: scrollTo }, 500);
-            titre.fadeOut('fast');
-            container.fadeOut('fast');
-            setTimeout(function(){
-              container.load('a_propos.php');
-            }, 150);
-            container.fadeIn();
-          });
 
         }
     }
+
+    //----- Gestion affichage page A propos -----//
+    $('#apropos').click(function(){
+      var titre = $('.photo_title');
+      var container = $('.container');
+      var scrollTo = ($('.scroll_barre').offset().top + 30);
+      $('html, body').animate({ scrollTop: scrollTo }, 500);
+      titre.fadeOut('fast');
+      container.fadeOut('fast');
+      setTimeout(function(){
+        container.load('a_propos.php');
+      }, 150);
+      container.fadeIn();
+    });
 
     // lancement autocomplétion a la modification du champ de saisie
     $('#search').keyup(function(e){
