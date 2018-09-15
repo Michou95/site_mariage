@@ -111,3 +111,29 @@ foreach ($photobooth as $key => $value) {
     // $query->execute();
   }
 }
+
+$potpot = scandir('potpot/vin_honneur');
+$potpot_min = scandir('potpot_min/vin_honneur');
+
+foreach ($potpot as $key => $value) {
+  if($key > 1){
+      $url_min = $potpot_min[$key];
+
+      // $sql = "INSERT INTO photos (url_miniature, url, prise_par, categorie, statut) VALUES ('mariage_miniature/vin_honneur/$url_min', 'mariage/vin_honneur/$value', 'invites', 'vin_honneur', 'not_tagged');";
+      // $query = $connexion->prepare($sql);
+      // $query->execute();
+  }
+}
+
+$potpot = scandir('potpot/salle');
+$potpot_min = scandir('potpot_min/salle');
+
+foreach ($potpot as $key => $value) {
+  if($key > 1){
+      $url_min = $potpot_min[$key];
+
+      // $sql = "INSERT INTO photos (url_miniature, url, prise_par, categorie, statut) VALUES ('mariage_miniature/salle/$url_min', 'mariage/salle/$value', 'invites', 'salle', 'not_tagged');";
+      // $query = $connexion->prepare($sql);
+      // $query->execute();
+  }
+}
