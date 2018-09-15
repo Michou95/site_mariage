@@ -24,7 +24,7 @@
       <div class="developpeur col-md-4">
         <img src="mariage/photos_categories/csouk.jpg" alt="Photo de Michou">
         <h4>Kévin Cessac</h4>
-        <p>Développeur Back & Front:<br> "Laisse un petit message"</p>
+        <p>Développeur Back & Front:<br> "Une petite mise en pratique de nos connaissances, avec l'aide de notre fidèle acolyte Pony-Pony nous avons relevé un nouveau défi. A bientôt pour de nouvelles aventures ! :)"</p>
       </div>
     </div>
 <style media="screen">
