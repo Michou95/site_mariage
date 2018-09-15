@@ -531,13 +531,13 @@ p{
 .text-info-modal-like{
   display: none;
   position: absolute;
-  margin: 0 -13%;
+  margin: 0 -10%;
 }
 
 .text-info-modal-download{
   display: none;
   position: absolute;
-  margin: 0 10%;
+  margin: 0 7%;
 }
 
 /* PAGINATION MINIATURE */
@@ -592,11 +592,11 @@ p{
   .title{
     font-size: 12px;
   }
-  
+
   .popUp {
     left: 50px;
   }
-  
+
   .popUpHome {
     top: -70px;
   }
@@ -682,7 +682,7 @@ p{
     left: 30px;
     font-size: 1.2rem;
   }
-  
+
   .arrowPopup{
     top: 20px;
   }
@@ -706,7 +706,7 @@ p{
   .formIndex {
     width: 100%!important;
   }
-  
+
   .inputIndex {
     width: 100%!important;
   }
@@ -815,7 +815,7 @@ p{
   .erreur {
     font-size: 1rem;
   }
-  
+
   video{
     display: none;
   }
