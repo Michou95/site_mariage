@@ -19,7 +19,7 @@
       <div class="developpeur col-md-4">
         <img src="mariage/photos_categories/youx.jpg" alt="Photo de Michou">
         <h4>Kévin Régent</h4>
-        <p>Développeur Back & Front:<br> "Laisse un petit message"</p>
+        <p>Développeur Back & Front:<br> "Dieu demanda à hakunama de tater et hakuna matata ! Bonne visite enjoy ;)"</p>
       </div>
       <div class="developpeur col-md-4">
         <img src="mariage/photos_categories/csouk.jpg" alt="Photo de Michou">
