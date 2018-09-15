@@ -79,7 +79,7 @@ $admin_ip = $connexion->isAllowedIp($ip);
     <div class="arrowPopup"></div>
   </div>
   <div class="mute"></div>
-  <div class="form-group inputSearch">
+  <div class="form-group inputSearch" style="width:40%;">
       <div class="input-group inputWithIcon">
         <input id="search" type="text" class="form-control" data-id="<?php if ($_SESSION) {echo $_SESSION['id_invite'];}?>" value="<?php if ($_SESSION) {echo $_SESSION['realname'];}?>" data-mode="personne" placeholder="Entrez Votre Prénom" autocomplete="off">
         <div id="submitForm" class="input-group-addon" style="width:5%"><a><i class="fas fa-search"></i></a></div>

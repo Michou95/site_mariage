@@ -20,5 +20,6 @@ if($_POST){
     }
   }
 
+  return true;
 }
 ?>
