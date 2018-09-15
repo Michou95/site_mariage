@@ -1,6 +1,6 @@
 <h1>Ajouter Des Photos</h1>
 
-<form method="post" action="treatment_add_picture.php" enctype="multipart/form-data" required>
+<form  action="" enctype="multipart/form-data" method="post">
   <div class="form-group">
     <label for="picture">Choisissez Votre Photo</label>
     <input type="file" id="picture" class="form-control-file">
@@ -25,3 +25,9 @@
   </div>
 <button type="submit" name="button" class="btn btn-primary">Ajouter</button>
 </form>
+
+<pre><?php  var_dump($_FILES); ?></pre>
+
+<?php
+var_dump($_FILES);
+var_dump($_POST);
